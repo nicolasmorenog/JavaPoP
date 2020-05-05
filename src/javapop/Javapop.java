@@ -36,6 +36,7 @@ public class Javapop {
         //listaClientes.add(c1);
         //listaClientesProfesionales.add(cp1);
         
+        System.out.println("Esto es lo nuevo de github");
         Aplicacion.Registrarse(listaClientes);
         System.out.println("final programa" + listaClientes);
         
