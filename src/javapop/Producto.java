@@ -28,7 +28,7 @@ public class Producto implements Serializable{
         //this.ubicacion = empleado.getUbicacion();
         setFechaPublicacion(); //Coge la fecha del reloj del pc
         
-    }
+    } 
 
     public void setFechaPublicacion() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"); 

@@ -94,7 +94,7 @@ public class Cliente implements Serializable {
                     this.correo = email;
                     correcto = true;
                 } else {
-                    System.out.println("El email ingresado no es inválido.");
+                    System.out.println("El email ingresado no es válido.");
                 }
             }
         } catch (Exception e) {

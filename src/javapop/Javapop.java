@@ -34,7 +34,7 @@ public class Javapop {
         ClienteProfesional cp1 = new ClienteProfesional(c1, "Local SUcio", "9:00", "13:00", 616623407, "www.porhub.es");
 
         //listaClientes.add(c1);
-        listaClientesProfesionales.add(cp1);
+        //listaClientesProfesionales.add(cp1);
         
         
         Aplicacion.Registrarse(listaClientes,listaClientesProfesionales);
