@@ -54,7 +54,7 @@ public class Aplicacion {
                         return admin;
                     }
                     System.out.println("La contraseña es incorrecta");
-                } else{
+                } else {
                     System.out.println("El correo es incorrecto");
                 }
 
@@ -65,11 +65,30 @@ public class Aplicacion {
         System.out.println("Ha iniciado sesion con exito");
         return logged;
     }
-    public static void Registrarse(ArrayList<Cliente> listaClientes){
-        Cliente c1= new Cliente();
-        listaClientes.add(c1);
-    }
-    
-        
 
+    public static void Registrarse(ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales) {
+        boolean nuevo = true;
+        Cliente c1 = new Cliente();
+        for (Cliente cliente : listaClientes) {
+            if (c1.getCorreo().equals(cliente.getCorreo())) {
+                nuevo = false;
+            }
+        }
+        for (ClienteProfesional clienteProfesional : listaClientesProfesionales) {
+            if (c1.getCorreo().equals(clienteProfesional.getCorreo())) {
+                nuevo = false;
+            }
+            if (c1.getCorreo().equals(new Admin().getCorreo())) {
+                nuevo = false;
+            }
+        }
+          
+        if (nuevo) {
+            listaClientes.add(c1);
+            System.out.println("El registro se ha llevado a cabo con exito");
+        } else {
+            System.out.println("El registro no se ha completado debido a que ya existe una cuenta asociada a ese correo");
+        }
+    }
 }
+

@@ -5,6 +5,7 @@
  */
 package javapop;
 
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
@@ -143,29 +144,30 @@ public class Cliente implements Serializable {
     public void setTarjeta(String tarjeta) {
         this.tarjeta = tarjeta;
     }
-
+    
     public void setTarjeta() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         try {
-            boolean correcto = true;
+            boolean correcto = false;
             
-            while (correcto) {
+            while (!correcto) {
                 correcto = true;
                 String ptarjeta = entrada.readLine();
 
                 if (ptarjeta.length() == 16) {
                     for (int i = 0; i < ptarjeta.length(); i++) {
-                        if (ptarjeta.charAt(i) > '0' && ptarjeta.charAt(i) < '9') { //No funciona, CORREGIR
-
-                        } else {
-                            correcto = false;
-                        }                        
+                        if (!Character.isDigit(ptarjeta.charAt(i))) { //No funciona, CORREGIR
+                            correcto = false;                            
+                        }                      
                     }
                     if (correcto){
                             this.tarjeta = ptarjeta;
-                        }
+                        } else{
+                        System.out.println("La tarjeta solo debe incluir numeros");
+                    }
                 } else {
                     System.out.println("La longitud debe ser de 16 numeros");
+                    correcto = false;
                 }
             }
         } catch (Exception e) {
