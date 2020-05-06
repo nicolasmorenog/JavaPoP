@@ -31,11 +31,10 @@ public class Javapop {
 
         Ubicacion u1 = new Ubicacion("12345", "Guada");
         Cliente c1 = new Cliente("c1@gmail.com", "1234", "cliente1", "1234", "12374859394839", u1);
-        ClienteProfesional cp1 = new ClienteProfesional(c1, "Local SUcio", "9:00", "13:00", 616623407, "www.porhub.es");
+        ClienteProfesional cp1 = new ClienteProfesional(c1, "Local SUcio", "9:00", "13:00", "616623407", "www.pornhub.es");
 
         //listaClientes.add(c1);
         //listaClientesProfesionales.add(cp1);
-        
         
         Aplicacion.Registrarse(listaClientes,listaClientesProfesionales);
         System.out.println("final programa" + listaClientes);

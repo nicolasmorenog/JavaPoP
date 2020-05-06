@@ -22,6 +22,7 @@ public class Cliente implements Serializable {
     private String tarjeta;
     private Ubicacion ubicacion;
     private ArrayList<Producto> listaProductos;
+    
     //constructor normal
     public Cliente(String correo, String clave, String nombre, String dni, String tarjeta, Ubicacion ubicacion) {
         this.correo = correo;
