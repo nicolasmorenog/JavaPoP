@@ -20,7 +20,7 @@ public class ClienteProfesional extends Cliente implements Serializable {
     private String horaCierre;
     private String telefono;
     private String web;
-    private Ubicacion ubicacion; //lo he añadido porque no entiendo porque daba error aunque sea herencia de Cliente
+    private Ubicacion ubicacion; 
 
     //constructor normal
     public ClienteProfesional(Cliente cliente, String descripcion, String horaApertura, String horaCierre,

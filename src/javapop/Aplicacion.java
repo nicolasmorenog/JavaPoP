@@ -66,7 +66,7 @@ public class Aplicacion {
         return logged;
     }
 
-    public static void Registrarse(ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales) {
+    public static void registrarse(ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales) {
         boolean nuevo = true;
         Cliente c1 = new Cliente();
         for (Cliente cliente : listaClientes) {
@@ -90,5 +90,6 @@ public class Aplicacion {
             System.out.println("El registro no se ha completado debido a que ya existe una cuenta asociada a ese correo");
         }
     }
+    
 }
 

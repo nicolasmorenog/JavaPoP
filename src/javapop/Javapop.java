@@ -36,7 +36,34 @@ public class Javapop {
         //listaClientes.add(c1);
         //listaClientesProfesionales.add(cp1);
         
-        Aplicacion.Registrarse(listaClientes,listaClientesProfesionales);
+        //la idea seria hacer un metodo 'Inicio' o algo asi en la clase Aplicacion entiendo
+        /*System.out.println("Escribe la accion que deseas realizar: \n-Iniciar sesion \n-Registrarse ");
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+        boolean correcto = false;
+        String respuesta;
+        while (!correcto) {
+            try {
+                respuesta = entrada.readLine();
+                if (respuesta.toLowerCase().equals("iniciar sesion")) {
+                    Aplicacion.registrarse(listaClientes,listaClientesProfesionales);
+                System.out.println("final programa" + listaClientes);
+                    correcto = true;
+                } else if (respuesta.toLowerCase().equals("registrarse")) {
+                    Aplicacion.login(listaClientes,listaClientesProfesionales);
+                    System.out.println("final programa" + listaClientes);
+                    correcto = true;
+                
+                } else {
+                    System.out.println("La opcion que ha introducido no existe. Pruebe de nuevo.");
+                }
+            } catch (Exception e) {
+                System.out.println("La opcion que ha introducido no existe. Pruebe de nuevo.");
+
+            }
+        }
+        
+        */
+        Aplicacion.registrarse(listaClientes,listaClientesProfesionales);
         System.out.println("final programa" + listaClientes);
         
         IOinfo.guardarClientesProfesionales(listaClientesProfesionales);
