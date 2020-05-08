@@ -5,7 +5,6 @@
  */
 package javapop;
 
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
@@ -22,7 +21,7 @@ public class Cliente implements Serializable {
     private String tarjeta;
     private Ubicacion ubicacion;
     private ArrayList<Producto> listaProductos;
-    
+
     //constructor normal
     public Cliente(String correo, String clave, String nombre, String dni, String tarjeta, Ubicacion ubicacion) {
         this.correo = correo;
@@ -33,10 +32,11 @@ public class Cliente implements Serializable {
         this.ubicacion = ubicacion;
         this.listaProductos = new ArrayList<>();
     }
+
     //constructor entradas
-    public Cliente(){
+    public Cliente(ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales) {
         System.out.println("Introduzca el correo electronico: ");
-        setCorreo();
+        setCorreo(listaClientes, listaClientesProfesionales);
         System.out.println("Introduzca la clave: ");
         setClave();
         System.out.println("Introduzca el nombre: ");
@@ -46,8 +46,9 @@ public class Cliente implements Serializable {
         System.out.println("Introduzca el numero de la tarjeta (un numero de 16 cifras): ");
         setTarjeta();
         this.ubicacion = new Ubicacion();
-        
+
     }
+
     //Getters
     public String getCorreo() {
         return correo;
@@ -78,12 +79,11 @@ public class Cliente implements Serializable {
         this.correo = correo;
     }
 
-    public void setCorreo() {
+    public void setCorreo(ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales) {
         // Patrón para validar el email
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-
         // El email a validar
         try {
             boolean correcto = false;
@@ -92,11 +92,16 @@ public class Cliente implements Serializable {
                 Matcher mather = pattern.matcher(email);
 
                 if (mather.find()) {
-                    this.correo = email;
-                    correcto = true;
+                    correcto = Aplicacion.correoApto(listaClientes, listaClientesProfesionales, email);
+                    if (correcto){
+                        this.correo = email;
+                    } else{
+                        System.out.println("El email ingresado ya ha sido registrado previamente");
+                    }
+                    
                 } else {
                     System.out.println("El email ingresado no es válido.");
-                }
+                }  
             }
         } catch (Exception e) {
 
@@ -145,12 +150,12 @@ public class Cliente implements Serializable {
     public void setTarjeta(String tarjeta) {
         this.tarjeta = tarjeta;
     }
-    
+
     public void setTarjeta() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         try {
             boolean correcto = false;
-            
+
             while (!correcto) {
                 correcto = true;
                 String ptarjeta = entrada.readLine();
@@ -158,12 +163,12 @@ public class Cliente implements Serializable {
                 if (ptarjeta.length() == 16) {
                     for (int i = 0; i < ptarjeta.length(); i++) {
                         if (!Character.isDigit(ptarjeta.charAt(i))) { //No funciona, CORREGIR
-                            correcto = false;                            
-                        }                      
+                            correcto = false;
+                        }
                     }
-                    if (correcto){
-                            this.tarjeta = ptarjeta;
-                        } else{
+                    if (correcto) {
+                        this.tarjeta = ptarjeta;
+                    } else {
                         System.out.println("La tarjeta solo debe incluir numeros");
                     }
                 } else {

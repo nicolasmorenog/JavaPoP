@@ -26,15 +26,16 @@ public class Javapop {
         listaClientes = IOinfo.leerListaClientes();
         listaClientesProfesionales = IOinfo.leerListaClientesProfesionales();
 
-        System.out.println("comienzo programa" + listaClientes);
-        System.out.println("comienzo programa" + listaClientesProfesionales);
-
-        Ubicacion u1 = new Ubicacion("12345", "Guada");
+        System.out.println("comienzo programa clientes" + listaClientes);
+        System.out.println("comienzo programa clientes profesionales" + listaClientesProfesionales);
+        
+        Ubicacion u1 = new Ubicacion("12345","Guada");
         Cliente c1 = new Cliente("c1@gmail.com", "1234", "cliente1", "1234", "12374859394839", u1);
-        ClienteProfesional cp1 = new ClienteProfesional(c1, "Local SUcio", "9:00", "13:00", "616623407", "www.pornhub.es");
-
-        //listaClientes.add(c1);
-        //listaClientesProfesionales.add(cp1);
+        
+        System.out.println(Aplicacion.login(listaClientes, listaClientesProfesionales).toString());
+        //Aplicacion.registrarseCliente(listaClientes, listaClientesProfesionales);
+        //Aplicacion.registrarseClienteProfesional(listaClientes, listaClientesProfesionales);
+        
         
         //la idea seria hacer un metodo 'Inicio' o algo asi en la clase Aplicacion entiendo
         /*System.out.println("Escribe la accion que deseas realizar: \n-Iniciar sesion \n-Registrarse ");
@@ -45,14 +46,13 @@ public class Javapop {
             try {
                 respuesta = entrada.readLine();
                 if (respuesta.toLowerCase().equals("iniciar sesion")) {
-                    Aplicacion.registrarse(listaClientes,listaClientesProfesionales);
+                    Aplicacion.login(listaClientes,listaClientesProfesionales);
                 System.out.println("final programa" + listaClientes);
                     correcto = true;
                 } else if (respuesta.toLowerCase().equals("registrarse")) {
                     Aplicacion.login(listaClientes,listaClientesProfesionales);
                     System.out.println("final programa" + listaClientes);
                     correcto = true;
-                
                 } else {
                     System.out.println("La opcion que ha introducido no existe. Pruebe de nuevo.");
                 }
@@ -61,10 +61,11 @@ public class Javapop {
 
             }
         }
-        
         */
-        Aplicacion.registrarse(listaClientes,listaClientesProfesionales);
+        
+        
         System.out.println("final programa" + listaClientes);
+        System.out.println("final programa clientes profesionales" + listaClientesProfesionales);
         
         IOinfo.guardarClientesProfesionales(listaClientesProfesionales);
         IOinfo.guardarClientes(listaClientes);
