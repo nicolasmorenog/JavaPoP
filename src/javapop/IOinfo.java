@@ -8,7 +8,7 @@ package javapop;
 import java.io.*;
 import java.util.ArrayList;
 
-public class IOinfo {
+public class IOinfo implements Serializable{
 
     static void guardarClientes(ArrayList<Cliente> listaClientes) {
         try {
