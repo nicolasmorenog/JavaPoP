@@ -21,6 +21,7 @@ public class Cliente implements Serializable {
     private String tarjeta;
     private Ubicacion ubicacion;
     private ArrayList<Producto> listaProductos;
+    //private Producto producto;
 
     //constructor normal
     public Cliente(String correo, String clave, String nombre, String dni, String tarjeta, Ubicacion ubicacion) {
@@ -47,7 +48,6 @@ public class Cliente implements Serializable {
         setTarjeta();
         this.ubicacion = new Ubicacion();
         this.listaProductos = new ArrayList<Producto>();
-        
 
     }
 
@@ -75,7 +75,7 @@ public class Cliente implements Serializable {
     public Ubicacion getUbicacion() {
         return ubicacion;
     }
-    
+
     //Setters
     public void setCorreo(String correo) {
         this.correo = correo;
@@ -95,15 +95,15 @@ public class Cliente implements Serializable {
 
                 if (mather.find()) {
                     correcto = Aplicacion.correoApto(listaClientes, listaClientesProfesionales, email);
-                    if (correcto){
+                    if (correcto) {
                         this.correo = email;
-                    } else{
+                    } else {
                         System.out.println("El email ingresado ya ha sido registrado previamente");
                     }
-                    
+
                 } else {
                     System.out.println("El email ingresado no es válido.");
-                }  
+                }
             }
         } catch (Exception e) {
 
@@ -186,15 +186,25 @@ public class Cliente implements Serializable {
     public void setUbicacion(Ubicacion ubicacion) {
         this.ubicacion = ubicacion;
     }
-    
-    
+
     //metodos
-    public void añadirProducto(){
-        
+    public void añadirProducto() {
+
         Producto producto = new Producto(this);
         this.listaProductos.add(producto);
-        
+
     }
+
+    /*public void eliminarProducto(String tituloProducto) {
+        
+        for (int i = 0; i < listaProductos.size(); i++) {
+            if (producto.getTitulo().equals(tituloProducto)){
+                listaProductos.remove(i);
+            }
+        }
+
+        
+    }*/
 
     public ArrayList<Producto> getListaProductos() {
         return listaProductos;

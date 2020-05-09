@@ -102,7 +102,7 @@ public class Producto implements Serializable {
     public void setCategoria() { //he dejado todo sin tildes...
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         boolean correcto = false;
-        String[] categorias = "Moda y accesorios:TV, audio y foto:Moviles y Telefonian:Informatica y electronica:Consolas y videojuegos:Deportes y ocio".split(":");
+        String[] categorias = "Moda y accesorios:TV, audio y foto:Moviles y Telefonia:Informatica y electronica:Consolas y videojuegos:Deportes y ocio".split(":");
         while (!correcto) {
             System.out.println("Introduzca el numero de la categoria que desea: ");
             for (int i = 0; i < categorias.length; i++) {
