@@ -21,6 +21,7 @@ public class Producto implements Serializable {
     private String fotografia;
     private String precio;
     private Ubicacion ubicacion;
+    private Cliente cliente;
 
     //constructor normal
     public Producto(String titulo, String categoria, String descripcion, String estadoProducto, String fotografia, String precio){
@@ -36,7 +37,7 @@ public class Producto implements Serializable {
     }
 
     //constructor de nuevo producto
-    public Producto() {
+    public Producto(Cliente cliente) {
         System.out.println("Introduzca el título: ");
         setTitulo();
         System.out.println("Introduzca la categoria de entre las siguientes (sin tildes):"
@@ -52,7 +53,7 @@ public class Producto implements Serializable {
         setFotografia();
         System.out.println("Introduzca el precio de venta del producto: ");
         setPrecio();
-        this.ubicacion = new Ubicacion();
+        this.ubicacion = cliente.getUbicacion();
         setFechaPublicacion();
     }
 

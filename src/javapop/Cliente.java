@@ -46,6 +46,7 @@ public class Cliente implements Serializable {
         System.out.println("Introduzca el numero de la tarjeta (un numero de 16 cifras): ");
         setTarjeta();
         this.ubicacion = new Ubicacion();
+        
 
     }
 

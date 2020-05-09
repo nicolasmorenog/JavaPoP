@@ -60,6 +60,7 @@ public class Aplicacion implements Serializable {
                     return cliente;
                 } else {
                     System.out.println("La contraseña es incorrecta");
+                    user = new Object();
                 }
             } else if (user instanceof ClienteProfesional) {
                 ClienteProfesional clientepro = (ClienteProfesional) user;
@@ -67,6 +68,7 @@ public class Aplicacion implements Serializable {
                     return clientepro;
                 } else {
                     System.out.println("La contraseña es incorrecta");
+                    user = new Object();
                 }
             } else if (user instanceof Admin) {
                 Admin admin = (Admin) user;
@@ -74,6 +76,7 @@ public class Aplicacion implements Serializable {
                     return admin;
                 } else {
                     System.out.println("La contraseña es incorrecta");
+                    user = new Object();
                 }
             } else {
                 System.out.println("El correo indicado no esta asociado a ninguna cuenta de usuario, pruebe a registrarse.");
@@ -90,11 +93,13 @@ public class Aplicacion implements Serializable {
 
         Cliente c1 = new Cliente(listaClientes, listaClientesProfesionales);
         listaClientes.add(c1);
+        System.out.println("El registro se ha llevado a cabo con exito.");
 
     }
 
     public static void registrarseClienteProfesional(ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales) {
         ClienteProfesional cp1 = new ClienteProfesional(listaClientes, listaClientesProfesionales);
         listaClientesProfesionales.add(cp1);
+        System.out.println("El registro se ha llevado a cabo con exito.");
     }
 }

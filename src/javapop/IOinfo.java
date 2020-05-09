@@ -71,4 +71,32 @@ public class IOinfo {
         }
 
     }
+    static void guardarProductos(ArrayList<Producto> listaProductos) {
+        try {
+
+            ObjectOutputStream escribirFichero = new ObjectOutputStream(new FileOutputStream(".\\src\\javapop\\datos\\listaProductos.dat"));
+            escribirFichero.writeObject(listaProductos);
+            escribirFichero.close();
+
+        } catch (Exception e) {
+            System.out.println("Error guardar Productos");// ESTO ES TEMPORAL, ARREGLALO PUTO VAGO
+        }
+    }
+    static ArrayList<Producto> leerListaProductos() {
+        ArrayList<Producto> listaProductos = new ArrayList<Producto>();
+        try {
+            ObjectInputStream leerFicheros = new ObjectInputStream(new FileInputStream(".\\src\\javapop\\datos\\listaProductos.dat"));
+
+            listaProductos = (ArrayList<Producto>) leerFicheros.readObject();
+            leerFicheros.close();
+            return listaProductos;
+        } catch (FileNotFoundException e) {
+            System.out.println("El archivo listaProductos no ha sido encontrado, pruebe a ejecutar de nuevo el programa");
+            return listaProductos;
+        } catch (Exception e) {
+            //System.out.println("Error lectura clientes(Es posible que no haya ningún cliente registrado)");
+            System.out.println(e.toString());
+            return listaProductos;
+        }
+}
 }

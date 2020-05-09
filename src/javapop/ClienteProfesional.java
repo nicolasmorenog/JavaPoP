@@ -65,9 +65,9 @@ public class ClienteProfesional extends Cliente implements Serializable {
                 System.out.print("Introduzca el horario de apertura(00:00-00:00): ");
                 String horarioApertura = input.readLine();
                 Pattern pat = Pattern.compile("[0-2]+[0-9]+:+[0-5]+[0-9]" + "-" + "[0-2]+[0-9]+:+[0-5]+[0-9]");
-                Pattern pat1 = Pattern.compile("[0-9]+:+[0-5]+[0-9]" + "-" + "[0-2]+[0-9]+:+[0-5]+[0-9]");
+                
                 Matcher mat = pat.matcher(horarioApertura);
-                Matcher mat1 = pat1.matcher(horarioApertura);
+                
                 if (mat.matches()) {
                     int hora1 = Integer.parseInt(horarioApertura.substring(0, 2));
                     //System.out.println(hora1); //para comprobar horas
@@ -79,18 +79,7 @@ public class ClienteProfesional extends Cliente implements Serializable {
                     } else {
                         System.out.println("Las horas no pueden superar las 24h");
                     }
-                } else if (mat1.matches()){
-                    int hora1 = Integer.parseInt(horarioApertura.substring(0, 2));
-                    //System.out.println(hora1); //para comprobar horas
-                    int hora2 = Integer.parseInt(horarioApertura.substring(6, 8));
-                    //System.out.println(hora2); //para comprobar horas
-                    if (!(hora1 >= 24 || hora2 >= 24)) {
-                        this.horario = horarioApertura;
-                        comprobado = true;
-                    } else {
-                        System.out.println("Las horas no pueden superar las 24h");
-                    }
-                } else{
+                }  else{
                     System.out.println("El horario debe seguir la estructura 00:00-00:00");
                 }
             } catch (IOException ioe) {
