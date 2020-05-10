@@ -65,7 +65,8 @@ public class Producto implements Serializable {
         this.fotografia = "pene.png";
         this.precio = 12;
         this.ubicacion = new Ubicacion();
-        this.cliente = c1;
+        cliente = c1;
+        setUrgente();this.cliente = c1;
         setUrgente();
     }*/
    
