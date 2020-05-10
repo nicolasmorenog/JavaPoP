@@ -45,18 +45,6 @@ public class Aplicacion implements Serializable {
         return true;
     }
 
-    public static Object buscarTitulo(ArrayList<Producto> listaProductos, String titulo) {
-        for (Producto producto : listaProductos) {
-            if (producto.equals(producto.getTitulo())) {
-                return producto;
-            } else {
-                System.out.println("El titulo introducido no existe");
-            }
-        }
-        Object obj = new Object();
-        return obj;
-    }
-
     public static Object login(ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales) {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         try {

@@ -146,13 +146,6 @@ public class ClienteProfesional extends Cliente implements Serializable {
 
         }
     }
-    //funciones propias
-    public void añadirProducto(){
-        
-        Producto producto = new Producto(this);
-        this.getListaProductos().add(producto);
-        
-    }
 
     @Override
     public String toString() {

@@ -6,7 +6,6 @@
 package javapop;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
@@ -22,11 +21,10 @@ public class Producto implements Serializable {
     private String fotografia;
     private String precio;
     private Ubicacion ubicacion;
-    private Object cliente;
-    
+    private Cliente cliente;
 
     //constructor normal
-    public Producto(String titulo, String categoria, String descripcion, String estadoProducto, String fotografia, String precio) {
+    public Producto(String titulo, String categoria, String descripcion, String estadoProducto, String fotografia, String precio){
         this.titulo = titulo;
         this.categoria = categoria;
         this.descripcion = descripcion;
@@ -42,9 +40,14 @@ public class Producto implements Serializable {
     public Producto(Cliente cliente) {
         System.out.println("Introduzca el título: ");
         setTitulo();
+        System.out.println("Introduzca la categoria de entre las siguientes (sin tildes):"
+                + " \n-Moda y accesorios \n-TV, audio y foto \n-Moviles y Telefonia"
+                + "\n-Informatica y electronica \n-Consolas y videojuegos \n-Deportes y ocio");
         setCategoria();
         System.out.println("Introduzca una descripcion: ");
         setDescripcion();
+        System.out.println("Escoja el estado del producto de entre las siguientes opciones (sin tildes): "
+                + "\n-Nuevo \n-Como nuevo \n-Bueno \n-Aceptable \n-Regular");
         setEstadoProducto();
         System.out.println("Introduzca una fotografia del producto (nombre del archivo): ");
         setFotografia();
@@ -52,23 +55,6 @@ public class Producto implements Serializable {
         setPrecio();
         this.ubicacion = cliente.getUbicacion();
         setFechaPublicacion();
-        this.cliente = cliente;
-    }
-
-    public Producto(ClienteProfesional clienteProfesional) {
-        System.out.println("Introduzca el título: ");
-        setTitulo();
-        setCategoria();
-        System.out.println("Introduzca una descripcion: ");
-        setDescripcion();
-        setEstadoProducto();
-        System.out.println("Introduzca una fotografia del producto (nombre del archivo): ");
-        setFotografia();
-        System.out.println("Introduzca el precio de venta del producto: ");
-        setPrecio();
-        this.ubicacion = clienteProfesional.getUbicacion();
-        setFechaPublicacion();
-        this.cliente = clienteProfesional;
     }
 
     //titulo
@@ -79,20 +65,10 @@ public class Producto implements Serializable {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         try {
             this.titulo = entrada.readLine();
-        } catch (IOException e) {
+        } catch (Exception e) {
 
         }
     }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public Object getCliente() {
-        return cliente;
-    }
-    
-    
 
     //categoria
     public void setCategoria(String categoria) {
@@ -102,27 +78,30 @@ public class Producto implements Serializable {
     public void setCategoria() { //he dejado todo sin tildes...
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         boolean correcto = false;
+<<<<<<< HEAD
         String[] categorias = "Moda y accesorios:TV, audio y foto:Moviles y Telefonia:Informatica y electronica:Consolas y videojuegos:Deportes y ocio".split(":");
+=======
+>>>>>>> parent of 53eb7f6... 
         while (!correcto) {
-            System.out.println("Introduzca el numero de la categoria que desea: ");
-            for (int i = 0; i < categorias.length; i++) {
-                System.out.println((i + 1) + ".-" + categorias[i]);
-            }
             try {
-                System.out.println("->");
-                String txt = entrada.readLine();
-                int num = Integer.parseInt(txt);
-
-                if (num > 0 && num <= categorias.length) {
-                    this.categoria = categorias[num - 1];
-                    System.out.println("La categoria elegida es: " + this.categoria);
+                this.categoria = entrada.readLine();
+                if (categoria.toLowerCase().equals("moda y accesorios")) {
+                    correcto = true;
+                } else if (categoria.toLowerCase().equals("tv, audio y foto")) {
+                    correcto = true;
+                } else if (categoria.toLowerCase().equals("moviles y telefonia")) {
+                    correcto = true;
+                } else if (categoria.toLowerCase().equals("informatica y electronica")) {
+                    correcto = true;
+                } else if (categoria.toLowerCase().equals("consolas y videojuegos")) {
+                    correcto = true;
+                } else if (categoria.toLowerCase().equals("deporte y ocio")) {
                     correcto = true;
                 } else {
-                    System.out.println("La categoría deber ser elegida entre el 1 y el " + categorias.length);
+                    System.out.println("La categoria que ha introducido no existe. Pruebe de nuevo.");
                 }
-
             } catch (Exception e) {
-                System.out.println("La categoria que ha introducido no existe. Pruebe de nuevo (Introduzca el numero de la categoria que desea).");
+                System.out.println("La categoria que ha introducido no existe. Pruebe de nuevo.");
 
             }
         }
@@ -151,65 +130,71 @@ public class Producto implements Serializable {
     public void setEstadoProducto() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         boolean correcto = false;
-        String[] estado = "Nuevo:Como nuevo:Bueno:Aceptable:Regular".split(":");
         while (!correcto) {
-            System.out.println("Introduzca el numero del estado que desea: ");
-            for (int i = 0; i < estado.length; i++) {
-                System.out.println((i + 1) + ".-" + estado[i]);
-            }
             try {
-                System.out.println("->");
-                String txt = entrada.readLine();
-                int num = Integer.parseInt(txt);
-                if (num > 0 && num <= estado.length) {
-                    this.estadoProducto = estado[num - 1];
-                    System.out.println("El estado elegido es: " + this.estadoProducto);
+                this.estadoProducto = entrada.readLine();
+                if (estadoProducto.toLowerCase().equals("nuevo")) {
+                    correcto = true;
+                } else if (estadoProducto.toLowerCase().equals("como nuevo")) {
+                    correcto = true;
+                } else if (estadoProducto.toLowerCase().equals("bueno")) {
+                    correcto = true;
+                } else if (estadoProducto.toLowerCase().equals("aceptable")) {
+                    correcto = true;
+                } else if (estadoProducto.toLowerCase().equals("regular")) {
                     correcto = true;
                 } else {
-                    System.out.println("El estado debe ser elegido entre el 1 y el " + estado.length);
+                    System.out.println("El estado del producto que ha introducido no existe. Pruebe de nuevo.");
                 }
             } catch (Exception e) {
-                System.out.println("El estado que ha introducido no existe. Pruebe de nuevo.");
+                System.out.println("El estado del producto que ha introducido no existe. Pruebe de nuevo.");
+
             }
         }
     }
 
+    
     //fotografia
     public void setFotografia(String fotografia) {
         this.fotografia = fotografia;
     }
-
+    
     public void setFotografia() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         try {
-            this.fotografia = entrada.readLine();
+            this.fotografia= entrada.readLine();
         } catch (Exception e) {
 
         }
     }
 
+    
     //precio
-    public void setPrecio(String precio) {
+    public void setPrecio(String precio){
         this.precio = precio;
     }
-
+    
     public void setPrecio() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         boolean correcto = false;
         while (!correcto) {
             try {
-                String pprecio = entrada.readLine();
-                Double.parseDouble(pprecio);
-                this.precio = pprecio;
-                correcto = true;
-
+                String pprecio=entrada.readLine();
+                
+                    
+                        Double.parseDouble(pprecio);
+                        this.precio = pprecio;
+                        correcto = true;
+                    
+                
             } catch (Exception e) {
-                System.out.println("El precio debe estar compuesto por un numero decimal. Intentelo de nuevo");
+                    System.out.println("El precio debe estar compuesto por un numero decimal. Intentelo de nuevo");
 
             }
         }
     }
 
+    
     //fecha de publicacion
     public void setFechaPublicacion(String fechaPublicacion) {
         this.fechaPublicacion = fechaPublicacion;
