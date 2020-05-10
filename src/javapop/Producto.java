@@ -40,7 +40,7 @@ public class Producto implements Serializable {
     }
 
     //constructor de nuevo producto
-    /*public Producto(Cliente cliente) {
+   public Producto(Cliente cliente) {
         System.out.println("Introduzca el título: ");
         setTitulo();
         setCategoria();
@@ -53,9 +53,21 @@ public class Producto implements Serializable {
         setPrecio();
         this.ubicacion = cliente.getUbicacion();
         setFechaPublicacion();
-        this.cliente = cliente;
+        //this.cliente = cliente;
+        setUrgente();
+    }
+    //constructor pruebas
+    /*public Producto(Cliente c1) {
+        setTitulo();
+        this.categoria = "Deportes y ocio";
+        this.descripcion = "hola";
+        this.estadoProducto = "perfecto";
+        this.fotografia = "pene.png";
+        this.precio = 12;
+        this.ubicacion = new Ubicacion();
         setUrgente();
     }*/
+   
     public Producto(ClienteProfesional clienteProfesional) {
         System.out.println("Introduzca el título: ");
         setTitulo();
@@ -73,18 +85,7 @@ public class Producto implements Serializable {
         setUrgente();
     }
 
-    //constructor pruebas
-    public Producto(Cliente c1) {
-        setTitulo();
-        this.categoria = "Deportes";
-        this.descripcion = "hola";
-        this.estadoProducto = "perfecto";
-        this.fotografia = "pene.png";
-        this.precio = 12;
-        this.ubicacion = new Ubicacion();
-        this.cliente = c1;
-        setUrgente();
-    }
+    
 
     //titulo
     public void setTitulo(String titulo) {

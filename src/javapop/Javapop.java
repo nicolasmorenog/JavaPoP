@@ -23,6 +23,7 @@ public class Javapop{
         ArrayList<Cliente> listaClientes = new ArrayList();
         ArrayList<ClienteProfesional> listaClientesProfesionales = new ArrayList();
         ArrayList<Producto> listaProductos = new ArrayList();
+        
 
         listaClientes = IOinfo.leerListaClientes();
         listaClientesProfesionales = IOinfo.leerListaClientesProfesionales();
