@@ -22,11 +22,11 @@ public class Producto implements Serializable {
     private String fotografia;
     private double precio;
     private Ubicacion ubicacion;
-    private Object cliente;
+    private Cliente cliente;
     private boolean urgente;
 
     //constructor normal
-    public Producto(String titulo, String categoria, String descripcion, String estadoProducto, String fechaPublicacion, String fotografia, double precio, Ubicacion ubicacion, Object cliente, boolean urgente) {
+    public Producto(String titulo, String categoria, String descripcion, String estadoProducto, String fechaPublicacion, String fotografia, double precio, Ubicacion ubicacion, Cliente cliente, boolean urgente) {
         this.titulo = titulo;
         this.categoria = categoria;
         this.descripcion = descripcion;
@@ -53,7 +53,7 @@ public class Producto implements Serializable {
         setPrecio();
         this.ubicacion = cliente.getUbicacion();
         setFechaPublicacion();
-        //this.cliente = cliente;
+        this.cliente = cliente;
         setUrgente();
     }
     //constructor pruebas
@@ -106,7 +106,7 @@ public class Producto implements Serializable {
         return titulo;
     }
 
-    public Object getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
@@ -119,6 +119,12 @@ public class Producto implements Serializable {
         this.categoria = categoria;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+    
+    
+    
     public void setCategoria() { //he dejado todo sin tildes...
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         boolean correcto = false;
@@ -269,10 +275,14 @@ public class Producto implements Serializable {
             System.out.println(e.toString());
         }
     }
-
+    public double getPrecio() {
+        return precio;
+    }
+       
+    
     @Override
     public String toString() {
-        return "Producto{" + "titulo=" + titulo + ", categoria=" + categoria + ", descripcion=" + descripcion + ", estadoProducto=" + estadoProducto + ", fechaPublicacion=" + fechaPublicacion + ", fotografia=" + fotografia + ", precio=" + precio + ", ubicacion=" + ubicacion + ", cliente=" + cliente + ", urgente=" + urgente + '}';
+        return "Producto{" + "titulo=" + titulo + ", categoria=" + categoria + ", descripcion=" + descripcion + ", estadoProducto=" + estadoProducto + ", fechaPublicacion=" + fechaPublicacion + ", fotografia=" + fotografia + ", precio=" + precio + ",cliente="+ cliente.getCorreo()+ ", ubicacion=" + ubicacion + ", urgente=" + urgente + '}';
     }
 
 

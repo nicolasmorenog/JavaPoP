@@ -6,13 +6,16 @@
 package javapop;
 
 /**
- *
- * @author Jesús Palomino
+ * 
+ * 
  */
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Serializable;
-
+/**
+ * 
+ * @author Jesús Palomino
+ */
 public class Ubicacion implements Serializable {
 
     private String codigoPostal;
@@ -29,15 +32,19 @@ public class Ubicacion implements Serializable {
         System.out.println("Introduce la ciudad: ");
         setCiudad();
     }
-
+    
     public String getCodigoPostal() {
         return codigoPostal;
+        
     }
-
+    /**
+     * 
+     * @param codigoPostal 
+     */
     public void setCodigoPostal(String codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
-
+   
     public void setCodigoPostal() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         boolean correcto = false;

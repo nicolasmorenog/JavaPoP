@@ -13,7 +13,7 @@ import java.util.Scanner;
  *
  * @author Jesús Palomino
  */
-public class Javapop{
+public class Javapop {
 
     /**
      * @param args the command line arguments
@@ -23,7 +23,6 @@ public class Javapop{
         ArrayList<Cliente> listaClientes = new ArrayList();
         ArrayList<ClienteProfesional> listaClientesProfesionales = new ArrayList();
         ArrayList<Producto> listaProductos = new ArrayList();
-        
 
         listaClientes = IOinfo.leerListaClientes();
         listaClientesProfesionales = IOinfo.leerListaClientesProfesionales();
@@ -65,13 +64,13 @@ public class Javapop{
 
                     case 1: // Realizar el "inicio de sesion"
                         user = Aplicacion.login(listaClientes, listaClientesProfesionales);
-                        if (user instanceof Cliente) {
-                            cliente = (Cliente) user;
-                            estado = 2;
-
-                        } else if (user instanceof ClienteProfesional) {
+                        if (user instanceof ClienteProfesional) {
                             clienteProfesional = (ClienteProfesional) user;
                             estado = 3;
+
+                        } else if (user instanceof Cliente) {
+                            cliente = (Cliente) user;
+                            estado = 2;
                         } else if (user instanceof Admin) {
                             estado = 1;
                         }
@@ -89,7 +88,7 @@ public class Javapop{
                         break;
                     default:
                         System.out.println("La opcion introducida no es valida");
-                       
+
                 }
             } else if (estado == 1) {
                 System.out.println("Bienvenido a la pagina de administrador, seleccione una opcion:"
@@ -138,7 +137,7 @@ public class Javapop{
                         try {
                             String txtadmin2 = entrada.readLine();
                             int numadmin2 = Integer.parseInt(txtadmin2);
-                            System.out.println(listaProductos.get(numadmin2));
+                            System.out.println(listaProductos.get(numadmin2 - 1));
                         } catch (Exception e) {
                             System.out.println("El producto introducido no se encuentra en la lista");
                         }
@@ -161,7 +160,8 @@ public class Javapop{
                         + "\n3.-Eliminar producto"
                         + "\n4.-Buscar producto"
                         + "\n5.-Darse de alta como Cliente Profesional"
-                        + "\n6. Salir");
+                        + "\n6.-Bandeja de entrada (Solicitudes de venta)"
+                        + "\n7. Salir");
                 System.out.print("->");
                 int accion2 = input.nextInt();
                 switch (accion2) {
@@ -170,43 +170,175 @@ public class Javapop{
                         cliente.añadirProducto(listaProductos);
                         break;
                     case 2:
-                        
+
                         System.out.println("Sus productos son los siguientes: ");
                         for (int i = 0; i < cliente.getListaProductos().size(); i++) {
-                            System.out.println((i+1)+".-"+cliente.getListaProductos().get(i));
+                            System.out.println((i + 1) + ".-" + cliente.getListaProductos().get(i));
                         }
                         break;
                     case 3:
                         System.out.println("Elija el producto que desea eliminar");
                         System.out.println("Sus productos son los siguientes: ");
                         for (int i = 0; i < cliente.getListaProductos().size(); i++) {
-                            System.out.println((i+1)+".-"+cliente.getListaProductos().get(i));
+                            System.out.println((i + 1) + ".-" + cliente.getListaProductos().get(i));
                         }
                         System.out.println("Escriba el titulo del producto que va a eliminar: ");
-                        try{
+                        try {
                             boolean prodEncontrado = false;
                             String titulo = entrada.readLine();
-                            for (int i=0; i<cliente.getListaProductos().size();i++){
-                                if (cliente.getListaProductos().get(i).getTitulo().toLowerCase().equals(titulo.toLowerCase())){
+                            for (int i = 0; i < cliente.getListaProductos().size(); i++) {
+                                if (cliente.getListaProductos().get(i).getTitulo().toLowerCase().equals(titulo.toLowerCase())) {
                                     cliente.eliminarProducto(listaProductos, cliente.getListaProductos().get(i));
                                     prodEncontrado = true;
                                     System.out.println("El producto ha sido eliminado correctamente.");
                                 }
-                                if (!prodEncontrado){
+                                if (!prodEncontrado) {
                                     System.out.println("El titulo introducido no coincide con ningun producto añadido.");
                                 }
                             }
-                        } catch(Exception e){
-                            System.out.println("Error en la entrada de datos "+e.toString());
+                        } catch (Exception e) {
+                            System.out.println("Error en la entrada de datos " + e.toString());
                         }
+
+                        break;
+                    case 4:
+                        boolean existe = false;                       
+                        System.out.println("Escriba el nombre de la categoria de la cual desea buscar un producto");
+                        String[] categorias = "Moda y accesorios:TV, audio y foto:Moviles y Telefonia:Informatica y electronica:Consolas y videojuegos:Deportes y ocio".split(":");
+                        for (int i = 0; i < categorias.length; i++) {
+                            System.out.println((i + 1) + ".-" + categorias[i]);
+                        }
+                        try {
+                            String categoria = entrada.readLine().toLowerCase();
+                            for (int i = 0; i < categorias.length; i++) {
+                                if (categoria.equals(categorias[i].toLowerCase())) {
+                                    existe = true;
+                                }
+                            }
+                            if (existe) {
+                                ArrayList<Producto> listCat = new ArrayList<>();
+                                boolean comp = false;
+                                while (!comp) {
+                                    
+                                    System.out.println("¿Desea introducir una palabra clave?");
+                                    String res = entrada.readLine();
+                                    if (res.toLowerCase().equals("si")) {
+                                        System.out.println("Introduzca la palabra clave");
+                                        String clave = entrada.readLine();
+                                        for (int i = 0; i < listaProductos.size(); i++) {
+                                            if (listaProductos.get(i).getCategoria().toLowerCase().equals(categoria) 
+                                                    && !listaProductos.get(i).getCliente().getCorreo().equals(cliente.getCorreo())
+                                                    && listaProductos.get(i).getTitulo().toLowerCase().contains(clave.toLowerCase())) {
+                                                listCat.add(listaProductos.get(i));
+                                            }
+                                        }
+                                        
+                                        comp = true;
+                                    } else if (res.toLowerCase().equals("no")) {
+                                        System.out.println("Aqui se muestra una lista con los productos disponibles de la categoria " + categoria);
+
+                                        for (int i = 0; i < listaProductos.size(); i++) {
+                                            if (listaProductos.get(i).getCategoria().toLowerCase().equals(categoria) && !listaProductos.get(i).getCliente().getCorreo().equals(cliente.getCorreo())) {
+                                                listCat.add(listaProductos.get(i));
+                                            }
+                                        }
+                                        comp = true;
+                                    } else {
+                                        System.out.println("La respuesta debe ser si o no");
+                                    }
+                                }
+                                if (listCat.isEmpty()) {
+                                    System.out.println("No ha sido encontrado ningun objeto perteneciente a la categoria " + categoria);
+                                } else {
+                                    GestionProductos.ordenarProductosCercania(listCat, cliente);
+                                    GestionProductos.subirUrgentes(listCat);
+                                    System.out.println("1.- Volver atras");
+                                    for (int i = 0; i < listCat.size(); i++) {
+                                        System.out.println((i + 2) + ".-" + listCat.get(i).getTitulo() + ", Precio: " + listCat.get(i).getPrecio() + ", Codigo Postal: " + listCat.get(i).getUbicacion().getCodigoPostal());
+                                    }
+                                    System.out.println("Seleccione una opcion o un producto");
+                                    int elec = input.nextInt();
+                                    if (elec == 1) {
+                                        System.out.println("Volviendo atras");
+                                    } else if (elec > 1 && elec <= listCat.size() + 1) {
+                                        Producto productSelecc = listCat.get(elec - 2);
+                                        System.out.println(productSelecc);
+                                    } else {
+                                        System.out.println("A elegido una opcion inexistente.");
+                                    }
+                                }
+                            } else {
+                                System.out.println("La categoría introducida no coincide con ninguna de las existentes.");
+                            }
+                        } catch (Exception e) {
+                            System.out.println("La categoría introducida no coincide con ninguna de las existentes.");
+                        }
+                        break;
+                    case 6:
                         
                         break;
-                        
+                    case 7:
+                        terminar = true;
+                        break;
+                    default: {
+
+                        System.out.println("La opcion elegida no esta disponible.");
+                    }
+
+                }
+            } else if (estado == 3) {
+                System.out.println("Bienvenido a las Opciones de cliente profesional, por favor, seleccione una opcion:"
+                        + "\n1.-Subir producto"
+                        + "\n2.-Consultar mis productos"
+                        + "\n3.-Eliminar producto"
+                        + "\n4.-Buscar producto"
+                        + "\n5.-Darse de baja como Cliente Profesional"
+                        + "\n6. Salir");
+                System.out.print("->");
+                int accion2 = input.nextInt();
+                switch (accion2) {
+                    case 1:
+                        System.out.println("Añade producto a continuacion:");
+                        clienteProfesional.añadirProducto(listaProductos);
+                        break;
+                    case 2:
+
+                        System.out.println("Sus productos son los siguientes: ");
+                        for (int i = 0; i < clienteProfesional.getListaProductos().size(); i++) {
+                            System.out.println((i + 1) + ".-" + clienteProfesional.getListaProductos().get(i));
+                        }
+                        break;
+                    case 3:
+                        System.out.println("Elija el producto que desea eliminar");
+                        System.out.println("Sus productos son los siguientes: ");
+                        for (int i = 0; i < clienteProfesional.getListaProductos().size(); i++) {
+                            System.out.println((i + 1) + ".-" + clienteProfesional.getListaProductos().get(i));
+                        }
+                        System.out.println("Escriba el titulo del producto que va a eliminar: ");
+                        try {
+                            boolean prodEncontrado = false;
+                            String titulo = entrada.readLine();
+                            for (int i = 0; i < clienteProfesional.getListaProductos().size(); i++) {
+                                if (clienteProfesional.getListaProductos().get(i).getTitulo().toLowerCase().equals(titulo.toLowerCase())) {
+                                    clienteProfesional.eliminarProducto(listaProductos, clienteProfesional.getListaProductos().get(i));
+                                    prodEncontrado = true;
+                                    System.out.println("El producto ha sido eliminado correctamente.");
+                                }
+                                if (!prodEncontrado) {
+                                    System.out.println("El titulo introducido no coincide con ningun producto añadido.");
+                                }
+                            }
+                        } catch (Exception e) {
+                            System.out.println("Error en la entrada de datos " + e.toString());
+                        }
+
+                        break;
+
                     case 6:
                         terminar = true;
                         break;
-                    default:{
-                            
+                    default: {
+
                         System.out.println("La opcion elegida no esta disponible.");
                     }
 
@@ -217,7 +349,6 @@ public class Javapop{
         IOinfo.guardarClientesProfesionales(listaClientesProfesionales);
         IOinfo.guardarClientes(listaClientes);
         IOinfo.guardarProductos(listaProductos);
-                
 
         System.out.println("final programa" + listaClientes);
         System.out.println("final programa clientes profesionales" + listaClientesProfesionales);
