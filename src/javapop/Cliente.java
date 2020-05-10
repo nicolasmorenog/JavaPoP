@@ -31,7 +31,7 @@ public class Cliente implements Serializable {
         this.dni = dni;
         this.tarjeta = tarjeta;
         this.ubicacion = ubicacion;
-        this.listaProductos = new ArrayList<>();
+        this.listaProductos = new ArrayList<Producto>();
     }
 
     //constructor entradas
@@ -47,11 +47,7 @@ public class Cliente implements Serializable {
         System.out.println("Introduzca el numero de la tarjeta (un numero de 16 cifras): ");
         setTarjeta();
         this.ubicacion = new Ubicacion();
-<<<<<<< HEAD
         this.listaProductos = new ArrayList<Producto>();
-=======
-        
->>>>>>> parent of 53eb7f6... 
 
     }
 
@@ -190,7 +186,6 @@ public class Cliente implements Serializable {
     public void setUbicacion(Ubicacion ubicacion) {
         this.ubicacion = ubicacion;
     }
-<<<<<<< HEAD
 
     //metodos
     public void añadirProducto(ArrayList<Producto> listaProductosGlobal) {
@@ -211,12 +206,7 @@ public class Cliente implements Serializable {
     public ArrayList<Producto> getListaProductos() {
         return listaProductos;
     }
-<<<<<<< HEAD
-=======
->>>>>>> parent of 53eb7f6... 
-=======
    
->>>>>>> ebcacd194491d6a11247e235f7811d592424e250
 
     @Override
     public String toString() {
