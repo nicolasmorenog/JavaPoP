@@ -114,4 +114,26 @@ public class Aplicacion implements Serializable {
         listaClientesProfesionales.add(cp1);
         System.out.println("El registro se ha llevado a cabo con exito.");
     }
+    
+    public static void altaClienteProfesional(Cliente cliente, ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales){
+       
+        ClienteProfesional cp1 = new ClienteProfesional(cliente);   
+       
+        listaClientes.remove(cliente);
+        
+        listaClientesProfesionales.add(cp1);
+        
+        System.out.println("Se ha dado de alta como cliente profesional con exito.");
+        
+    }
+    
+    public static void bajaClienteProfesional(ClienteProfesional clientepro, ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales){
+        Cliente c1 = new Cliente(clientepro);   
+       
+        listaClientesProfesionales.remove(clientepro);
+        
+        listaClientes.add(c1);
+        
+        System.out.println("Se ha dado de baja como cliente profesional con exito.");
+    }
 }

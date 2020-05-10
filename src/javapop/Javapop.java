@@ -274,6 +274,10 @@ public class Javapop {
                             System.out.println("La categoría introducida no coincide con ninguna de las existentes.");
                         }
                         break;
+                    case 5:
+                        Aplicacion.altaClienteProfesional(cliente, listaClientes, listaClientesProfesionales);
+                        estado=3;
+                        break;
                     case 6:
                         
                         break;
@@ -332,6 +336,10 @@ public class Javapop {
                             System.out.println("Error en la entrada de datos " + e.toString());
                         }
 
+                        break;
+                    case 5:
+                        Aplicacion.bajaClienteProfesional(clienteProfesional, listaClientes, listaClientesProfesionales);
+                        estado=2;
                         break;
 
                     case 6:

@@ -1,42 +1,48 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package javapop;
 
+package javapop;
 /**
- * 
- * 
+ *
+ * @author Jesús Palomino
+ * @author Nicolás Moreno
  */
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Serializable;
-/**
- * 
- * @author Jesús Palomino
- */
+
 public class Ubicacion implements Serializable {
 
     private String codigoPostal;
     private String ciudad;
 
+    /**
+     * <p> Metodo constructor con parametros de la clase Ubicacion <p>
+     * 
+     * @param codigoPostal codigo postal de la ciudad donde reside el cliente
+     * @param ciudad ciudad donde reside el cliente
+     */
     public Ubicacion(String codigoPostal, String ciudad) {
         this.codigoPostal = codigoPostal;
         this.ciudad = ciudad;
     }
 
+    /**
+     * <p>Metodo constructor de la clase Ubicacion a introducir por teclado</p>
+     */
     public Ubicacion() {
         System.out.println("Introduce el codigo postal (debe ser un numero de 5 cifras): ");
         setCodigoPostal();
         System.out.println("Introduce la ciudad: ");
         setCiudad();
     }
-    
+
+    /**
+     * 
+     * @return codigoPostal
+     */
     public String getCodigoPostal() {
         return codigoPostal;
-        
     }
+
     /**
      * 
      * @param codigoPostal 
@@ -44,7 +50,11 @@ public class Ubicacion implements Serializable {
     public void setCodigoPostal(String codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
-   
+
+    /**
+     * <p>Metodo para introducir por teclado el codigo postal y que valide
+     * que tenga unicamente 5 cifras de tipo int</p>
+     */
     public void setCodigoPostal() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         boolean correcto = false;
@@ -68,13 +78,27 @@ public class Ubicacion implements Serializable {
         }
     }
 
+    /**
+     * 
+     * @return ciudad
+     */
     public String getCiudad() {
         return ciudad;
     }
 
+    /**
+     * 
+     * @param ciudad 
+     */
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
+    /**
+     *<p>Metodo para introducir por teclado la ciudad en la que reside
+     * el cliente y que valide que sea de tipo String </p>
+     * 
+     * 
+     */
     public void setCiudad() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         try {
@@ -84,6 +108,11 @@ public class Ubicacion implements Serializable {
         }
     }
 
+    /**
+     * 
+     * @return codigoPosta
+     * @return ciudad
+     */
     @Override
     public String toString() {
         return "Ubicacion{" + "codigoPostal=" + codigoPostal + ", ciudad=" + ciudad + '}';

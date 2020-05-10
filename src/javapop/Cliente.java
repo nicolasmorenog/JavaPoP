@@ -13,7 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Cliente implements Serializable {
-    
+
     private String correo;
     private String clave;
     private String nombre;
@@ -21,7 +21,6 @@ public class Cliente implements Serializable {
     private String tarjeta;
     private Ubicacion ubicacion;
     private ArrayList<Producto> listaProductos;
-    
 
     //constructor normal
     public Cliente(String correo, String clave, String nombre, String dni, String tarjeta, Ubicacion ubicacion) {
@@ -47,6 +46,17 @@ public class Cliente implements Serializable {
         System.out.println("Introduzca el numero de la tarjeta (un numero de 16 cifras): ");
         setTarjeta();
         this.ubicacion = new Ubicacion();
+        this.listaProductos = new ArrayList<Producto>();
+
+    }
+
+    public Cliente(ClienteProfesional clientepro) {
+        clientepro.getCorreo();
+        clientepro.getClave();
+        clientepro.getNombre();
+        clientepro.getDni();
+        clientepro.getTarjeta();
+        clientepro.getUbicacion();
         this.listaProductos = new ArrayList<Producto>();
 
     }
@@ -196,17 +206,20 @@ public class Cliente implements Serializable {
 
     }
 
-    public void eliminarProducto(ArrayList<Producto> listaProductosGlobal,Producto productoEliminar) {
-        
+    public void eliminarProducto(ArrayList<Producto> listaProductosGlobal, Producto productoEliminar) {
+
         this.listaProductos.remove(productoEliminar);
         listaProductosGlobal.remove(productoEliminar);
-        
+
     }
 
     public ArrayList<Producto> getListaProductos() {
         return listaProductos;
     }
-   
+
+    public void setListaProductos(ArrayList<Producto> listaProductos) {
+        this.listaProductos = listaProductos;
+    }
 
     @Override
     public String toString() {

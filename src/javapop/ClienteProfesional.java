@@ -21,22 +21,37 @@ public class ClienteProfesional extends Cliente implements Serializable {
 
     private String descripcion;
     private String horario;
-    private String horaCierre;
     private String telefono;
     private String web;
     private Ubicacion ubicacion; 
 
     //constructor normal
-    public ClienteProfesional(Cliente cliente, String descripcion, String horario, 
-            String telefono, String web) {
+    public ClienteProfesional(Cliente cliente) {
 
         super(cliente.getCorreo(), cliente.getClave(), cliente.getNombre(), cliente.getDni(), cliente.getTarjeta(), cliente.getUbicacion());
-        this.descripcion = descripcion;
-        this.horario = horario; 
-        this.telefono = telefono;
-        this.web = web;
+        System.out.println("Introduce una descripción para tu perfil: ");
+        setDescripcion();
+        setHorario();
+        System.out.println("Introduce un numero de telefono: ");
+        setTelefono();
+        System.out.println("Introduce una pagina web: ");
+        setWeb();
+        
     }
     
+    public ClienteProfesional(Cliente cliente, String descripcion, String horario,String telefono, String web) {
+
+        super(cliente.getCorreo(), cliente.getClave(), cliente.getNombre(), cliente.getDni(), cliente.getTarjeta(), cliente.getUbicacion());
+        System.out.println("Introduce una descripción para tu perfil: ");
+        this.descripcion=descripcion;
+        this.horario=horario;
+        System.out.println("Introduce un numero de telefono: ");
+        this.telefono=telefono;
+        System.out.println("Introduce una pagina web: ");
+        this.web=web;
+        
+        
+    }
     //constructor de entrada
     public ClienteProfesional(ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales) {
         
@@ -52,11 +67,6 @@ public class ClienteProfesional extends Cliente implements Serializable {
 
     }
 
-    //descripcion
-    /*public String getDescripcion() {
-        return descripcion;
-    }
-    */
     public void setHorario(){
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         boolean comprobado = false;
@@ -155,9 +165,11 @@ public class ClienteProfesional extends Cliente implements Serializable {
         
     }*/
 
+    
+    
     @Override
     public String toString() {
-        return "ClienteProfesional{" + super.toString() + "descripcion=" + descripcion + ", horaApertura=" + horario + ", horaCierre=" + horaCierre + ", telefono=" + telefono + ", web=" + web + '}';
+        return "ClienteProfesional{" + super.toString() + "descripcion=" + descripcion + ", horaApertura=" + horario + ", telefono=" + telefono + ", web=" + web + '}';
     }
 
 }
