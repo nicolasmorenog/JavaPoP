@@ -6,7 +6,9 @@
 package javapop;
 
 
-public class Admin {
+
+
+public class Admin{
     private final String correo;
     private final String clave;
     private final String nombre;

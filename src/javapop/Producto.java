@@ -19,25 +19,34 @@ public class Producto implements Serializable {
     private String estadoProducto;
     private String fechaPublicacion;
     private String fotografia;
-    private String precio;
+    private double precio;
     private Ubicacion ubicacion;
+<<<<<<< HEAD
     private Cliente cliente;
 
     //constructor normal
     public Producto(String titulo, String categoria, String descripcion, String estadoProducto, String fotografia, String precio){
+=======
+    private Object cliente;
+    private boolean urgente;
+
+    //constructor normal
+    public Producto(String titulo, String categoria, String descripcion, String estadoProducto, String fechaPublicacion, String fotografia, double precio, Ubicacion ubicacion, Object cliente, boolean urgente) {
+>>>>>>> ebcacd194491d6a11247e235f7811d592424e250
         this.titulo = titulo;
         this.categoria = categoria;
         this.descripcion = descripcion;
         this.estadoProducto = estadoProducto;
+        this.fechaPublicacion = fechaPublicacion;
         this.fotografia = fotografia;
         this.precio = precio;
-        //this.ubicacion = empleado.getUbicacion();
-        setFechaPublicacion(); //Coge la fecha del reloj del pc
-
+        this.ubicacion = ubicacion;
+        this.cliente = cliente;
+        this.urgente = urgente;
     }
 
     //constructor de nuevo producto
-    public Producto(Cliente cliente) {
+   public Producto(Cliente cliente) {
         System.out.println("Introduzca el título: ");
         setTitulo();
         System.out.println("Introduzca la categoria de entre las siguientes (sin tildes):"
@@ -55,7 +64,42 @@ public class Producto implements Serializable {
         setPrecio();
         this.ubicacion = cliente.getUbicacion();
         setFechaPublicacion();
+<<<<<<< HEAD
+=======
+        //this.cliente = cliente;
+        setUrgente();
     }
+    //constructor pruebas
+    /*public Producto(Cliente c1) {
+        setTitulo();
+        this.categoria = "Deportes y ocio";
+        this.descripcion = "hola";
+        this.estadoProducto = "perfecto";
+        this.fotografia = "pene.png";
+        this.precio = 12;
+        this.ubicacion = new Ubicacion();
+        setUrgente();
+    }*/
+   
+    public Producto(ClienteProfesional clienteProfesional) {
+        System.out.println("Introduzca el título: ");
+        setTitulo();
+        setCategoria();
+        System.out.println("Introduzca una descripcion: ");
+        setDescripcion();
+        setEstadoProducto();
+        System.out.println("Introduzca una fotografia del producto (nombre del archivo): ");
+        setFotografia();
+        System.out.println("Introduzca el precio de venta del producto: ");
+        setPrecio();
+        this.ubicacion = clienteProfesional.getUbicacion();
+        setFechaPublicacion();
+        this.cliente = clienteProfesional;
+        setUrgente();
+>>>>>>> ebcacd194491d6a11247e235f7811d592424e250
+    }
+
+    
 
     //titulo
     public void setTitulo(String titulo) {
@@ -70,6 +114,21 @@ public class Producto implements Serializable {
         }
     }
 
+<<<<<<< HEAD
+=======
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public Object getCliente() {
+        return cliente;
+    }
+
+    public Ubicacion getUbicacion() {
+        return ubicacion;
+    }
+
+>>>>>>> ebcacd194491d6a11247e235f7811d592424e250
     //categoria
     public void setCategoria(String categoria) {
         this.categoria = categoria;
@@ -170,7 +229,11 @@ public class Producto implements Serializable {
 
     
     //precio
+<<<<<<< HEAD
     public void setPrecio(String precio){
+=======
+    public void setPrecio(double precio) {
+>>>>>>> ebcacd194491d6a11247e235f7811d592424e250
         this.precio = precio;
     }
     
@@ -179,6 +242,7 @@ public class Producto implements Serializable {
         boolean correcto = false;
         while (!correcto) {
             try {
+<<<<<<< HEAD
                 String pprecio=entrada.readLine();
                 
                     
@@ -187,6 +251,12 @@ public class Producto implements Serializable {
                         correcto = true;
                     
                 
+=======
+                String pprecio = entrada.readLine();
+                this.precio = Double.parseDouble(pprecio);
+                correcto = true;
+
+>>>>>>> ebcacd194491d6a11247e235f7811d592424e250
             } catch (Exception e) {
                     System.out.println("El precio debe estar compuesto por un numero decimal. Intentelo de nuevo");
 
@@ -206,9 +276,41 @@ public class Producto implements Serializable {
         this.fechaPublicacion = dtf.format(ahora);
     }
 
+    public boolean isUrgente() {
+        return urgente;
+    }
+
+    public void setUrgente(boolean urgente) {
+        this.urgente = urgente;
+    }
+
+    public void setUrgente() {
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            boolean correcto = false;
+            while (!correcto) {
+                System.out.println("¿El producto es urgente (si o no)?");
+                String isurgente = entrada.readLine();
+                if (isurgente.toLowerCase().equals("si")) {
+                    this.urgente = true;
+                    correcto = true;
+                } else if (isurgente.toLowerCase().equals("no")) {
+                    this.urgente = false;
+                    correcto = true;
+                } else {
+                    System.out.println("Las opciones son solo si o no.");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+
     @Override
     public String toString() {
-        return "Producto{" + "titulo=" + titulo + ", categoria=" + categoria + ", descripcion=" + descripcion + ", estadoProducto=" + estadoProducto + ", fechaPublicacion=" + fechaPublicacion + ", fotografia=" + fotografia + ", precio=" + precio + ", ubicacion=" + ubicacion + '}';
+        return "Producto{" + "titulo=" + titulo + ", categoria=" + categoria + ", descripcion=" + descripcion + ", estadoProducto=" + estadoProducto + ", fechaPublicacion=" + fechaPublicacion + ", fotografia=" + fotografia + ", precio=" + precio + ", ubicacion=" + ubicacion + ", cliente=" + cliente + ", urgente=" + urgente + '}';
     }
+
+
 
 }

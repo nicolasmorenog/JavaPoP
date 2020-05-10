@@ -13,7 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Cliente implements Serializable {
-
+    
     private String correo;
     private String clave;
     private String nombre;
@@ -193,29 +193,30 @@ public class Cliente implements Serializable {
 <<<<<<< HEAD
 
     //metodos
-    public void añadirProducto() {
+    public void añadirProducto(ArrayList<Producto> listaProductosGlobal) {
 
         Producto producto = new Producto(this);
         this.listaProductos.add(producto);
+        listaProductosGlobal.add(producto);
 
     }
 
-    /*public void eliminarProducto(String tituloProducto) {
+    public void eliminarProducto(ArrayList<Producto> listaProductosGlobal,Producto productoEliminar) {
         
-        for (int i = 0; i < listaProductos.size(); i++) {
-            if (producto.getTitulo().equals(tituloProducto)){
-                listaProductos.remove(i);
-            }
-        }
-
+        this.listaProductos.remove(productoEliminar);
+        listaProductosGlobal.remove(productoEliminar);
         
-    }*/
+    }
 
     public ArrayList<Producto> getListaProductos() {
         return listaProductos;
     }
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 53eb7f6... 
+=======
+   
+>>>>>>> ebcacd194491d6a11247e235f7811d592424e250
 
     @Override
     public String toString() {

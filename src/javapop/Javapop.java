@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Jesús Palomino
  */
-public class Javapop {
+public class Javapop{
 
     /**
      * @param args the command line arguments
@@ -23,6 +23,10 @@ public class Javapop {
         ArrayList<ClienteProfesional> listaClientesProfesionales = new ArrayList();
         ArrayList<Producto> listaProductos = new ArrayList();
         
+<<<<<<< HEAD
+=======
+
+>>>>>>> ebcacd194491d6a11247e235f7811d592424e250
         listaClientes = IOinfo.leerListaClientes();
         listaClientesProfesionales = IOinfo.leerListaClientesProfesionales();
         listaProductos = IOinfo.leerListaProductos();
@@ -44,6 +48,7 @@ public class Javapop {
         int estado= 0;
         boolean terminar = false;
         while (!terminar) {
+<<<<<<< HEAD
 <<<<<<< HEAD
             switch (estado) {
                 case 0: //estado 0: pantalla de inicio de sesion y registro de usuario
@@ -86,149 +91,169 @@ public class Javapop {
                             System.out.println("La opcion elegida no esta disponible.");
                     }
                     break;
+=======
+            // Estado 0: Pantalla de inicio y registro 
+            if (estado == 0) {
+                // Pedimos al usuario que seleccione una operacion a realizar
+
+                System.out.println("Elige la accion que deseas realizar (Escribe el numero de la opcion): "
+                        + "\n1.-Iniciar sesion "
+                        + "\n2.-Registrarse como Cliente "
+                        + "\n3.-Registrarse como Cliente Profesional "
+                        + "\n4.-Salir\n");
+                System.out.print("->");
+                int accion = input.nextInt();
+                // Ejecutamos esa operacion
+                switch (accion) {
+
+                    case 1: // Realizar el "inicio de sesion"
+                        user = Aplicacion.login(listaClientes, listaClientesProfesionales);
+                        if (user instanceof Cliente) {
+                            cliente = (Cliente) user;
+                            estado = 2;
+
+                        } else if (user instanceof ClienteProfesional) {
+                            clienteProfesional = (ClienteProfesional) user;
+                            estado = 3;
+                        } else if (user instanceof Admin) {
+                            estado = 1;
+                        }
+                        break;
+
+                    case 2:// Realizar el "registro de usuario"
+                        Aplicacion.registrarseCliente(listaClientes, listaClientesProfesionales);
+                        break;
+
+                    case 3:// Salimos del bucle principal
+                        Aplicacion.registrarseClienteProfesional(listaClientes, listaClientesProfesionales);
+                        break;
+                    case 4:
+                        terminar = true;
+                        break;
+                    default:
+                        System.out.println("La opcion introducida no es valida");
+                       
+>>>>>>> ebcacd194491d6a11247e235f7811d592424e250
                 }
-                case 1: { //estado 1: pantalla una vez iniciado sesion como administrador
-                    //le damos al usuario 4 opciones a elegir
-                    System.out.println("Bienvenido a la pagina de administrador, seleccione una opcion:"
-                            + "\n1.-Consultar usuarios"
-                            + "\n2.-Consultar productos"
-                            + "\n3.-Consultar ventas realizadas"
-                            + "\n4. Salir");
-                    System.out.print("->");
-                    int accion = input.nextInt();
-                    switch (accion) {
-                        case 1: //mostramos una lista con todos los usuarios registrados
-                            System.out.println("Lista de todos los usuarios registrados:");
-                            for (int i = 0; i < listaClientes.size(); i++) {
-                                System.out.println(listaClientes.get(i).getCorreo());
+            } else if (estado == 1) {
+                System.out.println("Bienvenido a la pagina de administrador, seleccione una opcion:"
+                        + "\n1.-Consultar usuarios"
+                        + "\n2.-Consultar productos"
+                        + "\n3.-Consultar ventas realizadas"
+                        + "\n4. Salir");
+                System.out.print("->");
+                int accion = input.nextInt();
+                switch (accion) {
+                    case 1:
+                        System.out.println("Lista de todos los usuarios registrados:");
+                        for (int i = 0; i < listaClientes.size(); i++) {
+                            System.out.println(listaClientes.get(i).getCorreo());
+                        }
+                        for (int i = 0; i < listaClientesProfesionales.size(); i++) {
+                            System.out.println(listaClientesProfesionales.get(i).getCorreo());
+                        }
+                        System.out.println("Introduzca el correo del cliente que desea consultar: ");
+                        try {
+                            String correo = entrada.readLine();
+                            Object consulta = Aplicacion.buscarCorreo(listaClientes, listaClientesProfesionales, correo);
+                            if (consulta instanceof Cliente || consulta instanceof ClienteProfesional) {
+                                System.out.println(consulta);
+                            } else {
+                                System.out.println("El correo introducido no existe");
                             }
-                            for (int i = 0; i < listaClientesProfesionales.size(); i++) {
-                                System.out.println(listaClientesProfesionales.get(i).getCorreo());
-                            }
-                            //le pedimos al administrador el correo del cliente que desea consultar, de entre los mostrados anteriormente
-                            System.out.println("Introduzca el correo del cliente que desea consultar: ");
-                            try {
-                                String correo = entrada.readLine();
-                                Object consulta = Aplicacion.buscarCorreo(listaClientes, listaClientesProfesionales, correo);
-                                if (consulta instanceof Cliente || consulta instanceof ClienteProfesional) {
-                                    System.out.println(consulta); //mostramos la info del cliente elegido
-                                } else {
-                                    System.out.println("El correo introducido no existe");
-                                }
-                            } catch (Exception e) {
+                        } catch (Exception e) {
 
+                        }
+                        break;
+                    case 2:
+                        System.out.println("Lista de todos los productos: ");
+                        for (int i = 0; i < listaProductos.size(); i++) {
+                            if (listaProductos.get(i).getCliente() instanceof Cliente) {
+                                Cliente c1 = (Cliente) listaProductos.get(i).getCliente();
+                                System.out.println((i + 1) + ".-" + listaProductos.get(i).getTitulo()
+                                        + " perteneciente al usuario " + c1.getNombre());
+                            } else if (listaProductos.get(i).getCliente() instanceof ClienteProfesional) {
+                                ClienteProfesional c1 = (ClienteProfesional) listaProductos.get(i).getCliente();
+                                System.out.println((i + 1) + ".-" + listaProductos.get(i).getTitulo()
+                                        + " perteneciente al usuario " + c1.getNombre());
                             }
-                            break;
-                        case 2: //mostramos una lista con todos los productos subidos de forma numerada
-                            System.out.println("Lista de todos los productos: ");
-                            for (int i = 0; i < listaProductos.size(); i++) {
-                                if (listaProductos.get(i).getCliente() instanceof Cliente) {
-                                    Cliente c1 = (Cliente) listaProductos.get(i).getCliente();
-                                    System.out.println((i + 1) + ".-" + listaProductos.get(i).getTitulo()
-                                            + " perteneciente al usuario " + c1.getNombre());
-                                } else if (listaProductos.get(i).getCliente() instanceof ClienteProfesional) {
-                                    ClienteProfesional c1 = (ClienteProfesional) listaProductos.get(i).getCliente();
-                                    System.out.println((i + 1) + ".-" + listaProductos.get(i).getTitulo()
-                                            + " perteneciente al usuario " + c1.getNombre());
-                                }
-                            }
-                            //le pedimos al administrador el numero del producto que desea consultar, de entre los mostrados anteriormente
-                            System.out.println("Introduzca el numero del producto que desea consultar");
-                            try {
-                                String txtadmin2 = entrada.readLine();
-                                int numadmin2 = Integer.parseInt(txtadmin2);
-                                System.out.println(listaProductos.get(numadmin2)); //mostramos la info del producto elegido
-                            } catch (Exception e) {
-                                System.out.println("El producto introducido no se encuentra en la lista");
-                            }
+                        }
+                        System.out.println("Introduzca el numero del producto que desea consultar");
+                        try {
+                            String txtadmin2 = entrada.readLine();
+                            int numadmin2 = Integer.parseInt(txtadmin2);
+                            System.out.println(listaProductos.get(numadmin2));
+                        } catch (Exception e) {
+                            System.out.println("El producto introducido no se encuentra en la lista");
+                        }
 
-                            break;
+                        break;
 
-                        case 3: //TODAVIA NO ESTA PROGRAMADA LA FUNCION DE COMPRA´VENTA
+                    case 3:
 
-                            break;
-                        case 4: //salida del bucle "while (!terminar)"
-                            terminar = true;
-                            break;
-                        default:
-                            System.out.println("Opcion elegida no valida.");
-                    }
-                    break;
+                        break;
+                    case 4:
+                        terminar = true;
+                        break;
+                    default:
+                        System.out.println("Opcion elegida no valida.");
                 }
-                case 2:
-                    System.out.println("Bienvenido, seleccione una opcion:"
-                            + "\n1.-Subir producto"
-                            + "\n2.-Consultar mis productos"
-                            + "\n3.-Buscar producto"
-                            + "\n4.-Eliminar producto"
-                            + "\n5.-Darse de alta como Cliente Profesional"
-                            + "\n6. Salir");
-                    System.out.print("->");
-                    int accion2 = input.nextInt();
-                    switch (accion2) {
-                        case 1:
-                            System.out.println("Añade producto a continuacion:");
-                            cliente.añadirProducto();
-                            break;
-                        case 2:
-                            System.out.println("La longitud de la lista es: " + cliente.getListaProductos().size());
-                            System.out.println("Sus productos son los siguientes: ");
-                            for (int i = 0; i < cliente.getListaProductos().size(); i++) {
-                                System.out.println((i + 1) + ".-" + cliente.getListaProductos().get(i));
-                            }
-                            break;
-                        /*case 4:
-                            System.out.println("Elija el producto que quiera dar de baja: ");
-                            /*for (int i = 0; i < cliente.getListaProductos().size(); i++) {
-                                System.out.println((i + 1) + ".-" + cliente.getListaProductos().get(i));
-                            }/*
-                            String tituloProducto = input.nextLine();
-                            cliente.eliminarProducto(tituloProducto);
-
-                            //LUEGO TE EXPLICO PORQUE ESTO ESTA COMENTADO (al final he comenttado todo porque no iba yay)
-                            for (int i = 0; i < cliente.getListaProductos().size(); i++) {
-                                System.out.println((i + 1) + ".-" + cliente.getListaProductos().get(i));
-                            }
-                            break;*/
-                        case 5:
-                            break;
-                        case 6: //salida del bucle "while (!terminar)"
-                            terminar = true;
-                            break;
-                        default:
-                            System.out.println("La opcion elegida no esta disponible.");
-                            break;
-                    }
-                    break;
-                case 3:
-                    System.out.println("Bienvenido, seleccione una opcion:"
-                            + "\n1.-Subir producto"
-                            + "\n2.-Consultar mis productos"
-                            + "\n3.-Buscar producto"
-                            + "\n4.-Eliminar producto"
-                            + "\n5. Salir");
-                    System.out.print("->");
-                    int accion3 = input.nextInt();
-                    switch (accion3) {
-                        case 1:
-                            System.out.println("Añade producto a continuacion:");
-                            cliente.añadirProducto();
-                            break;
-                        case 2:
-                            System.out.println("La longitud de la lista es: " + cliente.getListaProductos().size());
-                            System.out.println("Sus productos son los siguientes: ");
-                            for (int i = 0; i < cliente.getListaProductos().size(); i++) {
-                                System.out.println((i + 1) + ".-" + cliente.getListaProductos().get(i));
-                            }
-                            break;
+            } else if (estado == 2) {
+                System.out.println("Bienvenido, seleccione una opcion:"
+                        + "\n1.-Subir producto"
+                        + "\n2.-Consultar mis productos"
+                        + "\n3.-Eliminar producto"
+                        + "\n4.-Buscar producto"
+                        + "\n5.-Darse de alta como Cliente Profesional"
+                        + "\n6. Salir");
+                System.out.print("->");
+                int accion2 = input.nextInt();
+                switch (accion2) {
+                    case 1:
+                        System.out.println("Añade producto a continuacion:");
+                        cliente.añadirProducto(listaProductos);
+                        break;
+                    case 2:
                         
-                        case 6: //salida del bucle "while (!terminar)"
-                            terminar = true;
-                            break;
-                        default:
-                            System.out.println("La opcion elegida no esta disponible.");
-                            break;
+                        System.out.println("Sus productos son los siguientes: ");
+                        for (int i = 0; i < cliente.getListaProductos().size(); i++) {
+                            System.out.println((i+1)+".-"+cliente.getListaProductos().get(i));
+                        }
+                        break;
+                    case 3:
+                        System.out.println("Elija el producto que desea eliminar");
+                        System.out.println("Sus productos son los siguientes: ");
+                        for (int i = 0; i < cliente.getListaProductos().size(); i++) {
+                            System.out.println((i+1)+".-"+cliente.getListaProductos().get(i));
+                        }
+                        System.out.println("Escriba el titulo del producto que va a eliminar: ");
+                        try{
+                            boolean prodEncontrado = false;
+                            String titulo = entrada.readLine();
+                            for (int i=0; i<cliente.getListaProductos().size();i++){
+                                if (cliente.getListaProductos().get(i).getTitulo().toLowerCase().equals(titulo.toLowerCase())){
+                                    cliente.eliminarProducto(listaProductos, cliente.getListaProductos().get(i));
+                                    prodEncontrado = true;
+                                    System.out.println("El producto ha sido eliminado correctamente.");
+                                }
+                                if (!prodEncontrado){
+                                    System.out.println("El titulo introducido no coincide con ningun producto añadido.");
+                                }
+                            }
+                        } catch(Exception e){
+                            System.out.println("Error en la entrada de datos "+e.toString());
+                        }
+                        
+                        break;
+                        
+                    case 6:
+                        terminar = true;
+                        break;
+                    default:{
+                            
+                        System.out.println("La opcion elegida no esta disponible.");
                     }
+<<<<<<< HEAD
                     break;
                 default:
                     System.out.println("La opcion elegida no esta disponible.");
@@ -275,6 +300,10 @@ public class Javapop {
                 System.out.print("->");
                 int accion = input.nextInt();
 >>>>>>> parent of 53eb7f6... 
+=======
+
+                }
+>>>>>>> ebcacd194491d6a11247e235f7811d592424e250
             }
         }*/
         
@@ -283,6 +312,7 @@ public class Javapop {
         IOinfo.guardarClientes(listaClientes);
 <<<<<<< HEAD
         IOinfo.guardarProductos(listaProductos);
+                
 
 =======
         IOinfo.guardarProductos(listaProductos); 
