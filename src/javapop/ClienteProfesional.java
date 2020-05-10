@@ -146,6 +146,8 @@ public class ClienteProfesional extends Cliente implements Serializable {
 
         }
     }
+<<<<<<< HEAD
+=======
     //funciones propias
     public void añadirProducto(ArrayList<Producto> listaProductosGlobal){
         
@@ -154,6 +156,7 @@ public class ClienteProfesional extends Cliente implements Serializable {
         listaProductosGlobal.add(producto);
         
     }
+>>>>>>> ebcacd194491d6a11247e235f7811d592424e250
 
     @Override
     public String toString() {
