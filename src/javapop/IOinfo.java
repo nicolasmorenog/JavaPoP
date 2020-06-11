@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class IOinfo implements Serializable{
 
-    static void guardarClientes(ArrayList<Cliente> listaClientes) {
+    public static void guardarClientes(ArrayList<Cliente> listaClientes) {
         try {
 
             ObjectOutputStream escribirFichero = new ObjectOutputStream(new FileOutputStream(".\\src\\javapop\\datos\\listaClientes.dat"));
@@ -22,7 +22,7 @@ public class IOinfo implements Serializable{
         }
     }
 
-    static ArrayList<Cliente> leerListaClientes() {
+    public static ArrayList<Cliente> leerListaClientes() {
         ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
         try {
             ObjectInputStream leerFicheros = new ObjectInputStream(new FileInputStream(".\\src\\javapop\\datos\\listaClientes.dat"));
@@ -41,7 +41,7 @@ public class IOinfo implements Serializable{
 
     }
 
-    static void guardarClientesProfesionales(ArrayList<ClienteProfesional> listaClientesProfesionales) {
+    public static void guardarClientesProfesionales(ArrayList<ClienteProfesional> listaClientesProfesionales) {
         try {
 
             ObjectOutputStream escribirFichero = new ObjectOutputStream(new FileOutputStream(".\\src\\javapop\\datos\\listaClientesProfesionales.dat"));
@@ -53,7 +53,7 @@ public class IOinfo implements Serializable{
         }
     }
 
-    static ArrayList<ClienteProfesional> leerListaClientesProfesionales() {
+    public static ArrayList<ClienteProfesional> leerListaClientesProfesionales() {
         ArrayList<ClienteProfesional> listaClientesProfesionales = new ArrayList<ClienteProfesional>();
         try {
             ObjectInputStream leerFicheros = new ObjectInputStream(new FileInputStream(".\\src\\javapop\\datos\\listaClientesProfesionales.dat"));
@@ -71,7 +71,7 @@ public class IOinfo implements Serializable{
         }
 
     }
-    static void guardarProductos(ArrayList<Producto> listaProductos) {
+    public static void guardarProductos(ArrayList<Producto> listaProductos) {
         try {
 
             ObjectOutputStream escribirFichero = new ObjectOutputStream(new FileOutputStream(".\\src\\javapop\\datos\\listaProductos.dat"));
@@ -82,7 +82,7 @@ public class IOinfo implements Serializable{
             System.out.println("Error guardar Productos");// ESTO ES TEMPORAL, ARREGLALO PUTO VAGO
         }
     }
-    static ArrayList<Producto> leerListaProductos() {
+    public static ArrayList<Producto> leerListaProductos() {
         ArrayList<Producto> listaProductos = new ArrayList<Producto>();
         try {
             ObjectInputStream leerFicheros = new ObjectInputStream(new FileInputStream(".\\src\\javapop\\datos\\listaProductos.dat"));

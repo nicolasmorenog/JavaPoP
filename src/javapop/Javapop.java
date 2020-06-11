@@ -18,7 +18,7 @@ public class Javapop {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
         ArrayList<Cliente> listaClientes = new ArrayList();
         ArrayList<ClienteProfesional> listaClientesProfesionales = new ArrayList();
@@ -362,5 +362,5 @@ public class Javapop {
         System.out.println("final programa clientes profesionales" + listaClientesProfesionales);
         System.out.println("final programa productos" + listaProductos);
 
-    }
+    }*/
 }
