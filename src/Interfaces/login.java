@@ -59,6 +59,11 @@ public class login extends javax.swing.JFrame {
         usuario.setText("Introduzca su correo");
         usuario.setToolTipText("");
         usuario.setSelectionColor(new java.awt.Color(255, 125, 0));
+        usuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                usuarioFocusLost(evt);
+            }
+        });
         usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 usuarioMouseClicked(evt);
@@ -81,7 +86,7 @@ public class login extends javax.swing.JFrame {
         });
 
         IniSesion.setBackground(new java.awt.Color(255, 125, 0));
-        IniSesion.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        IniSesion.setFont(new java.awt.Font("Verdana", 0, 17)); // NOI18N
         IniSesion.setForeground(new java.awt.Color(255, 255, 255));
         IniSesion.setText("Iniciar sesión");
         IniSesion.setBorder(null);
@@ -141,6 +146,11 @@ public class login extends javax.swing.JFrame {
         registrate.setText("Regístrate");
         registrate.setBorder(null);
         registrate.setOpaque(false);
+        registrate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -219,6 +229,17 @@ public class login extends javax.swing.JFrame {
         IniSesion.setBackground(naran);
     }//GEN-LAST:event_IniSesionMouseReleased
 
+    private void usuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usuarioFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuarioFocusLost
+
+    private void registrateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrateActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new Register().setVisible(true);
+        
+    }//GEN-LAST:event_registrateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -251,15 +272,7 @@ public class login extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new login().setVisible(true);
-                ArrayList<Cliente> listaClientes = new ArrayList();
-                ArrayList<ClienteProfesional> listaClientesProfesionales = new ArrayList();
-                ArrayList<Producto> listaProductos = new ArrayList();
-
-                listaClientes = IOinfo.leerListaClientes();
-                listaClientesProfesionales = IOinfo.leerListaClientesProfesionales();
-                listaProductos = IOinfo.leerListaProductos();
-
-                System.out.println("Hola");
+                
             }
         });
     }
