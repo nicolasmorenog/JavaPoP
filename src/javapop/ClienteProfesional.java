@@ -42,20 +42,20 @@ public class ClienteProfesional extends Cliente implements Serializable {
     public ClienteProfesional(Cliente cliente, String descripcion, String horario,String telefono, String web) {
 
         super(cliente.getCorreo(), cliente.getClave(), cliente.getNombre(), cliente.getDni(), cliente.getTarjeta(), cliente.getUbicacion());
-        System.out.println("Introduce una descripción para tu perfil: ");
+        
         this.descripcion=descripcion;
         this.horario=horario;
-        System.out.println("Introduce un numero de telefono: ");
+        
         this.telefono=telefono;
-        System.out.println("Introduce una pagina web: ");
+        
         this.web=web;
         
         
     }
     //constructor de entrada
-    public ClienteProfesional(ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales) {
+    public ClienteProfesional() {
         
-        super(listaClientes, listaClientesProfesionales);
+        super();
         System.out.println("Introduce una descripción para tu perfil: ");
         setDescripcion();
         setHorario();

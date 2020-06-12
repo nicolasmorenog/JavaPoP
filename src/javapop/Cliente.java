@@ -34,9 +34,9 @@ public class Cliente implements Serializable {
     }
 
     //constructor entradas
-    public Cliente(ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales) {
+    public Cliente() {
         System.out.println("Introduzca el correo electronico: ");
-        setCorreo(listaClientes, listaClientesProfesionales);
+        setCorreo();
         System.out.println("Introduzca la clave: ");
         setClave();
         System.out.println("Introduzca el nombre: ");
@@ -91,7 +91,7 @@ public class Cliente implements Serializable {
         this.correo = correo;
     }
 
-    public void setCorreo(ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales) {
+    public void setCorreo() {
         // Patrón para validar el email
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
@@ -104,7 +104,7 @@ public class Cliente implements Serializable {
                 Matcher mather = pattern.matcher(email);
 
                 if (mather.find()) {
-                    correcto = Aplicacion.correoApto(listaClientes, listaClientesProfesionales, email);
+                    correcto = Aplicacion.correoApto(email);
                     if (correcto) {
                         this.correo = email;
                     } else {

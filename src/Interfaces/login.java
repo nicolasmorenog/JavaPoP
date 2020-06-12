@@ -6,11 +6,18 @@
 package Interfaces;
 
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import javapop.Admin;
+import static javapop.Aplicacion.buscarCorreo;
 import javapop.Cliente;
 import javapop.ClienteProfesional;
 import javapop.IOinfo;
 import javapop.Producto;
+import static javapop.Variables.*;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -24,7 +31,7 @@ public class login extends javax.swing.JFrame {
     public login() {
 
         initComponents();
-        contraseña.setEchoChar((char) 0);
+        clave.setEchoChar((char) 0);
 
     }
 
@@ -39,8 +46,8 @@ public class login extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         loginPanel = new javax.swing.JPanel();
-        usuario = new javax.swing.JTextField();
-        contraseña = new javax.swing.JPasswordField();
+        correo = new javax.swing.JTextField();
+        clave = new javax.swing.JPasswordField();
         IniSesion = new javax.swing.JButton();
         errorCorreo = new javax.swing.JLabel();
         errorContra = new javax.swing.JLabel();
@@ -51,37 +58,47 @@ public class login extends javax.swing.JFrame {
         setTitle("Login");
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                formKeyTyped(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/LogoJavapop.png"))); // NOI18N
 
-        usuario.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
-        usuario.setForeground(new java.awt.Color(153, 153, 153));
-        usuario.setText("Introduzca su correo");
-        usuario.setToolTipText("");
-        usuario.setSelectionColor(new java.awt.Color(255, 125, 0));
-        usuario.addFocusListener(new java.awt.event.FocusAdapter() {
+        correo.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
+        correo.setForeground(new java.awt.Color(153, 153, 153));
+        correo.setText("Introduzca su correo");
+        correo.setToolTipText("");
+        correo.setSelectionColor(new java.awt.Color(255, 125, 0));
+        correo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                usuarioFocusLost(evt);
+                correoFocusLost(evt);
             }
         });
-        usuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        correo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                usuarioMouseClicked(evt);
+                correoMouseClicked(evt);
             }
         });
 
-        contraseña.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
-        contraseña.setForeground(new java.awt.Color(153, 153, 153));
-        contraseña.setText("Introduzca su contraseña");
-        contraseña.setSelectionColor(new java.awt.Color(255, 125, 0));
-        contraseña.addMouseListener(new java.awt.event.MouseAdapter() {
+        clave.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
+        clave.setForeground(new java.awt.Color(153, 153, 153));
+        clave.setText("Introduzca su contraseña");
+        clave.setSelectionColor(new java.awt.Color(255, 125, 0));
+        clave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                contraseñaMouseClicked(evt);
+                claveMouseClicked(evt);
             }
         });
-        contraseña.addActionListener(new java.awt.event.ActionListener() {
+        clave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contraseñaActionPerformed(evt);
+                claveActionPerformed(evt);
             }
         });
 
@@ -117,8 +134,8 @@ public class login extends javax.swing.JFrame {
                     .addComponent(errorCorreo)
                     .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(IniSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(clave, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(48, 48, 48))
         );
         loginPanelLayout.setVerticalGroup(
@@ -127,11 +144,11 @@ public class login extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addComponent(errorCorreo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(errorContra)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(clave, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(IniSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -189,68 +206,135 @@ public class login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuarioMouseClicked
+    private void correoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_correoMouseClicked
         // TODO add your handling code here:
-        if (usuario.getText().equals("Introduzca su correo")) {
-            usuario.setText("");
-            usuario.setForeground(Color.black);
+        if (correo.getText().equals("Introduzca su correo")) {
+            correo.setText("");
+            correo.setForeground(Color.black);
         }
-    }//GEN-LAST:event_usuarioMouseClicked
+    }//GEN-LAST:event_correoMouseClicked
 
-    private void contraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñaActionPerformed
+    private void claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_claveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_contraseñaActionPerformed
+    }//GEN-LAST:event_claveActionPerformed
 
-    private void contraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contraseñaMouseClicked
+    private void claveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_claveMouseClicked
         // TODO add your handling code here:
-        String pass = new String(contraseña.getPassword());
+        String pass = new String(clave.getPassword());
         if (pass.equals("Introduzca su contraseña")) {
-            contraseña.setText("");
-            contraseña.setForeground(Color.black);
-            contraseña.setEchoChar('•');
+            clave.setText("");
+            clave.setForeground(Color.black);
+            clave.setEchoChar('•');
         }
-    }//GEN-LAST:event_contraseñaMouseClicked
+    }//GEN-LAST:event_claveMouseClicked
 
     private void IniSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniSesionActionPerformed
         // TODO add your handling code here:
         
+       try {
+            errorContra.setText("");
+            errorCorreo.setText("");
+            String textCorreo = correo.getText();
+            
+            String textClave = new String(clave.getPassword());
+
+            Object user = buscarCorreo(textCorreo);
+            if (user instanceof ClienteProfesional) {
+                usuario = user;
+                if (textClave.equals(((ClienteProfesional) usuario).getClave())) {
+                    new PagClienteProfesional().setVisible(true);
+                    this.dispose();
+                    JOptionPane.showMessageDialog(this, "Ha iniciado sesión como Cliente Profesional.");
+                    
+                } else {
+                    errorContra.setText("La contraseña es incorrecta");
+                    
+                }
+            } else if (user instanceof Cliente) {
+                usuario = user;
+                if (textClave.equals(((Cliente) usuario).getClave())) {
+                    new PagCliente().setVisible(true);
+                    this.dispose();
+                    JOptionPane.showMessageDialog(this, "Ha iniciado sesión como Cliente.");
+                    
+                } else {
+                    errorContra.setText("La contraseña es incorrecta");
+                    
+                }
+            } else if (user instanceof Admin) {
+                usuario = user;
+                if (textClave.equals(((Admin) usuario).getClave())) {
+                    new PagAdmin().setVisible(true);
+                    this.dispose();
+                    JOptionPane.showMessageDialog(this, "Ha iniciado sesión como Admin.");
+                    
+                } else {
+                    errorContra.setText("La contraseña es incorrecta");
+                    
+                }
+            } else {
+                errorCorreo.setText("El correo indicado no esta asociado a ninguna cuenta de usuario.");
+                
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,"Ha surgido un error: " + e.toString());
+            
+        }
+
     }//GEN-LAST:event_IniSesionActionPerformed
 
     private void IniSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IniSesionMousePressed
         // TODO add your handling code here:
-        Color naran = new Color(255,160,0);
+        Color naran = new Color(255, 160, 0);
         IniSesion.setBackground(naran);
     }//GEN-LAST:event_IniSesionMousePressed
 
     private void IniSesionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IniSesionMouseReleased
         // TODO add your handling code here:
-        
-        Color naran = new Color(255,125,0);
+
+        Color naran = new Color(255, 125, 0);
         IniSesion.setBackground(naran);
     }//GEN-LAST:event_IniSesionMouseReleased
 
-    private void usuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usuarioFocusLost
+    private void correoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_correoFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_usuarioFocusLost
+    }//GEN-LAST:event_correoFocusLost
 
     private void registrateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrateActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+
         new Register().setVisible(true);
-        
+        this.dispose();
+
     }//GEN-LAST:event_registrateActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        IOinfo.guardarClientesProfesionales(listaClientesProfesionales);
+        IOinfo.guardarClientes(listaClientes);
+        IOinfo.guardarProductos(listaProductos);
+
+        System.out.println("final programa" + listaClientes);
+        System.out.println("final programa clientes profesionales" + listaClientesProfesionales);
+        System.out.println("final programa productos" + listaProductos);
+    }//GEN-LAST:event_formWindowClosing
+
+    private void formKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formKeyTyped
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    //public static void main(String args[]) {
+    /* Set the Nimbus look and feel */
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+     */
 
-        try {
+ /*try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
@@ -269,23 +353,25 @@ public class login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+ /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new login().setVisible(true);
-                
+
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton IniSesion;
     private javax.swing.JLabel NuevoJavaPop;
-    private javax.swing.JPasswordField contraseña;
+    private javax.swing.JPasswordField clave;
+    private javax.swing.JTextField correo;
     private javax.swing.JLabel errorContra;
     private javax.swing.JLabel errorCorreo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JButton registrate;
-    private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
+
+    
 }

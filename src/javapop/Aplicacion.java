@@ -9,6 +9,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.util.ArrayList;
+import static javapop.Variables.listaClientes;
+import static javapop.Variables.listaClientesProfesionales;
 
 /**
  *
@@ -16,18 +18,20 @@ import java.util.ArrayList;
  */
 public class Aplicacion implements Serializable {
 
-    public static Object buscarCorreo(ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales, String correo) {
+    public static Object buscarCorreo(String correo) {
 
-        for (Cliente cliente : listaClientes) {
-            if (correo.equals(cliente.getCorreo())) {
-                return cliente;
-            }
-        }
         for (ClienteProfesional clienteProfesional : listaClientesProfesionales) {
             if (correo.equals(clienteProfesional.getCorreo())) {
                 return clienteProfesional;
             }
         }
+        
+        for (Cliente cliente : listaClientes) {
+            if (correo.equals(cliente.getCorreo())) {
+                return cliente;
+            }
+        }
+        
         Admin admin = new Admin();
         if (correo.equals(admin.getCorreo())) {
             return admin;
@@ -37,8 +41,8 @@ public class Aplicacion implements Serializable {
         return obj;
     }
 
-    public static boolean correoApto(ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales, String correo) {
-        Object user = buscarCorreo(listaClientes, listaClientesProfesionales, correo);
+    public static boolean correoApto(String correo) {
+        Object user = buscarCorreo(correo);
         if (user instanceof Cliente || user instanceof ClienteProfesional || user instanceof Admin) {
             return false;
         }
@@ -57,7 +61,7 @@ public class Aplicacion implements Serializable {
         return obj;
     }
 
-    public static Object login(ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales) {
+    public static Object login() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         try {
             System.out.println("Introduce el correo: ");
@@ -65,7 +69,7 @@ public class Aplicacion implements Serializable {
             System.out.println("Introduce la clave: ");
             String contraseña = entrada.readLine();
 
-            Object user = buscarCorreo(listaClientes, listaClientesProfesionales, correo);
+            Object user = buscarCorreo(correo);
             if (user instanceof Cliente) {
                 Cliente cliente = (Cliente) user;
                 if (contraseña.equals(cliente.getClave())) {
@@ -101,21 +105,21 @@ public class Aplicacion implements Serializable {
         }
     }
 
-    public static void registrarseCliente(ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales) {
+    public static void registrarseCliente() {
 
-        Cliente c1 = new Cliente(listaClientes, listaClientesProfesionales);
+        Cliente c1 = new Cliente();
         listaClientes.add(c1);
         System.out.println("El registro se ha llevado a cabo con exito.");
 
     }
 
-    public static void registrarseClienteProfesional(ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales) {
-        ClienteProfesional cp1 = new ClienteProfesional(listaClientes, listaClientesProfesionales);
+    public static void registrarseClienteProfesional() {
+        ClienteProfesional cp1 = new ClienteProfesional();
         listaClientesProfesionales.add(cp1);
         System.out.println("El registro se ha llevado a cabo con exito.");
     }
     
-    public static void altaClienteProfesional(Cliente cliente, ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales){
+    public static void altaClienteProfesional(Cliente cliente){
        
         ClienteProfesional cp1 = new ClienteProfesional(cliente);   
        
