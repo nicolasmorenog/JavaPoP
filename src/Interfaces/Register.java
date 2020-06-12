@@ -122,7 +122,7 @@ public class Register extends javax.swing.JFrame {
         profesional.setText("Cliente Profesional");
 
         try {
-            telefono.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("+34 #########")));
+            telefono.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("+34 ### ### ###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
