@@ -29,6 +29,26 @@ public class Main {
         System.out.println("comienzo programa clientes size" + listaClientes.size());
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
         // TODO code application logic here
         /* Set the Nimbus look and feel */
