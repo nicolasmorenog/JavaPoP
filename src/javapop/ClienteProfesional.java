@@ -121,6 +121,23 @@ public class ClienteProfesional extends Cliente implements Serializable {
         this.telefono = telefono;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public String getWeb() {
+        return web;
+    }
+    
+
     public void setTelefono() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         boolean correcto = false;

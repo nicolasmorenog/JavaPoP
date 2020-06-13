@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.util.ArrayList;
 import static javapop.Variables.listaClientes;
-import static javapop.Variables.listaClientesProfesionales;
+
 
 /**
  *
@@ -20,11 +20,11 @@ public class Aplicacion implements Serializable {
 
     public static Object buscarCorreo(String correo) {
 
-        for (ClienteProfesional clienteProfesional : listaClientesProfesionales) {
+        /*for (ClienteProfesional clienteProfesional : listaClientesProfesionales) {
             if (correo.equals(clienteProfesional.getCorreo())) {
                 return clienteProfesional;
             }
-        }
+        }*/
         
         for (Cliente cliente : listaClientes) {
             if (correo.equals(cliente.getCorreo())) {
@@ -115,7 +115,8 @@ public class Aplicacion implements Serializable {
 
     public static void registrarseClienteProfesional() {
         ClienteProfesional cp1 = new ClienteProfesional();
-        listaClientesProfesionales.add(cp1);
+        //listaClientesProfesionales.add(cp1);
+        listaClientes.add(cp1);
         System.out.println("El registro se ha llevado a cabo con exito.");
     }
     
@@ -125,16 +126,17 @@ public class Aplicacion implements Serializable {
        
         listaClientes.remove(cliente);
         
-        listaClientesProfesionales.add(cp1);
+        listaClientes.add(cp1);
         
         System.out.println("Se ha dado de alta como cliente profesional con exito.");
         
     }
     
-    public static void bajaClienteProfesional(ClienteProfesional clientepro, ArrayList<Cliente> listaClientes, ArrayList<ClienteProfesional> listaClientesProfesionales){
+    public static void bajaClienteProfesional(ClienteProfesional clientepro){
         Cliente c1 = new Cliente(clientepro);   
        
-        listaClientesProfesionales.remove(clientepro);
+        //listaClientesProfesionales.remove(clientepro);
+        listaClientes.remove(clientepro);
         
         listaClientes.add(c1);
         

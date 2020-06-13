@@ -41,7 +41,7 @@ public class IOinfo implements Serializable{
 
     }
 
-    public static void guardarClientesProfesionales(ArrayList<ClienteProfesional> listaClientesProfesionales) {
+    /*public static void guardarClientesProfesionales(ArrayList<ClienteProfesional> listaClientesProfesionales) {
         try {
 
             ObjectOutputStream escribirFichero = new ObjectOutputStream(new FileOutputStream(".\\src\\javapop\\datos\\listaClientesProfesionales.dat"));
@@ -70,7 +70,7 @@ public class IOinfo implements Serializable{
             return listaClientesProfesionales;
         }
 
-    }
+    }*/
     public static void guardarProductos(ArrayList<Producto> listaProductos) {
         try {
 

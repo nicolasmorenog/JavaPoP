@@ -23,12 +23,12 @@ import javax.swing.JOptionPane;
  *
  * @author Jesus
  */
-public class login extends javax.swing.JFrame {
+public class LoginP extends javax.swing.JFrame {
 
     /**
      * Creates new form login
      */
-    public login() {
+    public LoginP() {
 
         initComponents();
         clave.setEchoChar((char) 0);
@@ -53,6 +53,7 @@ public class login extends javax.swing.JFrame {
         errorContra = new javax.swing.JLabel();
         NuevoJavaPop = new javax.swing.JLabel();
         registrate = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -163,9 +164,21 @@ public class login extends javax.swing.JFrame {
         registrate.setText("Regístrate");
         registrate.setBorder(null);
         registrate.setOpaque(false);
+        registrate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                registrateMouseEntered(evt);
+            }
+        });
         registrate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registrateActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("admin");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -180,7 +193,9 @@ public class login extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addGap(15, 15, 15))
             .addGroup(layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(NuevoJavaPop)
@@ -192,7 +207,9 @@ public class login extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(59, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addGap(18, 18, 18)
                 .addComponent(loginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
@@ -301,28 +318,37 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_correoFocusLost
 
-    private void registrateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrateActionPerformed
-        // TODO add your handling code here:
-
-        new Register().setVisible(true);
-        this.dispose();
-
-    }//GEN-LAST:event_registrateActionPerformed
-
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-        IOinfo.guardarClientesProfesionales(listaClientesProfesionales);
+        //IOinfo.guardarClientesProfesionales(listaClientesProfesionales);
         IOinfo.guardarClientes(listaClientes);
         IOinfo.guardarProductos(listaProductos);
 
         System.out.println("final programa" + listaClientes);
-        System.out.println("final programa clientes profesionales" + listaClientesProfesionales);
+       // System.out.println("final programa clientes profesionales" + listaClientesProfesionales);
         System.out.println("final programa productos" + listaProductos);
     }//GEN-LAST:event_formWindowClosing
 
     private void formKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_formKeyTyped
+
+    private void registrateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrateMouseEntered
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_registrateMouseEntered
+
+    private void registrateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrateActionPerformed
+        // TODO add your handling code here:
+        new Register().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_registrateActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new PagAdmin().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -342,20 +368,20 @@ public class login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
  /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new login().setVisible(true);
+                new LoginP().setVisible(true);
 
             }
         });
@@ -368,6 +394,7 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JTextField correo;
     private javax.swing.JLabel errorContra;
     private javax.swing.JLabel errorCorreo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JButton registrate;

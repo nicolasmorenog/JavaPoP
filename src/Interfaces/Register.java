@@ -33,6 +33,7 @@ public class Register extends javax.swing.JFrame {
      */
     public Register() {
         initComponents();
+        
     }
 
     /**
@@ -485,7 +486,7 @@ public class Register extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        new login().setVisible(true);
+        new LoginP().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -571,7 +572,7 @@ public class Register extends javax.swing.JFrame {
 
         if (correcto && !profe) {
             listaClientes.add(cliente);
-            new login().setVisible(true);
+            new LoginP().setVisible(true);
             this.dispose();
         } else if (profe) { //String descripcion, String horario,String telefono, String web
 
@@ -594,8 +595,9 @@ public class Register extends javax.swing.JFrame {
             
             if (correcto2) {
                 ClienteProfesional clienteprof = new ClienteProfesional(cliente, descripcion.getText(), horarioAper.getText(), telefono.getText(), pagWeb.getText());
-                listaClientesProfesionales.add(clienteprof);
-                new login().setVisible(true);
+                //listaClientesProfesionales.add(clienteprof);
+                listaClientes.add(clienteprof);
+                new LoginP().setVisible(true);
                 this.dispose();
             }
         }
@@ -625,12 +627,12 @@ public class Register extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-        IOinfo.guardarClientesProfesionales(listaClientesProfesionales);
+        //IOinfo.guardarClientesProfesionales(listaClientesProfesionales);
         IOinfo.guardarClientes(listaClientes);
         IOinfo.guardarProductos(listaProductos);
 
         System.out.println("final programa" + listaClientes);
-        System.out.println("final programa clientes profesionales" + listaClientesProfesionales);
+        //System.out.println("final programa clientes profesionales" + listaClientesProfesionales);
         System.out.println("final programa productos" + listaProductos);
     }//GEN-LAST:event_formWindowClosing
 

@@ -21,12 +21,14 @@ public class Main {
         
 
         listaClientes = IOinfo.leerListaClientes();
-        listaClientesProfesionales = IOinfo.leerListaClientesProfesionales();
+        //listaClientesProfesionales = IOinfo.leerListaClientesProfesionales();
         listaProductos = IOinfo.leerListaProductos();
 
         System.out.println("comienzo programa clientes" + listaClientes);
-        System.out.println("comienzo programa clientes profesionales" + listaClientesProfesionales);
-        System.out.println("comienzo programa productos" + listaProductos);
+        //System.out.println("comienzo programa clientes profesionales" + listaClientesProfesionales);
+        System.out.println("comienzo programa clientes size" + listaClientes.size());
+        
+        
 
         // TODO code application logic here
         /* Set the Nimbus look and feel */
@@ -43,17 +45,17 @@ public class Main {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         
         
-        new login().setVisible(true);
+        new LoginP().setVisible(true);
         
 
     }
