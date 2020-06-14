@@ -114,6 +114,22 @@ public class Producto implements Serializable {
         }
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public String getEstadoProducto() {
+        return estadoProducto;
+    }
+
+    public String getFechaPublicacion() {
+        return fechaPublicacion;
+    }
+
+    public String getFotografia() {
+        return fotografia;
+    }
+    
     public String getTitulo() {
         return titulo;
     }

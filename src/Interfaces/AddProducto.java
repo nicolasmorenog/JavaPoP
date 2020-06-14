@@ -260,14 +260,14 @@ public class AddProducto extends javax.swing.JFrame {
         }
 
         FileSystem fileSys = FileSystems.getDefault();
-        File imgFolder = new File(".\\src\\javapop\\Imagenes\\");
+        File imgFolder = new File(".\\src\\javapop\\ImagenesProductos\\");
         File image = new File(direccionImg);
         String newAddress;
         boolean run = true;
         
         if (correcto) {
             while (run) {
-                newAddress = ".\\src\\javapop\\Imagenes\\" + nombreRandom(10) + "-" + image.getName();
+                newAddress = ".\\src\\javapop\\ImagenesProductos\\" + nombreRandom(10) + "-" + image.getName();
                 try {
                     Files.copy(fileSys.getPath(direccionImg), fileSys.getPath(newAddress), REPLACE_EXISTING);
                 } catch (IOException ex) {
@@ -279,7 +279,9 @@ public class AddProducto extends javax.swing.JFrame {
 
             }
             Producto producto = new Producto(titulop,categoriap,descripcionp,estadop, direccionImg, preciop,((Cliente)usuario).getUbicacion(),((Cliente)usuario),urgentep);
-            listaProductos.add(producto);
+            
+            ((Cliente)usuario).añadirProducto(producto);
+            this.dispose();
         }
 
         //(String titulo, String categoria, String descripcion, String estadoProducto, String fotografia, String precio, Ubicacion ubicacion, Cliente cliente, boolean urgente);

@@ -11,6 +11,7 @@ import java.util.*;
 import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import static javapop.Variables.*;
 
 public class Cliente implements Serializable {
 
@@ -20,7 +21,7 @@ public class Cliente implements Serializable {
     private String dni;
     private String tarjeta;
     private Ubicacion ubicacion;
-    private ArrayList<Producto> listaProductos;
+    private ArrayList<Producto> listaProductosC;
 
     //constructor normal
     public Cliente(String correo, String clave, String nombre, String dni, String tarjeta, Ubicacion ubicacion) {
@@ -30,7 +31,7 @@ public class Cliente implements Serializable {
         this.dni = dni;
         this.tarjeta = tarjeta;
         this.ubicacion = ubicacion;
-        this.listaProductos = new ArrayList<Producto>();
+        this.listaProductosC = new ArrayList<Producto>();
     }
 
     //constructor entradas
@@ -46,7 +47,7 @@ public class Cliente implements Serializable {
         System.out.println("Introduzca el numero de la tarjeta (un numero de 16 cifras): ");
         setTarjeta();
         this.ubicacion = new Ubicacion();
-        this.listaProductos = new ArrayList<Producto>();
+        this.listaProductosC = new ArrayList<Producto>();
 
     }
 
@@ -57,7 +58,7 @@ public class Cliente implements Serializable {
         clientepro.getDni();
         clientepro.getTarjeta();
         clientepro.getUbicacion();
-        this.listaProductos = new ArrayList<Producto>();
+        this.listaProductosC = new ArrayList<Producto>();
 
     }
 
@@ -201,29 +202,37 @@ public class Cliente implements Serializable {
     public void añadirProducto(ArrayList<Producto> listaProductosGlobal) {
 
         Producto producto = new Producto(this);
-        this.listaProductos.add(producto);
+        this.listaProductosC.add(producto);
         listaProductosGlobal.add(producto);
+
+    }
+
+    public void añadirProducto(Producto producto) {
+
+        
+        this.listaProductosC.add(producto);
+        listaProductos.add(producto);
 
     }
 
     public void eliminarProducto(ArrayList<Producto> listaProductosGlobal, Producto productoEliminar) {
 
-        this.listaProductos.remove(productoEliminar);
+        this.listaProductosC.remove(productoEliminar);
         listaProductosGlobal.remove(productoEliminar);
 
     }
 
     public ArrayList<Producto> getListaProductos() {
-        return listaProductos;
+        return listaProductosC;
     }
 
-    public void setListaProductos(ArrayList<Producto> listaProductos) {
-        this.listaProductos = listaProductos;
+    public void setListaProductos(ArrayList<Producto> listaProductosP) {
+        this.listaProductosC = listaProductosP;
     }
 
     @Override
     public String toString() {
-        return "Cliente{" + "correo=" + correo + ", clave=" + clave + ", nombre=" + nombre + ", dni=" + dni + ", tarjeta=" + tarjeta + ", ubicacion=" + ubicacion + ", listaProductos=" + listaProductos + '}';
+        return "Cliente{" + "correo=" + correo + ", clave=" + clave + ", nombre=" + nombre + ", dni=" + dni + ", tarjeta=" + tarjeta + ", ubicacion=" + ubicacion + ", listaProductos=" + listaProductosC + '}';
     }
 
 }
