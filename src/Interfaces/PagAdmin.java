@@ -56,38 +56,54 @@ public class PagAdmin extends javax.swing.JFrame {
         jP3.setVisible(false);
         jP2.setVisible(false);
         jP1.setVisible(false);
+        pape1.setVisible(false);
+        pape2.setVisible(false);
+        pape3.setVisible(false);
+        pape4.setVisible(false);
+        pape5.setVisible(false);
+        pape6.setVisible(false);
+        pape7.setVisible(false);
+        pape8.setVisible(false);
 
         if (productosMostrar.size() >= pp + 8) {
             rellenarPanel(jP8, productosMostrar.get(pp + 7));
             jP8.setVisible(true);
+            pape8.setVisible(true);
         }
         if (productosMostrar.size() >= pp + 7) {
             rellenarPanel(jP7, productosMostrar.get(pp + 6));
             jP7.setVisible(true);
+            pape7.setVisible(true);
         }
         if (productosMostrar.size() >= pp + 6) {
             rellenarPanel(jP6, productosMostrar.get(pp + 5));
             jP6.setVisible(true);
+            pape6.setVisible(true);
         }
         if (productosMostrar.size() >= pp + 5) {
             rellenarPanel(jP5, productosMostrar.get(pp + 4));
             jP5.setVisible(true);
+            pape5.setVisible(true);
         }
         if (productosMostrar.size() >= pp + 4) {
             rellenarPanel(jP4, productosMostrar.get(pp + 3));
             jP4.setVisible(true);
+            pape4.setVisible(true);
         }
         if (productosMostrar.size() >= pp + 3) {
             rellenarPanel(jP3, productosMostrar.get(pp + 2));
             jP3.setVisible(true);
+            pape3.setVisible(true);
         }
         if (productosMostrar.size() >= pp + 2) {
             rellenarPanel(jP2, productosMostrar.get(pp + 1));
             jP2.setVisible(true);
+            pape2.setVisible(true);
         }
         if (productosMostrar.size() >= pp + 1) {
             rellenarPanel(jP1, productosMostrar.get(pp));
             jP1.setVisible(true);
+            pape1.setVisible(true);
         }
 
     }
@@ -221,6 +237,57 @@ public class PagAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
+        adminProductos = new javax.swing.JPanel();
+        jP1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jP2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jP3 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jP4 = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jP6 = new javax.swing.JPanel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jP8 = new javax.swing.JPanel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jP5 = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jP7 = new javax.swing.JPanel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        pape8 = new javax.swing.JButton();
+        pape1 = new javax.swing.JButton();
+        pape2 = new javax.swing.JButton();
+        pape3 = new javax.swing.JButton();
+        pape4 = new javax.swing.JButton();
+        pape5 = new javax.swing.JButton();
+        pape6 = new javax.swing.JButton();
+        pape7 = new javax.swing.JButton();
         adminClientes = new javax.swing.JPanel();
         listaClientesPanel = new javax.swing.JPanel();
         jPanelc1 = new javax.swing.JPanel();
@@ -292,57 +359,7 @@ public class PagAdmin extends javax.swing.JFrame {
         dniError = new javax.swing.JLabel();
         tarjetaError = new javax.swing.JLabel();
         codigoPostalError = new javax.swing.JLabel();
-        adminProductos = new javax.swing.JPanel();
-        jP1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jP2 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jP3 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jP4 = new javax.swing.JPanel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jP6 = new javax.swing.JPanel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jP8 = new javax.swing.JPanel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jP5 = new javax.swing.JPanel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jP7 = new javax.swing.JPanel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         TopPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -358,6 +375,251 @@ public class PagAdmin extends javax.swing.JFrame {
         });
 
         jPanel3.setLayout(new java.awt.CardLayout());
+
+        adminProductos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jP1.setBackground(new java.awt.Color(255, 255, 255));
+        jP1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP1.setForeground(new java.awt.Color(255, 125, 0));
+        jP1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel4.setText("jLabel4");
+        jP1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel5.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel5.setText("jLabel4");
+        jP1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel6.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel6.setText("jLabel4");
+        jP1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 11, -1, 296));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/flechaderecha100.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        adminProductos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 50, 88, 550));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/flechaIzquierda100.png"))); // NOI18N
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        adminProductos.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, 86, 570));
+
+        jP2.setBackground(new java.awt.Color(255, 255, 255));
+        jP2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP2.setForeground(new java.awt.Color(255, 125, 0));
+        jP2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel8.setText("jLabel4");
+        jP2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel9.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel9.setText("jLabel4");
+        jP2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel10.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel10.setText("jLabel4");
+        jP2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP2, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 11, -1, 296));
+
+        jP3.setBackground(new java.awt.Color(255, 255, 255));
+        jP3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP3.setForeground(new java.awt.Color(255, 125, 0));
+        jP3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel12.setText("jLabel4");
+        jP3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel13.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel13.setText("jLabel4");
+        jP3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel25.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel25.setText("jLabel4");
+        jP3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP3, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 11, -1, 296));
+
+        jP4.setBackground(new java.awt.Color(255, 255, 255));
+        jP4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP4.setForeground(new java.awt.Color(255, 125, 0));
+        jP4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel27.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel27.setText("jLabel4");
+        jP4.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel28.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel28.setText("jLabel4");
+        jP4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel29.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel29.setText("jLabel4");
+        jP4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 11, -1, 296));
+
+        jP6.setBackground(new java.awt.Color(255, 255, 255));
+        jP6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP6.setForeground(new java.awt.Color(255, 125, 0));
+        jP6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel31.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel31.setText("jLabel4");
+        jP6.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel32.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel32.setText("jLabel4");
+        jP6.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel33.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel33.setText("jLabel4");
+        jP6.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP6.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP6, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 313, -1, 296));
+
+        jP8.setBackground(new java.awt.Color(255, 255, 255));
+        jP8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP8.setForeground(new java.awt.Color(255, 125, 0));
+        jP8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel35.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel35.setText("jLabel4");
+        jP8.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel36.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel36.setText("jLabel4");
+        jP8.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel37.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel37.setText("jLabel4");
+        jP8.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP8.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP8, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 313, -1, 296));
+
+        jP5.setBackground(new java.awt.Color(255, 255, 255));
+        jP5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP5.setForeground(new java.awt.Color(255, 125, 0));
+        jP5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel39.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel39.setText("jLabel4");
+        jP5.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel40.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel40.setText("jLabel4");
+        jP5.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel41.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel41.setText("jLabel4");
+        jP5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP5, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 313, -1, 296));
+
+        jP7.setBackground(new java.awt.Color(255, 255, 255));
+        jP7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP7.setForeground(new java.awt.Color(255, 125, 0));
+        jP7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel43.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel43.setText("jLabel4");
+        jP7.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel44.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel44.setText("jLabel4");
+        jP7.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel45.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel45.setText("jLabel4");
+        jP7.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP7.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP7, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 313, -1, 296));
+
+        pape8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        pape8.setBorder(null);
+        pape8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pape8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pape8ActionPerformed(evt);
+            }
+        });
+        adminProductos.add(pape8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 310, 20, -1));
+
+        pape1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        pape1.setBorder(null);
+        pape1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pape1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pape1ActionPerformed(evt);
+            }
+        });
+        adminProductos.add(pape1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 20, -1));
+
+        pape2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        pape2.setBorder(null);
+        pape2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        adminProductos.add(pape2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, 20, -1));
+
+        pape3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        pape3.setBorder(null);
+        pape3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        adminProductos.add(pape3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 20, -1));
+
+        pape4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        pape4.setBorder(null);
+        pape4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        adminProductos.add(pape4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, 20, -1));
+
+        pape5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        pape5.setBorder(null);
+        pape5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        adminProductos.add(pape5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 20, -1));
+
+        pape6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        pape6.setBorder(null);
+        pape6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pape6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pape6ActionPerformed(evt);
+            }
+        });
+        adminProductos.add(pape6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 310, 20, -1));
+
+        pape7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        pape7.setBorder(null);
+        pape7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        adminProductos.add(pape7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 20, -1));
+
+        jPanel3.add(adminProductos, "card2");
 
         listaClientesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -443,6 +705,11 @@ public class PagAdmin extends javax.swing.JFrame {
 
         jPanelc3.setBackground(new java.awt.Color(255, 255, 255));
         jPanelc3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelc3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelc3MouseClicked(evt);
+            }
+        });
         jPanelc3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         numero3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -459,6 +726,14 @@ public class PagAdmin extends javax.swing.JFrame {
         jButton6.setText("Eliminar");
         jButton6.setBorder(null);
         jButton6.setOpaque(false);
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton6MouseExited(evt);
+            }
+        });
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -714,7 +989,7 @@ public class PagAdmin extends javax.swing.JFrame {
                     .addComponent(descripcionError1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         dni.setEditable(false);
@@ -804,52 +1079,63 @@ public class PagAdmin extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
-                            .addComponent(correoError))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(correo1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16)
-                            .addComponent(nombreError))
-                        .addGap(18, 18, 18)
-                        .addComponent(nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(claveError))
-                        .addGap(3, 3, 3)
-                        .addComponent(clave1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(ciudadError))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ciudad1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(dniError))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19)
-                            .addComponent(tarjetaError))
-                        .addGap(18, 18, 18)
-                        .addComponent(tarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel20)
-                            .addComponent(codigoPostalError))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(codigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(correoError))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(correo1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(nombreError))
+                .addGap(18, 18, 18)
+                .addComponent(nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(claveError))
+                .addGap(3, 3, 3)
+                .addComponent(clave1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(ciudadError))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ciudad1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(dniError))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(tarjetaError))
+                .addGap(18, 18, 18)
+                .addComponent(tarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(codigoPostalError))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(codigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel1.setBackground(new java.awt.Color(244, 184, 44));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 119, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout adminClientesLayout = new javax.swing.GroupLayout(adminClientes);
@@ -857,260 +1143,26 @@ public class PagAdmin extends javax.swing.JFrame {
         adminClientesLayout.setHorizontalGroup(
             adminClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adminClientesLayout.createSequentialGroup()
+                .addGap(0, 39, Short.MAX_VALUE)
                 .addComponent(listaClientesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addGap(31, 31, 31))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         adminClientesLayout.setVerticalGroup(
             adminClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adminClientesLayout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addGroup(adminClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(31, 31, 31)
+                .addGroup(adminClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(listaClientesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.add(adminClientes, "card4");
-
-        adminProductos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jP1.setBackground(new java.awt.Color(255, 255, 255));
-        jP1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP1.setForeground(new java.awt.Color(255, 125, 0));
-        jP1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jP1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel4.setText("jLabel4");
-        jP1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
-
-        jLabel5.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel5.setText("jLabel4");
-        jP1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
-
-        jLabel6.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel6.setText("jLabel4");
-        jP1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
-
-        adminProductos.add(jP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 11, -1, 296));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/flechaderecha100.png"))); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-        adminProductos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 50, 88, 550));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/flechaIzquierda100.png"))); // NOI18N
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
-        adminProductos.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, 86, 570));
-
-        jP2.setBackground(new java.awt.Color(255, 255, 255));
-        jP2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP2.setForeground(new java.awt.Color(255, 125, 0));
-        jP2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jP2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel8.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel8.setText("jLabel4");
-        jP2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
-
-        jLabel9.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel9.setText("jLabel4");
-        jP2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
-
-        jLabel10.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel10.setText("jLabel4");
-        jP2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
-
-        adminProductos.add(jP2, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 11, -1, 296));
-
-        jP3.setBackground(new java.awt.Color(255, 255, 255));
-        jP3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP3.setForeground(new java.awt.Color(255, 125, 0));
-        jP3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jP3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel12.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel12.setText("jLabel4");
-        jP3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
-
-        jLabel13.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel13.setText("jLabel4");
-        jP3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
-
-        jLabel25.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel25.setText("jLabel4");
-        jP3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
-
-        adminProductos.add(jP3, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 11, -1, 296));
-
-        jP4.setBackground(new java.awt.Color(255, 255, 255));
-        jP4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP4.setForeground(new java.awt.Color(255, 125, 0));
-        jP4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jP4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel27.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel27.setText("jLabel4");
-        jP4.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
-
-        jLabel28.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel28.setText("jLabel4");
-        jP4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
-
-        jLabel29.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel29.setText("jLabel4");
-        jP4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
-
-        adminProductos.add(jP4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 11, -1, 296));
-
-        jP6.setBackground(new java.awt.Color(255, 255, 255));
-        jP6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP6.setForeground(new java.awt.Color(255, 125, 0));
-        jP6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jP6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel31.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel31.setText("jLabel4");
-        jP6.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
-
-        jLabel32.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel32.setText("jLabel4");
-        jP6.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
-
-        jLabel33.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel33.setText("jLabel4");
-        jP6.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP6.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
-
-        adminProductos.add(jP6, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 313, -1, 296));
-
-        jP8.setBackground(new java.awt.Color(255, 255, 255));
-        jP8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP8.setForeground(new java.awt.Color(255, 125, 0));
-        jP8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jP8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel35.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel35.setText("jLabel4");
-        jP8.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
-
-        jLabel36.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel36.setText("jLabel4");
-        jP8.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
-
-        jLabel37.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel37.setText("jLabel4");
-        jP8.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP8.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
-
-        adminProductos.add(jP8, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 313, -1, 296));
-
-        jP5.setBackground(new java.awt.Color(255, 255, 255));
-        jP5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP5.setForeground(new java.awt.Color(255, 125, 0));
-        jP5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jP5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel39.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel39.setText("jLabel4");
-        jP5.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
-
-        jLabel40.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel40.setText("jLabel4");
-        jP5.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
-
-        jLabel41.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel41.setText("jLabel4");
-        jP5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
-
-        adminProductos.add(jP5, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 313, -1, 296));
-
-        jP7.setBackground(new java.awt.Color(255, 255, 255));
-        jP7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP7.setForeground(new java.awt.Color(255, 125, 0));
-        jP7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jP7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel43.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel43.setText("jLabel4");
-        jP7.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
-
-        jLabel44.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel44.setText("jLabel4");
-        jP7.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
-
-        jLabel45.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel45.setText("jLabel4");
-        jP7.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP7.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
-
-        adminProductos.add(jP7, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 313, -1, 296));
-
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
-        jButton10.setText("x");
-        jButton10.setBorder(null);
-        jButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        adminProductos.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 310, 30, -1));
-
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
-        jButton11.setText("x");
-        jButton11.setBorder(null);
-        jButton11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        adminProductos.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 30, -1));
-
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
-        jButton12.setText("x");
-        jButton12.setBorder(null);
-        jButton12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        adminProductos.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, 30, -1));
-
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
-        jButton13.setText("x");
-        jButton13.setBorder(null);
-        jButton13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        adminProductos.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 30, -1));
-
-        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
-        jButton14.setText("x");
-        jButton14.setBorder(null);
-        jButton14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        adminProductos.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, 30, -1));
-
-        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
-        jButton15.setText("x");
-        jButton15.setBorder(null);
-        jButton15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        adminProductos.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 30, -1));
-
-        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
-        jButton16.setText("x");
-        jButton16.setBorder(null);
-        jButton16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        adminProductos.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 310, 30, -1));
-
-        jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
-        jButton17.setText("x");
-        jButton17.setBorder(null);
-        jButton17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        adminProductos.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 30, -1));
-
-        jPanel3.add(adminProductos, "card2");
 
         TopPanel.setBackground(new java.awt.Color(244, 184, 44));
 
@@ -1141,7 +1193,7 @@ public class PagAdmin extends javax.swing.JFrame {
                 .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TopPanelLayout.createSequentialGroup()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 496, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(TopPanelLayout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1167,7 +1219,7 @@ public class PagAdmin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TopPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(TopPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1330,6 +1382,35 @@ public class PagAdmin extends javax.swing.JFrame {
         actualizarPag();
     }//GEN-LAST:event_jLabel3MouseClicked
 
+    private void pape8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pape8ActionPerformed
+
+    private void pape6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pape6ActionPerformed
+
+    private void pape1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pape1ActionPerformed
+
+    private void jButton6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseEntered
+        // TODO add your handling code here:
+        b6 = true;
+    }//GEN-LAST:event_jButton6MouseEntered
+
+    private void jButton6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseExited
+        // TODO add your handling code here:
+        b6 = false;
+    }//GEN-LAST:event_jButton6MouseExited
+
+    private void jPanelc3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelc3MouseClicked
+        // TODO add your handling code here:
+        if (!b5){
+            rellenarDatosCliente(listaClientes.get(p + 2));
+        }
+    }//GEN-LAST:event_jPanelc3MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1384,14 +1465,6 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField horarioAper1;
     private javax.swing.JLabel horarioError1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1455,6 +1528,7 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jP6;
     private javax.swing.JPanel jP7;
     private javax.swing.JPanel jP8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -1489,6 +1563,14 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel numero6;
     private javax.swing.JTextField pagWeb1;
     private javax.swing.JLabel pagWebError1;
+    private javax.swing.JButton pape1;
+    private javax.swing.JButton pape2;
+    private javax.swing.JButton pape3;
+    private javax.swing.JButton pape4;
+    private javax.swing.JButton pape5;
+    private javax.swing.JButton pape6;
+    private javax.swing.JButton pape7;
+    private javax.swing.JButton pape8;
     private javax.swing.JCheckBox profesional1;
     private javax.swing.JFormattedTextField tarjeta;
     private javax.swing.JLabel tarjetaError;
