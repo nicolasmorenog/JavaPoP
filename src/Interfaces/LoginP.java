@@ -16,6 +16,7 @@ import javapop.ClienteProfesional;
 import javapop.IOinfo;
 import javapop.Producto;
 import static javapop.Variables.*;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 
@@ -32,6 +33,7 @@ public class LoginP extends javax.swing.JFrame {
 
         initComponents();
         clave.setEchoChar((char) 0);
+        super.setIconImage(new ImageIcon("./javapop.Imagenes/LogoJavapop.png").getImage());
 
     }
 
@@ -306,7 +308,7 @@ public class LoginP extends javax.swing.JFrame {
                     
                 }
             } else {
-                errorCorreo.setText("El correo indicado no esta asociado a ninguna cuenta de usuario.");
+                errorCorreo.setText("El correo no está asociado a ninguna cuenta de usuario");
                 
             }
             

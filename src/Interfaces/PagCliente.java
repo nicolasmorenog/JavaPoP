@@ -35,6 +35,7 @@ public class PagCliente extends javax.swing.JFrame {
         initComponents();
         productosMostrar = listaProductos;
         actualizarPag();
+        super.setIconImage(new ImageIcon("./javapop.Imagenes/LogoJavapop.png").getImage());
     }
 
     public void actualizarPag() {
@@ -569,8 +570,6 @@ public class PagCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jP8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel21;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
