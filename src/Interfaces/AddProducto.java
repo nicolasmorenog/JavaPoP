@@ -281,6 +281,7 @@ public class AddProducto extends javax.swing.JFrame {
             Producto producto = new Producto(titulop,categoriap,descripcionp,estadop, direccionImg, preciop,((Cliente)usuario).getUbicacion(),((Cliente)usuario),urgentep);
             
             ((Cliente)usuario).añadirProducto(producto);
+            
             this.dispose();
         }
 

@@ -6,11 +6,18 @@
 package Interfaces;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Image;
+import java.util.ArrayList;
 import javapop.Cliente;
 import javapop.ClienteProfesional;
 import javapop.IOinfo;
+import javapop.Producto;
 import static javapop.Variables.listaClientes;
 import static javapop.Variables.listaProductos;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -19,26 +26,95 @@ import static javapop.Variables.listaProductos;
 public class PagAdmin extends javax.swing.JFrame {
 
     static int p;
-    boolean b4=false;
-    boolean b5=false;
-    boolean b6=false;
-    boolean b7=false;
-    boolean b8=false;
-    boolean b9=false;
+    boolean b4 = false;
+    boolean b5 = false;
+    boolean b6 = false;
+    boolean b7 = false;
+    boolean b8 = false;
+    boolean b9 = false;
 
     /**
      * Creates new form PagAdmin
      */
+    private ArrayList<Producto> productosMostrar;
+    private int pp = 0;
+
     public PagAdmin() {
         initComponents();
+        productosMostrar = listaProductos;
         p = 0;
         actualizarListaClientesPanel();
 
-        
-
     }
 
-    private void rellenarDatosCliente(Cliente cliente){
+    public void actualizarPag() {
+        jP8.setVisible(false);
+        jP7.setVisible(false);
+        jP6.setVisible(false);
+        jP5.setVisible(false);
+        jP4.setVisible(false);
+        jP3.setVisible(false);
+        jP2.setVisible(false);
+        jP1.setVisible(false);
+
+        if (productosMostrar.size() >= pp + 8) {
+            rellenarPanel(jP8, productosMostrar.get(pp + 7));
+            jP8.setVisible(true);
+        }
+        if (productosMostrar.size() >= pp + 7) {
+            rellenarPanel(jP7, productosMostrar.get(pp + 6));
+            jP7.setVisible(true);
+        }
+        if (productosMostrar.size() >= pp + 6) {
+            rellenarPanel(jP6, productosMostrar.get(pp + 5));
+            jP6.setVisible(true);
+        }
+        if (productosMostrar.size() >= pp + 5) {
+            rellenarPanel(jP5, productosMostrar.get(pp + 4));
+            jP5.setVisible(true);
+        }
+        if (productosMostrar.size() >= pp + 4) {
+            rellenarPanel(jP4, productosMostrar.get(pp + 3));
+            jP4.setVisible(true);
+        }
+        if (productosMostrar.size() >= pp + 3) {
+            rellenarPanel(jP3, productosMostrar.get(pp + 2));
+            jP3.setVisible(true);
+        }
+        if (productosMostrar.size() >= pp + 2) {
+            rellenarPanel(jP2, productosMostrar.get(pp + 1));
+            jP2.setVisible(true);
+        }
+        if (productosMostrar.size() >= pp + 1) {
+            rellenarPanel(jP1, productosMostrar.get(pp));
+            jP1.setVisible(true);
+        }
+
+    }
+        public void rellenarPanel(JPanel panel, Producto produc) { //Producto produc, 
+        Component[] components = panel.getComponents();
+
+        int cont = 0;
+        for (Component component : components) {
+            if (component.getClass().equals(JLabel.class) && cont == 0) {
+                ((JLabel) component).setText(produc.getPrecio() + " €");
+                cont++;
+            } else if (component.getClass().equals(JLabel.class) && cont == 1) {
+                ((JLabel) component).setText(produc.getTitulo());
+                cont++;
+            } else if (component.getClass().equals(JLabel.class) && cont == 2) {
+                ((JLabel) component).setText(produc.getDescripcion());
+                cont++;
+            } else if (component.getClass().equals(JLabel.class) && cont == 3) {
+                ImageIcon icon = new ImageIcon(produc.getFotografia());
+                Image resizedImage = icon.getImage().getScaledInstance(190, 190, java.awt.Image.SCALE_DEFAULT);
+                ((JLabel) component).setIcon(new ImageIcon(resizedImage));
+            }
+        }
+
+    } 
+
+    private void rellenarDatosCliente(Cliente cliente) {
         profesional1.setSelected(false);
         pagWeb1.setText("");
         horarioAper1.setText("");
@@ -51,17 +127,17 @@ public class PagAdmin extends javax.swing.JFrame {
         codigoPostal.setText(cliente.getUbicacion().getCodigoPostal());
         tarjeta.setText(cliente.getTarjeta());
         dni.setText(cliente.getDni());
-        if (cliente instanceof ClienteProfesional){
+        if (cliente instanceof ClienteProfesional) {
             profesional1.setSelected(true);
             pagWeb1.setText(((ClienteProfesional) cliente).getWeb());
             horarioAper1.setText(((ClienteProfesional) cliente).getHorario());
             telefono1.setText(((ClienteProfesional) cliente).getTelefono());
             descripcion1.setText(((ClienteProfesional) cliente).getDescripcion());
-            
+
         }
-        
+
     }
-    
+
     private void actualizarListaClientesPanel() {
         int longi = listaClientes.size();
 
@@ -145,7 +221,7 @@ public class PagAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
+        adminClientes = new javax.swing.JPanel();
         listaClientesPanel = new javax.swing.JPanel();
         jPanelc1 = new javax.swing.JPanel();
         numero1 = new javax.swing.JLabel();
@@ -216,6 +292,49 @@ public class PagAdmin extends javax.swing.JFrame {
         dniError = new javax.swing.JLabel();
         tarjetaError = new javax.swing.JLabel();
         codigoPostalError = new javax.swing.JLabel();
+        adminProductos = new javax.swing.JPanel();
+        jP1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jP2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jP3 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jP4 = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jP6 = new javax.swing.JPanel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jP8 = new javax.swing.JPanel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jP5 = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jP7 = new javax.swing.JPanel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
         TopPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -722,30 +841,220 @@ public class PagAdmin extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(codigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        javax.swing.GroupLayout adminClientesLayout = new javax.swing.GroupLayout(adminClientes);
+        adminClientes.setLayout(adminClientesLayout);
+        adminClientesLayout.setHorizontalGroup(
+            adminClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(adminClientesLayout.createSequentialGroup()
                 .addComponent(listaClientesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(33, 33, 33))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(listaClientesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+        adminClientesLayout.setVerticalGroup(
+            adminClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(adminClientesLayout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addGroup(adminClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(listaClientesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
-        jPanel3.add(jPanel6, "card4");
+        jPanel3.add(adminClientes, "card4");
+
+        adminProductos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jP1.setBackground(new java.awt.Color(255, 255, 255));
+        jP1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP1.setForeground(new java.awt.Color(255, 125, 0));
+        jP1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel4.setText("jLabel4");
+        jP1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel5.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel5.setText("jLabel4");
+        jP1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel6.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel6.setText("jLabel4");
+        jP1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 11, -1, 296));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/flechaderecha100.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        adminProductos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1034, 20, 88, 580));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/flechaIzquierda100.png"))); // NOI18N
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        adminProductos.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, 86, 570));
+
+        jP2.setBackground(new java.awt.Color(255, 255, 255));
+        jP2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP2.setForeground(new java.awt.Color(255, 125, 0));
+        jP2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel8.setText("jLabel4");
+        jP2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel9.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel9.setText("jLabel4");
+        jP2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel10.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel10.setText("jLabel4");
+        jP2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP2, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 11, -1, 296));
+
+        jP3.setBackground(new java.awt.Color(255, 255, 255));
+        jP3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP3.setForeground(new java.awt.Color(255, 125, 0));
+        jP3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel12.setText("jLabel4");
+        jP3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel13.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel13.setText("jLabel4");
+        jP3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel25.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel25.setText("jLabel4");
+        jP3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP3, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 11, -1, 296));
+
+        jP4.setBackground(new java.awt.Color(255, 255, 255));
+        jP4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP4.setForeground(new java.awt.Color(255, 125, 0));
+        jP4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel27.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel27.setText("jLabel4");
+        jP4.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel28.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel28.setText("jLabel4");
+        jP4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel29.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel29.setText("jLabel4");
+        jP4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 11, -1, 296));
+
+        jP6.setBackground(new java.awt.Color(255, 255, 255));
+        jP6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP6.setForeground(new java.awt.Color(255, 125, 0));
+        jP6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel31.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel31.setText("jLabel4");
+        jP6.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel32.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel32.setText("jLabel4");
+        jP6.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel33.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel33.setText("jLabel4");
+        jP6.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP6.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP6, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 313, -1, 296));
+
+        jP8.setBackground(new java.awt.Color(255, 255, 255));
+        jP8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP8.setForeground(new java.awt.Color(255, 125, 0));
+        jP8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel35.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel35.setText("jLabel4");
+        jP8.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel36.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel36.setText("jLabel4");
+        jP8.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel37.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel37.setText("jLabel4");
+        jP8.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP8.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP8, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 313, -1, 296));
+
+        jP5.setBackground(new java.awt.Color(255, 255, 255));
+        jP5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP5.setForeground(new java.awt.Color(255, 125, 0));
+        jP5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel39.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel39.setText("jLabel4");
+        jP5.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel40.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel40.setText("jLabel4");
+        jP5.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel41.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel41.setText("jLabel4");
+        jP5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP5, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 313, -1, 296));
+
+        jP7.setBackground(new java.awt.Color(255, 255, 255));
+        jP7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP7.setForeground(new java.awt.Color(255, 125, 0));
+        jP7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel43.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel43.setText("jLabel4");
+        jP7.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel44.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel44.setText("jLabel4");
+        jP7.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel45.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel45.setText("jLabel4");
+        jP7.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP7.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP7, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 313, -1, 296));
+
+        jPanel3.add(adminProductos, "card2");
 
         TopPanel.setBackground(new java.awt.Color(244, 184, 44));
 
@@ -776,7 +1085,7 @@ public class PagAdmin extends javax.swing.JFrame {
                 .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TopPanelLayout.createSequentialGroup()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 436, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 476, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(TopPanelLayout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -804,20 +1113,21 @@ public class PagAdmin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(TopPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1082, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(TopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(490, Short.MAX_VALUE))
+                .addContainerGap(642, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 145, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(136, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
 
-        setSize(new java.awt.Dimension(1098, 659));
+        setSize(new java.awt.Dimension(1138, 811));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -834,11 +1144,24 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
+        int selec = jComboBox1.getSelectedIndex();
+
+        if (selec == 0 && !adminClientes.isVisible()) {
+            adminClientes.setVisible(true);
+            actualizarListaClientesPanel();
+            adminProductos.setVisible(false);
+            //adminVentas.setVisible(false);
+        } else if (selec == 1 && !adminProductos.isVisible()) {
+            adminClientes.setVisible(false);
+            adminProductos.setVisible(true);
+            actualizarPag();
+            //adminVentas.setVisible(false);
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        if (p+6<listaClientes.size()) {
+        if (p + 6 < listaClientes.size()) {
             p += 6;
             actualizarListaClientesPanel();
         }
@@ -846,7 +1169,7 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if (p-6>=0) {
+        if (p - 6 >= 0) {
             p -= 6;
             actualizarListaClientesPanel();
         }
@@ -856,43 +1179,43 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         new LoginP().setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         listaClientes.remove(p);
         actualizarListaClientesPanel();
-        
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        listaClientes.remove(p+1);
+        listaClientes.remove(p + 1);
         actualizarListaClientesPanel();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        listaClientes.remove(p+2);
+        listaClientes.remove(p + 2);
         actualizarListaClientesPanel();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        listaClientes.remove(p+3);
+        listaClientes.remove(p + 3);
         actualizarListaClientesPanel();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        listaClientes.remove(p+4);
+        listaClientes.remove(p + 4);
         actualizarListaClientesPanel();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-        listaClientes.remove(p+5);
+        listaClientes.remove(p + 5);
         actualizarListaClientesPanel();
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -902,9 +1225,10 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void jPanelc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelc1MouseClicked
         // TODO add your handling code here:
-        if (!b4)
-        rellenarDatosCliente(listaClientes.get(p));
-        
+        if (!b4) {
+            rellenarDatosCliente(listaClientes.get(p));
+        }
+
     }//GEN-LAST:event_jPanelc1MouseClicked
 
     private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
@@ -929,10 +1253,26 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void jPanelc2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelc2MouseClicked
         // TODO add your handling code here:
-        if (!b5){
-            rellenarDatosCliente(listaClientes.get(p+1));
+        if (!b5) {
+            rellenarDatosCliente(listaClientes.get(p + 1));
         }
     }//GEN-LAST:event_jPanelc2MouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        if (pp + 8 < productosMostrar.size()) {
+            pp += 8;
+        }
+        actualizarPag();
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        if (pp - 8 >= 0) {
+            pp -= 8;
+        }
+        actualizarPag();
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -971,26 +1311,21 @@ public class PagAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel TopPanel;
-    private javax.swing.JTextField ciudad;
+    private javax.swing.JPanel adminClientes;
+    private javax.swing.JPanel adminProductos;
     private javax.swing.JTextField ciudad1;
     private javax.swing.JLabel ciudadError;
-    private javax.swing.JTextField clave;
     private javax.swing.JTextField clave1;
     private javax.swing.JLabel claveError;
     private javax.swing.JFormattedTextField codigoPostal;
     private javax.swing.JLabel codigoPostalError;
-    private javax.swing.JTextField correo;
     private javax.swing.JTextField correo1;
     private javax.swing.JLabel correoError;
-    private javax.swing.JTextArea descripcion;
     private javax.swing.JTextArea descripcion1;
-    private javax.swing.JLabel descripcionError;
     private javax.swing.JLabel descripcionError1;
     private javax.swing.JFormattedTextField dni;
     private javax.swing.JLabel dniError;
-    private javax.swing.JFormattedTextField horarioAper;
     private javax.swing.JFormattedTextField horarioAper1;
-    private javax.swing.JLabel horarioError;
     private javax.swing.JLabel horarioError1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1002,6 +1337,7 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1018,26 +1354,52 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jP1;
+    private javax.swing.JPanel jP2;
+    private javax.swing.JPanel jP3;
+    private javax.swing.JPanel jP4;
+    private javax.swing.JPanel jP5;
+    private javax.swing.JPanel jP6;
+    private javax.swing.JPanel jP7;
+    private javax.swing.JPanel jP8;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanelc1;
     private javax.swing.JPanel jPanelc2;
     private javax.swing.JPanel jPanelc3;
     private javax.swing.JPanel jPanelc4;
     private javax.swing.JPanel jPanelc5;
     private javax.swing.JPanel jPanelc6;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel jcorreoc1;
@@ -1053,7 +1415,6 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jnombrec5;
     private javax.swing.JLabel jnombrec6;
     private javax.swing.JPanel listaClientesPanel;
-    private javax.swing.JTextField nombre;
     private javax.swing.JTextField nombre1;
     private javax.swing.JLabel nombreError;
     private javax.swing.JLabel numero1;
@@ -1062,18 +1423,12 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel numero4;
     private javax.swing.JLabel numero5;
     private javax.swing.JLabel numero6;
-    private javax.swing.JTextField pagWeb;
     private javax.swing.JTextField pagWeb1;
-    private javax.swing.JLabel pagWebError;
     private javax.swing.JLabel pagWebError1;
-    private javax.swing.JCheckBox profesional;
     private javax.swing.JCheckBox profesional1;
-    private javax.swing.JButton registrarse;
     private javax.swing.JFormattedTextField tarjeta;
     private javax.swing.JLabel tarjetaError;
-    private javax.swing.JFormattedTextField telefono;
     private javax.swing.JFormattedTextField telefono1;
-    private javax.swing.JLabel telefonoError;
     private javax.swing.JLabel telefonoError1;
     // End of variables declaration//GEN-END:variables
 }
