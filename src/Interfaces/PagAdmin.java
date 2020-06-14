@@ -335,6 +335,14 @@ public class PagAdmin extends javax.swing.JFrame {
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
         TopPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -850,7 +858,7 @@ public class PagAdmin extends javax.swing.JFrame {
             adminClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adminClientesLayout.createSequentialGroup()
                 .addComponent(listaClientesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
         );
@@ -896,7 +904,7 @@ public class PagAdmin extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        adminProductos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1034, 20, 88, 580));
+        adminProductos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 50, 88, 550));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/flechaIzquierda100.png"))); // NOI18N
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1054,6 +1062,54 @@ public class PagAdmin extends javax.swing.JFrame {
 
         adminProductos.add(jP7, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 313, -1, 296));
 
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        jButton10.setText("x");
+        jButton10.setBorder(null);
+        jButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        adminProductos.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 310, 30, -1));
+
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        jButton11.setText("x");
+        jButton11.setBorder(null);
+        jButton11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        adminProductos.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 30, -1));
+
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        jButton12.setText("x");
+        jButton12.setBorder(null);
+        jButton12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        adminProductos.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, 30, -1));
+
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        jButton13.setText("x");
+        jButton13.setBorder(null);
+        jButton13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        adminProductos.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 30, -1));
+
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        jButton14.setText("x");
+        jButton14.setBorder(null);
+        jButton14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        adminProductos.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 10, 30, -1));
+
+        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        jButton15.setText("x");
+        jButton15.setBorder(null);
+        jButton15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        adminProductos.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 30, -1));
+
+        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        jButton16.setText("x");
+        jButton16.setBorder(null);
+        jButton16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        adminProductos.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 310, 30, -1));
+
+        jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        jButton17.setText("x");
+        jButton17.setBorder(null);
+        jButton17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        adminProductos.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 30, -1));
+
         jPanel3.add(adminProductos, "card2");
 
         TopPanel.setBackground(new java.awt.Color(244, 184, 44));
@@ -1085,7 +1141,7 @@ public class PagAdmin extends javax.swing.JFrame {
                 .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TopPanelLayout.createSequentialGroup()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 476, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 496, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(TopPanelLayout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1127,7 +1183,7 @@ public class PagAdmin extends javax.swing.JFrame {
                     .addContainerGap()))
         );
 
-        setSize(new java.awt.Dimension(1138, 811));
+        setSize(new java.awt.Dimension(1158, 811));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1328,6 +1384,14 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField horarioAper1;
     private javax.swing.JLabel horarioError1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
