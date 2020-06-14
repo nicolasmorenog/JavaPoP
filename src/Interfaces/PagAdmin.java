@@ -43,8 +43,9 @@ public class PagAdmin extends javax.swing.JFrame {
         initComponents();
         productosMostrar = listaProductos;
         p = 0;
+
         actualizarListaClientesPanel();
-        super.setIconImage(new ImageIcon("./javapop.Imagenes/LogoJavapop.png").getImage());
+
     }
 
     public void actualizarPag() {
@@ -250,57 +251,6 @@ public class PagAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        adminProductos = new javax.swing.JPanel();
-        jP1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jP2 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jP3 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jP4 = new javax.swing.JPanel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jP6 = new javax.swing.JPanel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jP8 = new javax.swing.JPanel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jP5 = new javax.swing.JPanel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jP7 = new javax.swing.JPanel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        pape8 = new javax.swing.JButton();
-        pape1 = new javax.swing.JButton();
-        pape2 = new javax.swing.JButton();
-        pape3 = new javax.swing.JButton();
-        pape4 = new javax.swing.JButton();
-        pape5 = new javax.swing.JButton();
-        pape6 = new javax.swing.JButton();
-        pape7 = new javax.swing.JButton();
         adminClientes = new javax.swing.JPanel();
         listaClientesPanel = new javax.swing.JPanel();
         jPanelc1 = new javax.swing.JPanel();
@@ -373,6 +323,57 @@ public class PagAdmin extends javax.swing.JFrame {
         tarjetaError = new javax.swing.JLabel();
         codigoPostalError = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        adminProductos = new javax.swing.JPanel();
+        jP1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jP2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jP3 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jP4 = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jP6 = new javax.swing.JPanel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jP8 = new javax.swing.JPanel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jP5 = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jP7 = new javax.swing.JPanel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        pape8 = new javax.swing.JButton();
+        pape1 = new javax.swing.JButton();
+        pape2 = new javax.swing.JButton();
+        pape3 = new javax.swing.JButton();
+        pape4 = new javax.swing.JButton();
+        pape5 = new javax.swing.JButton();
+        pape6 = new javax.swing.JButton();
+        pape7 = new javax.swing.JButton();
         TopPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -388,251 +389,6 @@ public class PagAdmin extends javax.swing.JFrame {
         });
 
         jPanel3.setLayout(new java.awt.CardLayout());
-
-        adminProductos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jP1.setBackground(new java.awt.Color(255, 255, 255));
-        jP1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP1.setForeground(new java.awt.Color(255, 125, 0));
-        jP1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jP1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel4.setText("jLabel4");
-        jP1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
-
-        jLabel5.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel5.setText("jLabel4");
-        jP1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
-
-        jLabel6.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel6.setText("jLabel4");
-        jP1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
-
-        adminProductos.add(jP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 11, -1, 296));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/flechaderecha100.png"))); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-        adminProductos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 50, 88, 550));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/flechaIzquierda100.png"))); // NOI18N
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
-        adminProductos.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, 86, 570));
-
-        jP2.setBackground(new java.awt.Color(255, 255, 255));
-        jP2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP2.setForeground(new java.awt.Color(255, 125, 0));
-        jP2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jP2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel8.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel8.setText("jLabel4");
-        jP2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
-
-        jLabel9.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel9.setText("jLabel4");
-        jP2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
-
-        jLabel10.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel10.setText("jLabel4");
-        jP2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
-
-        adminProductos.add(jP2, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 11, -1, 296));
-
-        jP3.setBackground(new java.awt.Color(255, 255, 255));
-        jP3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP3.setForeground(new java.awt.Color(255, 125, 0));
-        jP3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jP3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel12.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel12.setText("jLabel4");
-        jP3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
-
-        jLabel13.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel13.setText("jLabel4");
-        jP3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
-
-        jLabel25.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel25.setText("jLabel4");
-        jP3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
-
-        adminProductos.add(jP3, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 11, -1, 296));
-
-        jP4.setBackground(new java.awt.Color(255, 255, 255));
-        jP4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP4.setForeground(new java.awt.Color(255, 125, 0));
-        jP4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jP4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel27.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel27.setText("jLabel4");
-        jP4.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
-
-        jLabel28.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel28.setText("jLabel4");
-        jP4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
-
-        jLabel29.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel29.setText("jLabel4");
-        jP4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
-
-        adminProductos.add(jP4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 11, -1, 296));
-
-        jP6.setBackground(new java.awt.Color(255, 255, 255));
-        jP6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP6.setForeground(new java.awt.Color(255, 125, 0));
-        jP6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jP6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel31.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel31.setText("jLabel4");
-        jP6.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
-
-        jLabel32.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel32.setText("jLabel4");
-        jP6.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
-
-        jLabel33.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel33.setText("jLabel4");
-        jP6.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP6.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
-
-        adminProductos.add(jP6, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 313, -1, 296));
-
-        jP8.setBackground(new java.awt.Color(255, 255, 255));
-        jP8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP8.setForeground(new java.awt.Color(255, 125, 0));
-        jP8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jP8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel35.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel35.setText("jLabel4");
-        jP8.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
-
-        jLabel36.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel36.setText("jLabel4");
-        jP8.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
-
-        jLabel37.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel37.setText("jLabel4");
-        jP8.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP8.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
-
-        adminProductos.add(jP8, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 313, -1, 296));
-
-        jP5.setBackground(new java.awt.Color(255, 255, 255));
-        jP5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP5.setForeground(new java.awt.Color(255, 125, 0));
-        jP5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jP5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel39.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel39.setText("jLabel4");
-        jP5.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
-
-        jLabel40.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel40.setText("jLabel4");
-        jP5.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
-
-        jLabel41.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel41.setText("jLabel4");
-        jP5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
-
-        adminProductos.add(jP5, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 313, -1, 296));
-
-        jP7.setBackground(new java.awt.Color(255, 255, 255));
-        jP7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jP7.setForeground(new java.awt.Color(255, 125, 0));
-        jP7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jP7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel43.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel43.setText("jLabel4");
-        jP7.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
-
-        jLabel44.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel44.setText("jLabel4");
-        jP7.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
-
-        jLabel45.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel45.setText("jLabel4");
-        jP7.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP7.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
-
-        adminProductos.add(jP7, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 313, -1, 296));
-
-        pape8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
-        pape8.setBorder(null);
-        pape8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pape8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pape8ActionPerformed(evt);
-            }
-        });
-        adminProductos.add(pape8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 310, 20, -1));
-
-        pape1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
-        pape1.setBorder(null);
-        pape1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pape1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pape1ActionPerformed(evt);
-            }
-        });
-        adminProductos.add(pape1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 20, -1));
-
-        pape2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
-        pape2.setBorder(null);
-        pape2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        adminProductos.add(pape2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, 20, -1));
-
-        pape3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
-        pape3.setBorder(null);
-        pape3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        adminProductos.add(pape3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 20, -1));
-
-        pape4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
-        pape4.setBorder(null);
-        pape4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        adminProductos.add(pape4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, 20, -1));
-
-        pape5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
-        pape5.setBorder(null);
-        pape5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        adminProductos.add(pape5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 20, -1));
-
-        pape6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
-        pape6.setBorder(null);
-        pape6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        pape6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pape6ActionPerformed(evt);
-            }
-        });
-        adminProductos.add(pape6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 310, 20, -1));
-
-        pape7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
-        pape7.setBorder(null);
-        pape7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        adminProductos.add(pape7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 20, -1));
-
-        jPanel3.add(adminProductos, "card2");
 
         listaClientesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1216,11 +972,281 @@ public class PagAdmin extends javax.swing.JFrame {
 
         jPanel3.add(adminClientes, "card4");
 
+        adminProductos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jP1.setBackground(new java.awt.Color(255, 255, 255));
+        jP1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP1.setForeground(new java.awt.Color(255, 125, 0));
+        jP1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel4.setText("jLabel4");
+        jP1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel5.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel5.setText("jLabel4");
+        jP1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel6.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel6.setText("jLabel4");
+        jP1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 11, -1, 296));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/flechaderecha100.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        adminProductos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 50, 88, 550));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/flechaIzquierda100.png"))); // NOI18N
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        adminProductos.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, 86, 570));
+
+        jP2.setBackground(new java.awt.Color(255, 255, 255));
+        jP2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP2.setForeground(new java.awt.Color(255, 125, 0));
+        jP2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel8.setText("jLabel4");
+        jP2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel9.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel9.setText("jLabel4");
+        jP2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel10.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel10.setText("jLabel4");
+        jP2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP2, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 11, -1, 296));
+
+        jP3.setBackground(new java.awt.Color(255, 255, 255));
+        jP3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP3.setForeground(new java.awt.Color(255, 125, 0));
+        jP3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel12.setText("jLabel4");
+        jP3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel13.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel13.setText("jLabel4");
+        jP3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel25.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel25.setText("jLabel4");
+        jP3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP3, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 11, -1, 296));
+
+        jP4.setBackground(new java.awt.Color(255, 255, 255));
+        jP4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP4.setForeground(new java.awt.Color(255, 125, 0));
+        jP4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel27.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel27.setText("jLabel4");
+        jP4.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel28.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel28.setText("jLabel4");
+        jP4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel29.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel29.setText("jLabel4");
+        jP4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 11, -1, 296));
+
+        jP6.setBackground(new java.awt.Color(255, 255, 255));
+        jP6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP6.setForeground(new java.awt.Color(255, 125, 0));
+        jP6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel31.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel31.setText("jLabel4");
+        jP6.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel32.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel32.setText("jLabel4");
+        jP6.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel33.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel33.setText("jLabel4");
+        jP6.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP6.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP6, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 313, -1, 296));
+
+        jP8.setBackground(new java.awt.Color(255, 255, 255));
+        jP8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP8.setForeground(new java.awt.Color(255, 125, 0));
+        jP8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel35.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel35.setText("jLabel4");
+        jP8.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel36.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel36.setText("jLabel4");
+        jP8.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel37.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel37.setText("jLabel4");
+        jP8.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP8.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP8, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 313, -1, 296));
+
+        jP5.setBackground(new java.awt.Color(255, 255, 255));
+        jP5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP5.setForeground(new java.awt.Color(255, 125, 0));
+        jP5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel39.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel39.setText("jLabel4");
+        jP5.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel40.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel40.setText("jLabel4");
+        jP5.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel41.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel41.setText("jLabel4");
+        jP5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP5, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 313, -1, 296));
+
+        jP7.setBackground(new java.awt.Color(255, 255, 255));
+        jP7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jP7.setForeground(new java.awt.Color(255, 125, 0));
+        jP7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel43.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel43.setText("jLabel4");
+        jP7.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+
+        jLabel44.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel44.setText("jLabel4");
+        jP7.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+
+        jLabel45.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel45.setText("jLabel4");
+        jP7.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP7.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+
+        adminProductos.add(jP7, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 313, -1, 296));
+
+        pape8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        pape8.setBorder(null);
+        pape8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pape8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pape8ActionPerformed(evt);
+            }
+        });
+        adminProductos.add(pape8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 310, 20, -1));
+
+        pape1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        pape1.setBorder(null);
+        pape1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pape1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pape1ActionPerformed(evt);
+            }
+        });
+        adminProductos.add(pape1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 20, -1));
+
+        pape2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        pape2.setBorder(null);
+        pape2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pape2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pape2ActionPerformed(evt);
+            }
+        });
+        adminProductos.add(pape2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, 20, -1));
+
+        pape3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        pape3.setBorder(null);
+        pape3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pape3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pape3ActionPerformed(evt);
+            }
+        });
+        adminProductos.add(pape3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 20, -1));
+
+        pape4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        pape4.setBorder(null);
+        pape4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pape4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pape4ActionPerformed(evt);
+            }
+        });
+        adminProductos.add(pape4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, 20, -1));
+
+        pape5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        pape5.setBorder(null);
+        pape5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pape5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pape5ActionPerformed(evt);
+            }
+        });
+        adminProductos.add(pape5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 20, -1));
+
+        pape6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        pape6.setBorder(null);
+        pape6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pape6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pape6ActionPerformed(evt);
+            }
+        });
+        adminProductos.add(pape6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 310, 20, -1));
+
+        pape7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/papeleraPeque.png"))); // NOI18N
+        pape7.setBorder(null);
+        pape7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pape7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pape7ActionPerformed(evt);
+            }
+        });
+        adminProductos.add(pape7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 20, -1));
+
+        jPanel3.add(adminProductos, "card2");
+
         TopPanel.setBackground(new java.awt.Color(244, 184, 44));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/LogoBlanco.png"))); // NOI18N
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrar productos", "Administrar clientes", "Administrar ventas" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrar clientes", "Administrar productos", "Administrar ventas" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -1436,14 +1462,35 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void pape8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape8ActionPerformed
         // TODO add your handling code here:
+        ArrayList<Producto> productos = productosMostrar.get(pp + 7).getCliente().getListaProductos();
+        productos.remove(productosMostrar.get(pp + 7));
+        
+        productosMostrar.get(pp + 7).getCliente().setListaProductos(productos);
+        listaProductos.remove(productosMostrar.get(pp + 7));
+
+        actualizarPag();
     }//GEN-LAST:event_pape8ActionPerformed
 
     private void pape6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape6ActionPerformed
         // TODO add your handling code here:
+        ArrayList<Producto> productos = productosMostrar.get(pp + 5).getCliente().getListaProductos();
+        productos.remove(productosMostrar.get(pp + 5));
+        
+        productosMostrar.get(pp + 5).getCliente().setListaProductos(productos);
+        listaProductos.remove(productosMostrar.get(pp + 5));
+
+        actualizarPag();
     }//GEN-LAST:event_pape6ActionPerformed
 
     private void pape1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape1ActionPerformed
         // TODO add your handling code here:
+        ArrayList<Producto> productos = productosMostrar.get(pp).getCliente().getListaProductos();         
+        productos.remove(productosMostrar.get(pp));
+        
+        productosMostrar.get(pp).getCliente().setListaProductos(productos);
+        
+        listaProductos.remove(productosMostrar.get(pp));
+        actualizarPag();
     }//GEN-LAST:event_pape1ActionPerformed
 
     private void jPanelc4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelc4MouseClicked
@@ -1513,6 +1560,63 @@ public class PagAdmin extends javax.swing.JFrame {
             rellenarDatosCliente(listaClientes.get(p + 2));
         }
     }//GEN-LAST:event_jPanelc3MouseClicked
+
+    private void pape2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape2ActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Producto> productos = productosMostrar.get(pp + 1).getCliente().getListaProductos();
+        
+        productos.remove(productosMostrar.get(pp + 1));
+        productosMostrar.get(pp + 1).getCliente().setListaProductos(productos);
+          
+        listaProductos.remove(productosMostrar.get(pp + 1));
+
+        actualizarPag();
+    }//GEN-LAST:event_pape2ActionPerformed
+
+    private void pape3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape3ActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Producto> productos = productosMostrar.get(pp + 2).getCliente().getListaProductos();
+        productos.remove(productosMostrar.get(pp + 2));
+        
+        productosMostrar.get(pp + 2).getCliente().setListaProductos(productos);
+        listaProductos.remove(productosMostrar.get(pp + 2));
+
+        actualizarPag();
+    }//GEN-LAST:event_pape3ActionPerformed
+
+    private void pape4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape4ActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Producto> productos = productosMostrar.get(pp + 3).getCliente().getListaProductos();
+        productos.remove(productosMostrar.get(pp + 3));
+        
+        productosMostrar.get(pp + 3).getCliente().setListaProductos(productos);
+        
+        listaProductos.remove(productosMostrar.get(pp + 3));
+
+        actualizarPag();
+    }//GEN-LAST:event_pape4ActionPerformed
+
+    private void pape5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape5ActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Producto> productos = productosMostrar.get(pp + 4).getCliente().getListaProductos();
+        productos.remove(productosMostrar.get(pp + 4));
+        
+        productosMostrar.get(pp + 4).getCliente().setListaProductos(productos);
+        listaProductos.remove(productosMostrar.get(pp + 4));
+
+        actualizarPag();
+    }//GEN-LAST:event_pape5ActionPerformed
+
+    private void pape7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape7ActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Producto> productos = productosMostrar.get(pp + 6).getCliente().getListaProductos();
+        productos.remove(productosMostrar.get(pp + 6));
+        
+        productosMostrar.get(pp + 6).getCliente().setListaProductos(productos);
+        listaProductos.remove(productosMostrar.get(pp + 6));
+
+        actualizarPag();
+    }//GEN-LAST:event_pape7ActionPerformed
 
     /**
      * @param args the command line arguments
