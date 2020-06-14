@@ -5,8 +5,29 @@
  */
 package Interfaces;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
+import static java.util.Locale.filter;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javapop.Cliente;
+import javapop.Producto;
+import static javapop.Variables.listaProductos;
+import static javapop.Variables.usuario;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -23,19 +44,29 @@ public class AddProducto extends javax.swing.JFrame {
     ImageIcon icon2 = new ImageIcon(".\\src\\javapop\\Imagenes\\UploadOver.png");
     Image resizedImage2 = icon2.getImage().getScaledInstance(320, 320, java.awt.Image.SCALE_DEFAULT);
 
+    boolean fotoSubida = false;
+
+    private FileNameExtensionFilter extension = new FileNameExtensionFilter("Archivo de imagen (*.jpg, *.jpeg, *.png, *.gif)", "jpg", "png", "jpeg", "gif");
+    private String direccionImg;
+
     public AddProducto() {
         initComponents();
-        /*ImageIcon upload = new ImageIcon(".\\src\\javapop\\Imagenes\\uploadNormal.png");
-        
-        Image img = upload.getImage();
-        Image imgScale = img.getScaledInstance(jPanel1.getSize().width,jPanel1.getSize().height , Image.SCALE_DEFAULT);
-        //Image imgScale = img.getScaledInstance(500,500, Image.SCALE_DEFAULT);
-        ImageIcon scaledIcon = new ImageIcon(imgScale);
-        uploadImg.setIcon(scaledIcon);*/
 
-        ImageIcon icon = new ImageIcon(".\\src\\javapop\\Imagenes\\uploadNormal.png");
-        Image resizedImage = icon.getImage().getScaledInstance(320, 320, java.awt.Image.SCALE_DEFAULT);
         uploadImg.setIcon(new ImageIcon(resizedImage));
+    }
+
+    public static char randChar() {
+        Random r = new Random();
+        String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
+        return alphabet.charAt(r.nextInt(alphabet.length()));
+    }
+
+    public static String nombreRandom(int len) {
+        String nombre = "";
+        for (int i = 0; i < len; i++) {
+            nombre += randChar();
+        }
+        return nombre;
     }
 
     /**
@@ -48,17 +79,24 @@ public class AddProducto extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        titulo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        estado = new javax.swing.JComboBox<>();
+        categoria = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         uploadImg = new javax.swing.JLabel();
+        precio = new javax.swing.JFormattedTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        descripcion = new javax.swing.JTextArea();
+        registrarse = new javax.swing.JButton();
+        urgente = new javax.swing.JCheckBox();
+        tituloError = new javax.swing.JLabel();
+        precioError = new javax.swing.JLabel();
+        descripcionError = new javax.swing.JLabel();
+        fotoError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -66,7 +104,7 @@ public class AddProducto extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         jLabel1.setText("Título");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 34, 191, 30));
+        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 34, 191, 30));
 
         jLabel2.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         jLabel2.setText("Categoría");
@@ -80,51 +118,187 @@ public class AddProducto extends javax.swing.JFrame {
         jLabel4.setText("Precio");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 188, -1, -1));
 
-        jTextField4.setText("jTextField1");
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 211, 191, 30));
-
         jLabel5.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         jLabel5.setText("Descripción");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 247, -1, -1));
 
-        jTextField5.setText("jTextField5");
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 191, 106));
+        estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nuevo", "Como nuevo", "Bueno", "Aceptable", "Regular" }));
+        getContentPane().add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 191, 32));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 191, 32));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Moda y accesorios", "TV", "audio y foto", "Móviles y telefonía", "Informática y electrónica", "Consolas y videojuegos", "Deporte y ocio", "" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 93, 191, 32));
+        categoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Moda y accesorios", "TV", "audio y foto", "Móviles y telefonía", "Informática y electrónica", "Consolas y videojuegos", "Deporte y ocio", "" }));
+        getContentPane().add(categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 93, 191, 32));
 
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel1MouseExited(evt);
-            }
-        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         uploadImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/uploadNormal.png"))); // NOI18N
-        jPanel1.add(uploadImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 411, 365));
+        uploadImg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                uploadImgMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                uploadImgMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                uploadImgMouseExited(evt);
+            }
+        });
+        jPanel1.add(uploadImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 320, 340));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 320, 320));
 
-        setSize(new java.awt.Dimension(612, 426));
+        precio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 190, 30));
+
+        descripcion.setColumns(20);
+        descripcion.setRows(5);
+        jScrollPane1.setViewportView(descripcion);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, 100));
+
+        registrarse.setBackground(new java.awt.Color(255, 125, 0));
+        registrarse.setFont(new java.awt.Font("Verdana", 0, 17)); // NOI18N
+        registrarse.setForeground(new java.awt.Color(255, 255, 255));
+        registrarse.setText("Subir producto");
+        registrarse.setBorder(null);
+        registrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registrarse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                registrarseMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                registrarseMouseReleased(evt);
+            }
+        });
+        registrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarseActionPerformed(evt);
+            }
+        });
+        getContentPane().add(registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 230, 30));
+
+        urgente.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        urgente.setText("Urgente");
+        getContentPane().add(urgente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
+
+        tituloError.setForeground(new java.awt.Color(204, 51, 0));
+        getContentPane().add(tituloError, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
+
+        precioError.setForeground(new java.awt.Color(204, 51, 0));
+        getContentPane().add(precioError, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
+
+        descripcionError.setForeground(new java.awt.Color(204, 51, 0));
+        getContentPane().add(descripcionError, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+
+        fotoError.setForeground(new java.awt.Color(204, 51, 0));
+        getContentPane().add(fotoError, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
+
+        setSize(new java.awt.Dimension(612, 485));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseEntered
+    private void registrarseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseMousePressed
         // TODO add your handling code here:
-        uploadImg.setIcon(new ImageIcon(resizedImage2));
-    }//GEN-LAST:event_jPanel1MouseEntered
+        Color naran = new Color(255, 160, 0);
+        registrarse.setBackground(naran);
+    }//GEN-LAST:event_registrarseMousePressed
 
-    private void jPanel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseExited
+    private void registrarseMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseMouseReleased
         // TODO add your handling code here:
-        uploadImg.setIcon(new ImageIcon(resizedImage));
-    }//GEN-LAST:event_jPanel1MouseExited
+
+        Color naran = new Color(255, 125, 0);
+        registrarse.setBackground(naran);
+    }//GEN-LAST:event_registrarseMouseReleased
+
+
+    private void uploadImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadImgMouseClicked
+        // TODO add your handling code here:
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(extension);
+        fileChooser.setAcceptAllFileFilterUsed(false);
+
+        int i = fileChooser.showOpenDialog(this);
+        if (i == JFileChooser.APPROVE_OPTION) {
+            direccionImg = fileChooser.getSelectedFile().getPath();
+
+            ImageIcon icon = new ImageIcon(this.direccionImg);
+            Image resizedImage = icon.getImage().getScaledInstance(250, 250, java.awt.Image.SCALE_DEFAULT);
+            uploadImg.setIcon(new ImageIcon(resizedImage));
+            fotoSubida = true;
+        }
+    }//GEN-LAST:event_uploadImgMouseClicked
+
+    private void registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseActionPerformed
+        // TODO add your handling code here:  (String titulo, String categoria, String descripcion, String estadoProducto, String fotografia, String precio, Ubicacion ubicacion, Cliente cliente, boolean urgente)
+        boolean correcto = true;
+        tituloError.setText("");
+        precioError.setText("");
+        descripcionError.setText("");
+
+        String titulop = titulo.getText();
+        String categoriap = categoria.getItemAt(categoria.getSelectedIndex());
+        String descripcionp = descripcion.getText();
+        String estadop = estado.getItemAt(estado.getSelectedIndex());
+        String preciop = precio.getText();
+        boolean urgentep = urgente.isSelected();
+
+        if (titulo.getText().isEmpty()) {
+            tituloError.setText("Vacio");
+            correcto = false;
+        }
+        if (precio.getText().isEmpty()) {
+            precioError.setText("Vacio");
+            correcto = false;
+        }
+        if (descripcion.getText().isEmpty()) {
+            descripcionError.setText("Vacio");
+            correcto = false;
+        }
+        if (!fotoSubida) {
+            fotoError.setText("Cargue una imagen de su ordenador");
+            correcto = false;
+        }
+
+        FileSystem fileSys = FileSystems.getDefault();
+        File imgFolder = new File(".\\src\\javapop\\Imagenes\\");
+        File image = new File(direccionImg);
+        String newAddress;
+        boolean run = true;
+        
+        if (correcto) {
+            while (run) {
+                newAddress = ".\\src\\javapop\\Imagenes\\" + nombreRandom(10) + "-" + image.getName();
+                try {
+                    Files.copy(fileSys.getPath(direccionImg), fileSys.getPath(newAddress), REPLACE_EXISTING);
+                } catch (IOException ex) {
+                    Logger.getLogger(AddProducto.class.getName()).log(Level.SEVERE, null, ex);
+                    run = false;
+                }
+                this.direccionImg = newAddress;
+                run = false;
+
+            }
+            Producto producto = new Producto(titulop,categoriap,descripcionp,estadop, direccionImg, preciop,((Cliente)usuario).getUbicacion(),((Cliente)usuario),urgentep);
+            listaProductos.add(producto);
+        }
+
+        //(String titulo, String categoria, String descripcion, String estadoProducto, String fotografia, String precio, Ubicacion ubicacion, Cliente cliente, boolean urgente);
+
+    }//GEN-LAST:event_registrarseActionPerformed
+
+    private void uploadImgMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadImgMouseEntered
+        // TODO add your handling code here:
+        if (!fotoSubida) {
+            uploadImg.setIcon(new ImageIcon(resizedImage2));
+        }
+    }//GEN-LAST:event_uploadImgMouseEntered
+
+    private void uploadImgMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadImgMouseExited
+        // TODO add your handling code here:
+        if (!fotoSubida) {
+            uploadImg.setIcon(new ImageIcon(resizedImage));
+        }
+    }//GEN-LAST:event_uploadImgMouseExited
 
     /**
      * @param args the command line arguments
@@ -162,17 +336,24 @@ public class AddProducto extends javax.swing.JFrame {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> categoria;
+    private javax.swing.JTextArea descripcion;
+    private javax.swing.JLabel descripcionError;
+    private javax.swing.JComboBox<String> estado;
+    private javax.swing.JLabel fotoError;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JFormattedTextField precio;
+    private javax.swing.JLabel precioError;
+    private javax.swing.JButton registrarse;
+    private javax.swing.JTextField titulo;
+    private javax.swing.JLabel tituloError;
     private javax.swing.JLabel uploadImg;
+    private javax.swing.JCheckBox urgente;
     // End of variables declaration//GEN-END:variables
 }

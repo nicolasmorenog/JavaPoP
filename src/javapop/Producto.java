@@ -20,18 +20,30 @@ public class Producto implements Serializable {
     private String estadoProducto;
     private String fechaPublicacion;
     private String fotografia;
-    private double precio;
+    private String precio;
     private Ubicacion ubicacion;
     private Cliente cliente;
     private boolean urgente;
 
     //constructor normal
-    public Producto(String titulo, String categoria, String descripcion, String estadoProducto, String fechaPublicacion, String fotografia, double precio, Ubicacion ubicacion, Cliente cliente, boolean urgente) {
+    public Producto(String titulo, String categoria, String descripcion, String estadoProducto, String fechaPublicacion, String fotografia, String precio, Ubicacion ubicacion, Cliente cliente, boolean urgente) {
         this.titulo = titulo;
         this.categoria = categoria;
         this.descripcion = descripcion;
         this.estadoProducto = estadoProducto;
         this.fechaPublicacion = fechaPublicacion;
+        this.fotografia = fotografia;
+        this.precio = precio;
+        this.ubicacion = ubicacion;
+        this.cliente = cliente;
+        this.urgente = urgente;
+    }
+    public Producto(String titulo, String categoria, String descripcion, String estadoProducto, String fotografia, String precio, Ubicacion ubicacion, Cliente cliente, boolean urgente) {
+        this.titulo = titulo;
+        this.categoria = categoria;
+        this.descripcion = descripcion;
+        this.estadoProducto = estadoProducto;
+        setFechaPublicacion();
         this.fotografia = fotografia;
         this.precio = precio;
         this.ubicacion = ubicacion;
@@ -50,7 +62,7 @@ public class Producto implements Serializable {
         System.out.println("Introduzca una fotografia del producto (nombre del archivo): ");
         setFotografia();
         System.out.println("Introduzca el precio de venta del producto: ");
-        setPrecio();
+        //setPrecio();
         this.ubicacion = cliente.getUbicacion();
         setFechaPublicacion();
         this.cliente = cliente;
@@ -80,7 +92,7 @@ public class Producto implements Serializable {
         System.out.println("Introduzca una fotografia del producto (nombre del archivo): ");
         setFotografia();
         System.out.println("Introduzca el precio de venta del producto: ");
-        setPrecio();
+        //setPrecio();
         this.ubicacion = clienteProfesional.getUbicacion();
         setFechaPublicacion();
         this.cliente = clienteProfesional;
@@ -121,6 +133,10 @@ public class Producto implements Serializable {
 
     public String getCategoria() {
         return categoria;
+    }
+
+    public void setPrecio(String precio) {
+        this.precio = precio;
     }
     
     
@@ -214,7 +230,8 @@ public class Producto implements Serializable {
         }
     }
 
-    //precio
+    //precio desactualizado, ya no sirve
+    /*
     public void setPrecio(double precio) {
         this.precio = precio;
     }
@@ -233,7 +250,7 @@ public class Producto implements Serializable {
 
             }
         }
-    }
+    }*/
 
     //fecha de publicacion
     public void setFechaPublicacion(String fechaPublicacion) {
@@ -275,7 +292,7 @@ public class Producto implements Serializable {
             System.out.println(e.toString());
         }
     }
-    public double getPrecio() {
+    public String getPrecio() {
         return precio;
     }
        

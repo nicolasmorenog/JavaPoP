@@ -26,7 +26,7 @@ public class Main {
 
         System.out.println("comienzo programa clientes" + listaClientes);
         //System.out.println("comienzo programa clientes profesionales" + listaClientesProfesionales);
-        System.out.println("comienzo programa clientes size" + listaClientes.size());
+        System.out.println("comienzo programa productos" + listaProductos);
         
         
         
