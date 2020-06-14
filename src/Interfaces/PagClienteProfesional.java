@@ -9,6 +9,7 @@ import javapop.IOinfo;
 import static javapop.Variables.listaClientes;
 
 import static javapop.Variables.listaProductos;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -21,6 +22,7 @@ public class PagClienteProfesional extends javax.swing.JFrame {
      */
     public PagClienteProfesional() {
         initComponents();
+        super.setIconImage(new ImageIcon("./javapop.Imagenes/LogoJavapop.png").getImage());
     }
 
     /**

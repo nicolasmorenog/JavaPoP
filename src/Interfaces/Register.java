@@ -19,6 +19,7 @@ import javapop.ClienteProfesional;
 import javapop.IOinfo;
 import javapop.Ubicacion;
 import static javapop.Variables.*;
+import javax.swing.ImageIcon;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 
@@ -33,6 +34,7 @@ public class Register extends javax.swing.JFrame {
      */
     public Register() {
         initComponents();
+        super.setIconImage(new ImageIcon("./javapop.Imagenes/LogoJavapop.png").getImage());
         
     }
 

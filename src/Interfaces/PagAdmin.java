@@ -44,7 +44,7 @@ public class PagAdmin extends javax.swing.JFrame {
         productosMostrar = listaProductos;
         p = 0;
         actualizarListaClientesPanel();
-
+        super.setIconImage(new ImageIcon("./javapop.Imagenes/LogoJavapop.png").getImage());
     }
 
     public void actualizarPag() {
@@ -107,7 +107,8 @@ public class PagAdmin extends javax.swing.JFrame {
         }
 
     }
-        public void rellenarPanel(JPanel panel, Producto produc) { //Producto produc, 
+
+    public void rellenarPanel(JPanel panel, Producto produc) { //Producto produc, 
         Component[] components = panel.getComponents();
 
         int cont = 0;
@@ -128,7 +129,7 @@ public class PagAdmin extends javax.swing.JFrame {
             }
         }
 
-    } 
+    }
 
     private void rellenarDatosCliente(Cliente cliente) {
         profesional1.setSelected(false);
@@ -745,6 +746,11 @@ public class PagAdmin extends javax.swing.JFrame {
 
         jPanelc4.setBackground(new java.awt.Color(255, 255, 255));
         jPanelc4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelc4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelc4MouseClicked(evt);
+            }
+        });
         jPanelc4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         numero4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -761,6 +767,14 @@ public class PagAdmin extends javax.swing.JFrame {
         jButton7.setText("Eliminar");
         jButton7.setBorder(null);
         jButton7.setOpaque(false);
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton7MouseExited(evt);
+            }
+        });
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -772,6 +786,11 @@ public class PagAdmin extends javax.swing.JFrame {
 
         jPanelc5.setBackground(new java.awt.Color(255, 255, 255));
         jPanelc5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelc5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelc5MouseClicked(evt);
+            }
+        });
         jPanelc5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         numero5.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -788,6 +807,14 @@ public class PagAdmin extends javax.swing.JFrame {
         jButton8.setText("Eliminar");
         jButton8.setBorder(null);
         jButton8.setOpaque(false);
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton8MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton8MouseExited(evt);
+            }
+        });
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -799,6 +826,11 @@ public class PagAdmin extends javax.swing.JFrame {
 
         jPanelc6.setBackground(new java.awt.Color(255, 255, 255));
         jPanelc6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelc6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelc6MouseClicked(evt);
+            }
+        });
         jPanelc6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         numero6.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -815,6 +847,14 @@ public class PagAdmin extends javax.swing.JFrame {
         jButton9.setText("Eliminar");
         jButton9.setBorder(null);
         jButton9.setOpaque(false);
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton9MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton9MouseExited(evt);
+            }
+        });
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -1168,7 +1208,7 @@ public class PagAdmin extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/LogoBlanco.png"))); // NOI18N
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrar clientes", "Administrar productos", "Administrar ventas" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrar productos", "Administrar clientes", "Administrar ventas" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -1394,6 +1434,57 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pape1ActionPerformed
 
+    private void jPanelc4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelc4MouseClicked
+        // TODO add your handling code here:
+        if (!b7) {
+            rellenarDatosCliente(listaClientes.get(p + 3));
+        }
+    }//GEN-LAST:event_jPanelc4MouseClicked
+
+    private void jPanelc5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelc5MouseClicked
+        // TODO add your handling code here:
+        if (!b8) {
+            rellenarDatosCliente(listaClientes.get(p + 4));
+        }
+    }//GEN-LAST:event_jPanelc5MouseClicked
+
+    private void jPanelc6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelc6MouseClicked
+        // TODO add your handling code here:
+        if (!b9) {
+            rellenarDatosCliente(listaClientes.get(p + 5));
+        }
+    }//GEN-LAST:event_jPanelc6MouseClicked
+
+    private void jButton7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseEntered
+        // TODO add your handling code here:
+        b7 = true;
+    }//GEN-LAST:event_jButton7MouseEntered
+
+    private void jButton7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseExited
+        // TODO add your handling code here:
+        b7 = false;
+    }//GEN-LAST:event_jButton7MouseExited
+
+    private void jButton8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseEntered
+        // TODO add your handling code here:
+        b8 = true;
+    }//GEN-LAST:event_jButton8MouseEntered
+
+    private void jButton8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseExited
+        // TODO add your handling code here:
+        b8 = false;
+    }//GEN-LAST:event_jButton8MouseExited
+
+    private void jButton9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseEntered
+        // TODO add your handling code here:
+        b9 = true;
+    }//GEN-LAST:event_jButton9MouseEntered
+
+    private void jButton9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseExited
+        // TODO add your handling code here:
+        b9 = false;
+    }//GEN-LAST:event_jButton9MouseExited
+
     private void jButton6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseEntered
         // TODO add your handling code here:
         b6 = true;
@@ -1406,7 +1497,7 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void jPanelc3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelc3MouseClicked
         // TODO add your handling code here:
-        if (!b5){
+        if (!b6) {
             rellenarDatosCliente(listaClientes.get(p + 2));
         }
     }//GEN-LAST:event_jPanelc3MouseClicked
