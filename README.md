@@ -1,11 +1,11 @@
 # Memoria JavaPoP
-Grado en Ingeniería Informática.
-Curso 2019/20 Práctica de POO 2020.
+```
+Grado en Ingeniería Informática
+Curso 2019/20 Práctica de POO 2020
+```
 ## Autores:
-```
-DNI – Palomino Abreu, Jesús
-02755783S – Moreno González, Nicolás
-```
+* **DNI - Palomino Abreu, Jesús ** - [jesukete](https://github.com/jesukete)
+* **02755783S – Moreno González, Nicolás ** - [FLAYS](https://github.com/nicolasmorenog)
 
 • Especificación de requisitos. Mediante diagramas de casos de uso se deben describir las acciones principales que los usuarios de la aplicación pueden realizar. 
 • Análisis y diseño de la aplicación. Descripción del análisis y diseño de cómo se ha desarrollado la aplicación y qué elementos principales intervienen en la misma. Para realizarlo se construye un diagrama de clases sencillo, identificando las clases de la lógica de negocio.
