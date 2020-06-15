@@ -9,7 +9,10 @@ package Interfaces;
  *
  * @author nicmo
  */
+import java.awt.Image;
 import javapop.Producto;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 
 public class InfoProducto extends javax.swing.JFrame {
@@ -32,62 +35,86 @@ public class InfoProducto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        uploadImgInfo = new javax.swing.JLabel();
-        precioInfo = new javax.swing.JFormattedTextField();
+        jPanel3 = new javax.swing.JPanel();
+        categoriaInfo = new javax.swing.JTextField();
+        estadoInfo = new javax.swing.JTextField();
+        urgenteInfo = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         descripcionInfo = new javax.swing.JTextArea();
-        urgenteInfo = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
+        precioInfo = new javax.swing.JFormattedTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        uploadImgInfo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        infopropietario = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         tituloInfo = new javax.swing.JTextField();
-        estadoInfo = new javax.swing.JTextField();
-        categoriaInfo = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
-        jLabel2.setText("Categoría");
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
-        jLabel3.setText("Estado");
+        categoriaInfo.setEditable(false);
+        categoriaInfo.setBackground(new java.awt.Color(255, 255, 255));
+        categoriaInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel3.add(categoriaInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 38, 191, 30));
 
-        jLabel4.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
-        jLabel4.setText("Precio");
+        estadoInfo.setEditable(false);
+        estadoInfo.setBackground(new java.awt.Color(255, 255, 255));
+        estadoInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel3.add(estadoInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 114, 191, 30));
 
-        jLabel5.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
-        jLabel5.setText("Descripción");
-
-        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        uploadImgInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/uploadNormal.png"))); // NOI18N
-        jPanel1.add(uploadImgInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 320, 340));
-
-        precioInfo.setEditable(false);
-        precioInfo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        urgenteInfo.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        urgenteInfo.setText("Urgente");
+        urgenteInfo.setEnabled(false);
+        jPanel3.add(urgenteInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 190, -1));
 
         descripcionInfo.setEditable(false);
         descripcionInfo.setColumns(20);
         descripcionInfo.setRows(5);
         jScrollPane1.setViewportView(descripcionInfo);
 
-        urgenteInfo.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        urgenteInfo.setText("Urgente");
-        urgenteInfo.setEnabled(false);
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 253, 190, 100));
 
-        jButton1.setText("Salir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        precioInfo.setEditable(false);
+        precioInfo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        jPanel3.add(precioInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 178, 190, 30));
+
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 153, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        jLabel5.setText("Descripción");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 225, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        jLabel4.setText("Precio");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 155, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        jLabel3.setText("Estado");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 79, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        jLabel2.setText("Categoría");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+
+        uploadImgInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/uploadNormal.png"))); // NOI18N
+        jPanel3.add(uploadImgInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 280, 280));
+
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel1.setText("Propietario: ");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, -1, 20));
+
+        infopropietario.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jPanel3.add(infopropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 220, 20));
 
         jPanel2.setBackground(new java.awt.Color(244, 184, 44));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tituloInfo.setEditable(false);
         tituloInfo.setBackground(new java.awt.Color(244, 184, 44));
@@ -95,31 +122,7 @@ public class InfoProducto extends javax.swing.JFrame {
         tituloInfo.setForeground(new java.awt.Color(255, 255, 255));
         tituloInfo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tituloInfo.setBorder(null);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tituloInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tituloInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        estadoInfo.setEditable(false);
-        estadoInfo.setBackground(new java.awt.Color(255, 255, 255));
-        estadoInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        categoriaInfo.setEditable(false);
-        categoriaInfo.setBackground(new java.awt.Color(255, 255, 255));
-        categoriaInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel2.add(tituloInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 612, 68));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,69 +131,20 @@ public class InfoProducto extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(categoriaInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(estadoInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 17, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4)
-                                .addComponent(precioInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(50, 50, 50)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(urgenteInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGap(0, 18, Short.MAX_VALUE)))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
-                .addComponent(categoriaInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(estadoInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 266, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2)
-                            .addGap(42, 42, 42)
-                            .addComponent(jLabel3)
-                            .addGap(42, 42, 42)
-                            .addComponent(jLabel4)
-                            .addGap(5, 5, 5)
-                            .addComponent(precioInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(7, 7, 7)
-                            .addComponent(jLabel5)
-                            .addGap(6, 6, 6)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(6, 123, Short.MAX_VALUE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(20, 20, 20)
-                    .addComponent(urgenteInfo)
-                    .addGap(0, 89, Short.MAX_VALUE)))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(613, 545));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void rellenarDatosProducto(Producto producto) {
@@ -200,14 +154,12 @@ public class InfoProducto extends javax.swing.JFrame {
         precioInfo.setText(producto.getPrecio());
         descripcionInfo.setText(producto.getDescripcion());
         urgenteInfo.setSelected(producto.isUrgente());
+        infopropietario.setText(producto.getCliente().getNombre());
+        ImageIcon icon = new ImageIcon(producto.getFotografia());
+        Image resizedImage = icon.getImage().getScaledInstance(280, 280, java.awt.Image.SCALE_DEFAULT);
+        uploadImgInfo.setIcon(new ImageIcon(resizedImage));
     }
 
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        new PagAdmin().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,13 +200,15 @@ public class InfoProducto extends javax.swing.JFrame {
     private javax.swing.JTextField categoriaInfo;
     private javax.swing.JTextArea descripcionInfo;
     private javax.swing.JTextField estadoInfo;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel infopropietario;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JFormattedTextField precioInfo;
     private javax.swing.JTextField tituloInfo;

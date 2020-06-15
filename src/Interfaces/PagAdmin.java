@@ -48,6 +48,16 @@ public class PagAdmin extends javax.swing.JFrame {
         actualizarListaClientesPanel();
 
     }
+    
+    private void borrarProductosCliente(Cliente cliente){
+        ArrayList<Producto> productos = cliente.getListaProductos();
+        
+        cliente.setListaProductos(new ArrayList<Producto>());
+        for (Producto producto : productos){
+            listaProductos.remove(producto);
+        }
+        
+    }
 
     public void actualizarPag() {
         jP8.setVisible(false);
@@ -155,6 +165,22 @@ public class PagAdmin extends javax.swing.JFrame {
 
         }
 
+    }
+    private void borrarDatosCliente(){
+        profesional1.setSelected(false);
+        pagWeb1.setText("");
+        horarioAper1.setText("");
+        telefono1.setText("");
+        descripcion1.setText("");
+        correo1.setText("");
+        nombre1.setText("");
+        clave1.setText("");
+        ciudad1.setText("");
+        codigoPostal.setText("");
+        tarjeta.setText("");
+        dni.setText("");
+        indexCliente = -1;
+        
     }
 
     private void actualizarListaClientesPanel() {
@@ -995,6 +1021,11 @@ public class PagAdmin extends javax.swing.JFrame {
         jP1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1.setForeground(new java.awt.Color(255, 125, 0));
         jP1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP1MouseClicked(evt);
+            }
+        });
         jP1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
@@ -1034,6 +1065,11 @@ public class PagAdmin extends javax.swing.JFrame {
         jP2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP2.setForeground(new java.awt.Color(255, 125, 0));
         jP2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP2MouseClicked(evt);
+            }
+        });
         jP2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
@@ -1055,6 +1091,11 @@ public class PagAdmin extends javax.swing.JFrame {
         jP3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP3.setForeground(new java.awt.Color(255, 125, 0));
         jP3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP3MouseClicked(evt);
+            }
+        });
         jP3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
@@ -1076,6 +1117,11 @@ public class PagAdmin extends javax.swing.JFrame {
         jP4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP4.setForeground(new java.awt.Color(255, 125, 0));
         jP4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP4MouseClicked(evt);
+            }
+        });
         jP4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel27.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
@@ -1097,6 +1143,11 @@ public class PagAdmin extends javax.swing.JFrame {
         jP6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP6.setForeground(new java.awt.Color(255, 125, 0));
         jP6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP6MouseClicked(evt);
+            }
+        });
         jP6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel31.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
@@ -1118,6 +1169,11 @@ public class PagAdmin extends javax.swing.JFrame {
         jP8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP8.setForeground(new java.awt.Color(255, 125, 0));
         jP8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP8MouseClicked(evt);
+            }
+        });
         jP8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel35.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
@@ -1139,6 +1195,11 @@ public class PagAdmin extends javax.swing.JFrame {
         jP5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP5.setForeground(new java.awt.Color(255, 125, 0));
         jP5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP5MouseClicked(evt);
+            }
+        });
         jP5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel39.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
@@ -1160,6 +1221,11 @@ public class PagAdmin extends javax.swing.JFrame {
         jP7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP7.setForeground(new java.awt.Color(255, 125, 0));
         jP7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP7MouseClicked(evt);
+            }
+        });
         jP7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel43.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
@@ -1357,6 +1423,7 @@ public class PagAdmin extends javax.swing.JFrame {
         } else if (selec == 1 && !adminProductos.isVisible()) {
             adminClientes.setVisible(false);
             adminProductos.setVisible(true);
+            productosMostrar = listaProductos;
             actualizarPag();
             //adminVentas.setVisible(false);
         }
@@ -1387,39 +1454,53 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        borrarProductosCliente(listaClientes.get(p));
         listaClientes.remove(p);
+        
         actualizarListaClientesPanel();
+        borrarDatosCliente();
+        
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        borrarProductosCliente(listaClientes.get(p+1));
         listaClientes.remove(p + 1);
         actualizarListaClientesPanel();
+        borrarDatosCliente();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        borrarProductosCliente(listaClientes.get(p+2));
         listaClientes.remove(p + 2);
         actualizarListaClientesPanel();
+        borrarDatosCliente();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        borrarProductosCliente(listaClientes.get(p+3));
         listaClientes.remove(p + 3);
         actualizarListaClientesPanel();
+        borrarDatosCliente();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        borrarProductosCliente(listaClientes.get(p+4));
         listaClientes.remove(p + 4);
         actualizarListaClientesPanel();
+        borrarDatosCliente();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        borrarProductosCliente(listaClientes.get(p+5));
         listaClientes.remove(p + 5);
         actualizarListaClientesPanel();
+        borrarDatosCliente();
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void clave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clave1ActionPerformed
@@ -1483,7 +1564,7 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         ArrayList<Producto> productos = productosMostrar.get(pp + 7).getCliente().getListaProductos();
         productos.remove(productosMostrar.get(pp + 7));
-        
+
         productosMostrar.get(pp + 7).getCliente().setListaProductos(productos);
         listaProductos.remove(productosMostrar.get(pp + 7));
 
@@ -1494,7 +1575,7 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         ArrayList<Producto> productos = productosMostrar.get(pp + 5).getCliente().getListaProductos();
         productos.remove(productosMostrar.get(pp + 5));
-        
+
         productosMostrar.get(pp + 5).getCliente().setListaProductos(productos);
         listaProductos.remove(productosMostrar.get(pp + 5));
 
@@ -1503,11 +1584,11 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void pape1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape1ActionPerformed
         // TODO add your handling code here:
-        ArrayList<Producto> productos = productosMostrar.get(pp).getCliente().getListaProductos();         
+        ArrayList<Producto> productos = productosMostrar.get(pp).getCliente().getListaProductos();
         productos.remove(productosMostrar.get(pp));
-        
+
         productosMostrar.get(pp).getCliente().setListaProductos(productos);
-        
+
         listaProductos.remove(productosMostrar.get(pp));
         actualizarPag();
     }//GEN-LAST:event_pape1ActionPerformed
@@ -1587,10 +1668,10 @@ public class PagAdmin extends javax.swing.JFrame {
     private void pape2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape2ActionPerformed
         // TODO add your handling code here:
         ArrayList<Producto> productos = productosMostrar.get(pp + 1).getCliente().getListaProductos();
-        
+
         productos.remove(productosMostrar.get(pp + 1));
         productosMostrar.get(pp + 1).getCliente().setListaProductos(productos);
-          
+
         listaProductos.remove(productosMostrar.get(pp + 1));
 
         actualizarPag();
@@ -1600,7 +1681,7 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         ArrayList<Producto> productos = productosMostrar.get(pp + 2).getCliente().getListaProductos();
         productos.remove(productosMostrar.get(pp + 2));
-        
+
         productosMostrar.get(pp + 2).getCliente().setListaProductos(productos);
         listaProductos.remove(productosMostrar.get(pp + 2));
 
@@ -1611,9 +1692,9 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         ArrayList<Producto> productos = productosMostrar.get(pp + 3).getCliente().getListaProductos();
         productos.remove(productosMostrar.get(pp + 3));
-        
+
         productosMostrar.get(pp + 3).getCliente().setListaProductos(productos);
-        
+
         listaProductos.remove(productosMostrar.get(pp + 3));
 
         actualizarPag();
@@ -1623,7 +1704,7 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         ArrayList<Producto> productos = productosMostrar.get(pp + 4).getCliente().getListaProductos();
         productos.remove(productosMostrar.get(pp + 4));
-        
+
         productosMostrar.get(pp + 4).getCliente().setListaProductos(productos);
         listaProductos.remove(productosMostrar.get(pp + 4));
 
@@ -1634,7 +1715,7 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         ArrayList<Producto> productos = productosMostrar.get(pp + 6).getCliente().getListaProductos();
         productos.remove(productosMostrar.get(pp + 6));
-        
+
         productosMostrar.get(pp + 6).getCliente().setListaProductos(productos);
         listaProductos.remove(productosMostrar.get(pp + 6));
 
@@ -1643,10 +1724,56 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-        productosMostrar = listaClientes.get(indexCliente).getListaProductos();
-        adminProductos.setVisible(true);
-        adminClientes.setVisible(false);
+        if (!(indexCliente < 0)) {
+            productosMostrar = listaClientes.get(indexCliente).getListaProductos();
+            adminProductos.setVisible(true);
+            pp = 0;
+            actualizarPag();
+            jComboBox1.setSelectedIndex(1);
+            adminClientes.setVisible(false);
+            
+        }
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jP1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP1MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(pp)).setVisible(true);
+    }//GEN-LAST:event_jP1MouseClicked
+
+    private void jP2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP2MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(pp + 1)).setVisible(true);
+    }//GEN-LAST:event_jP2MouseClicked
+
+    private void jP3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP3MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(pp + 2)).setVisible(true);
+    }//GEN-LAST:event_jP3MouseClicked
+
+    private void jP4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP4MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(pp + 3)).setVisible(true);
+    }//GEN-LAST:event_jP4MouseClicked
+
+    private void jP5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP5MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(pp + 4)).setVisible(true);
+    }//GEN-LAST:event_jP5MouseClicked
+
+    private void jP6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP6MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(pp + 5)).setVisible(true);
+    }//GEN-LAST:event_jP6MouseClicked
+
+    private void jP7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP7MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(pp + 6)).setVisible(true);
+    }//GEN-LAST:event_jP7MouseClicked
+
+    private void jP8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP8MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(pp + 7)).setVisible(true);
+    }//GEN-LAST:event_jP8MouseClicked
 
     /**
      * @param args the command line arguments
