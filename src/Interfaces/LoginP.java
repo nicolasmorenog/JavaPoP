@@ -127,6 +127,8 @@ public class LoginP extends javax.swing.JFrame {
 
         errorCorreo.setForeground(new java.awt.Color(255, 0, 0));
 
+        errorContra.setForeground(new java.awt.Color(204, 0, 0));
+
         jButton2.setText("cliente");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

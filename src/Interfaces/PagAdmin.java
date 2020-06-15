@@ -49,6 +49,8 @@ public class PagAdmin extends javax.swing.JFrame {
         p = 0;
 
         actualizarListaClientesPanel();
+        
+        noProductos.setVisible(false);
 
     }
 
@@ -79,6 +81,11 @@ public class PagAdmin extends javax.swing.JFrame {
         pape6.setVisible(false);
         pape7.setVisible(false);
         pape8.setVisible(false);
+        noProductos.setVisible(false);
+        
+        if (productosMostrar.isEmpty()){
+            noProductos.setVisible(true);
+        }
 
         if (productosMostrar.size() >= pp + 8) {
             rellenarPanel(jP8, productosMostrar.get(pp + 7));
@@ -406,6 +413,9 @@ public class PagAdmin extends javax.swing.JFrame {
         pape5 = new javax.swing.JButton();
         pape6 = new javax.swing.JButton();
         pape7 = new javax.swing.JButton();
+        noProductos = new javax.swing.JPanel();
+        jLabelNopp = new javax.swing.JLabel();
+        travolta = new javax.swing.JLabel();
         TopPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -1114,7 +1124,7 @@ public class PagAdmin extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
         jLabel25.setText("jLabel4");
         jP3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+        jP3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 190));
 
         adminProductos.add(jP3, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 11, -1, 296));
 
@@ -1327,6 +1337,37 @@ public class PagAdmin extends javax.swing.JFrame {
             }
         });
         adminProductos.add(pape7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 20, -1));
+
+        jLabelNopp.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        jLabelNopp.setText("No se han encontrado productos con las características indicadas");
+
+        travolta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/travolta.gif"))); // NOI18N
+
+        javax.swing.GroupLayout noProductosLayout = new javax.swing.GroupLayout(noProductos);
+        noProductos.setLayout(noProductosLayout);
+        noProductosLayout.setHorizontalGroup(
+            noProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(noProductosLayout.createSequentialGroup()
+                .addGroup(noProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(noProductosLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(travolta))
+                    .addGroup(noProductosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelNopp)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        noProductosLayout.setVerticalGroup(
+            noProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(noProductosLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabelNopp)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(travolta)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        adminProductos.add(noProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 550, 560));
 
         jPanel3.add(adminProductos, "card2");
 
@@ -1584,6 +1625,8 @@ public class PagAdmin extends javax.swing.JFrame {
 
         productosMostrar.get(pp + 7).getCliente().setListaProductos(productos);
         listaProductos.remove(productosMostrar.get(pp + 7));
+        
+        productosMostrar.remove(productosMostrar.get(pp + 7));
 
         actualizarPag();
     }//GEN-LAST:event_pape8ActionPerformed
@@ -1595,6 +1638,8 @@ public class PagAdmin extends javax.swing.JFrame {
 
         productosMostrar.get(pp + 5).getCliente().setListaProductos(productos);
         listaProductos.remove(productosMostrar.get(pp + 5));
+        
+        productosMostrar.remove(productosMostrar.get(pp + 5));
 
         actualizarPag();
     }//GEN-LAST:event_pape6ActionPerformed
@@ -1607,6 +1652,8 @@ public class PagAdmin extends javax.swing.JFrame {
         productosMostrar.get(pp).getCliente().setListaProductos(productos);
 
         listaProductos.remove(productosMostrar.get(pp));
+        
+        productosMostrar.remove(productosMostrar.get(pp));
         actualizarPag();
     }//GEN-LAST:event_pape1ActionPerformed
 
@@ -1690,6 +1737,8 @@ public class PagAdmin extends javax.swing.JFrame {
         productosMostrar.get(pp + 1).getCliente().setListaProductos(productos);
 
         listaProductos.remove(productosMostrar.get(pp + 1));
+        
+        productosMostrar.remove(productosMostrar.get(pp + 1));
 
         actualizarPag();
     }//GEN-LAST:event_pape2ActionPerformed
@@ -1701,6 +1750,8 @@ public class PagAdmin extends javax.swing.JFrame {
 
         productosMostrar.get(pp + 2).getCliente().setListaProductos(productos);
         listaProductos.remove(productosMostrar.get(pp + 2));
+        
+        productosMostrar.remove(productosMostrar.get(pp + 2));
 
         actualizarPag();
     }//GEN-LAST:event_pape3ActionPerformed
@@ -1713,6 +1764,8 @@ public class PagAdmin extends javax.swing.JFrame {
         productosMostrar.get(pp + 3).getCliente().setListaProductos(productos);
 
         listaProductos.remove(productosMostrar.get(pp + 3));
+        
+        productosMostrar.remove(productosMostrar.get(pp + 3));
 
         actualizarPag();
     }//GEN-LAST:event_pape4ActionPerformed
@@ -1724,6 +1777,8 @@ public class PagAdmin extends javax.swing.JFrame {
 
         productosMostrar.get(pp + 4).getCliente().setListaProductos(productos);
         listaProductos.remove(productosMostrar.get(pp + 4));
+        
+        productosMostrar.remove(productosMostrar.get(pp + 4));
 
         actualizarPag();
     }//GEN-LAST:event_pape5ActionPerformed
@@ -1735,6 +1790,8 @@ public class PagAdmin extends javax.swing.JFrame {
 
         productosMostrar.get(pp + 6).getCliente().setListaProductos(productos);
         listaProductos.remove(productosMostrar.get(pp + 6));
+        
+        productosMostrar.remove(productosMostrar.get(pp + 6));
 
         actualizarPag();
     }//GEN-LAST:event_pape7ActionPerformed
@@ -1924,6 +1981,7 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelNopp;
     private javax.swing.JPanel jP1;
     private javax.swing.JPanel jP2;
     private javax.swing.JPanel jP3;
@@ -1957,6 +2015,7 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jnombrec5;
     private javax.swing.JLabel jnombrec6;
     private javax.swing.JPanel listaClientesPanel;
+    private javax.swing.JPanel noProductos;
     private javax.swing.JTextField nombre1;
     private javax.swing.JLabel nombreError;
     private javax.swing.JLabel numero1;
@@ -1980,5 +2039,6 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel tarjetaError;
     private javax.swing.JFormattedTextField telefono1;
     private javax.swing.JLabel telefonoError1;
+    private javax.swing.JLabel travolta;
     // End of variables declaration//GEN-END:variables
 }
