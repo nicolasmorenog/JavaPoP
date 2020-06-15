@@ -42,11 +42,12 @@ public class GestionProductos {
         }
 
     }
-    public static void subirUrgentes(ArrayList<Producto> listaProductos){
+
+    public static void subirUrgentes(ArrayList<Producto> listaProductos) {
         Producto aux;
         int contador = 0;
-        for (int i=listaProductos.size()-1; i>=contador;i--){
-            if (listaProductos.get(i).isUrgente()){
+        for (int i = listaProductos.size() - 1; i >= contador; i--) {
+            if (listaProductos.get(i).isUrgente()) {
                 aux = listaProductos.get(i);
                 listaProductos.remove(aux);
                 listaProductos.add(0, aux);
@@ -55,7 +56,7 @@ public class GestionProductos {
             }
         }
     }
-    
+
     public static void main(String[] args) {
         ArrayList<Producto> listaProductos = new ArrayList<Producto>();
         Ubicacion u1 = new Ubicacion("00000", "Guada");
@@ -73,4 +74,19 @@ public class GestionProductos {
             System.out.println(listaProductos.get(i));
         }
     }
+
+    Ubicacion u1 = new Ubicacion("28512", "Alcala de Henares");
+    Ubicacion u2 = new Ubicacion("12345", "Guadalajara");
+    
+    Cliente c1 = new Cliente("cliente@gmail.com", "avionetas", "cliente", "1234", "12374859394839", u1);
+    Cliente c2 = new Cliente("jesuspalomino@gmail.com", "avionetas", "Jesukete", "1234", "12374859394839", u2);
+
+    ClienteProfesional cp1 = new ClienteProfesional(c1, "hola", "01:30-10:00", "123123123", "dsadda");
+
+    Producto p1 = new Producto("AMD Ryzen 9", "TV audio y foto", "Lo mejor que puedes encontrar calidad/precio", "Regular", "./javapop.ImagenesProductos/5BpIeRB5Ru-AMD Ryzen 9.png", "463,00", u1, cp1, true);
+    Producto p2 = new Producto("Cocacola", "Moda y accesorios", "Original", "Aceptable", "./javapop.Imagenes/5KebdiQKgG-cola-can.png", "1,50", u2, c2, false);
+
+    //listaProductos.add(p1);
+
+    //cp1.añadirProducto();
 }
