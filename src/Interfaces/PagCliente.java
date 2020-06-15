@@ -11,13 +11,15 @@ import java.awt.Image;
 import java.util.ArrayList;
 import javapop.IOinfo;
 import javapop.Producto;
-import static javapop.Variables.listaClientes;
-import static javapop.Variables.listaProductos;
+import static javapop.Variables.*;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javapop.Cliente;
+
+
 
 /**
  *
@@ -117,6 +119,7 @@ public class PagCliente extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jCategorias = new javax.swing.JComboBox<>();
+        bAlta = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jP1 = new javax.swing.JPanel();
@@ -222,7 +225,7 @@ public class PagCliente extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        TopPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(271, 70, -1, 32));
+        TopPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, 32));
 
         jCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Moda y accesorios", "TV", "audio y foto", "Móviles y telefonía", "Informática y electrónica", "Consolas y videojuegos", "Deporte y ocio", "" }));
         jCategorias.addActionListener(new java.awt.event.ActionListener() {
@@ -231,6 +234,14 @@ public class PagCliente extends javax.swing.JFrame {
             }
         });
         TopPanel.add(jCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 180, 30));
+
+        bAlta.setText("Quiero ser Usuario Profesional");
+        bAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAltaActionPerformed(evt);
+            }
+        });
+        TopPanel.add(bAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, 190, 30));
 
         jPanel1.setLayout(new java.awt.CardLayout());
 
@@ -496,6 +507,12 @@ public class PagCliente extends javax.swing.JFrame {
         actualizarPag();
     }//GEN-LAST:event_formWindowGainedFocus
 
+    private void bAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAltaActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new AltaClienteProfesional((Cliente) usuario).setVisible(true);
+    }//GEN-LAST:event_bAltaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -533,6 +550,7 @@ public class PagCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel TopPanel;
+    private javax.swing.JButton bAlta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
