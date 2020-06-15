@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javapop.Cliente;
+import javapop.ClienteProfesional;
 
 
 
@@ -227,7 +228,7 @@ public class PagCliente extends javax.swing.JFrame {
         });
         TopPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, 32));
 
-        jCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Moda y accesorios", "TV", "audio y foto", "Móviles y telefonía", "Informática y electrónica", "Consolas y videojuegos", "Deporte y ocio", "" }));
+        jCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Moda y accesorios", "TV audio y foto", "Móviles y telefonía", "Informática y electrónica", "Consolas y videojuegos", "Deporte y ocio", "" }));
         jCategorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCategoriasActionPerformed(evt);
@@ -509,8 +510,8 @@ public class PagCliente extends javax.swing.JFrame {
 
     private void bAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAltaActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        new AltaClienteProfesional((Cliente) usuario).setVisible(true);
+        
+        new AltaClientePro((Cliente) usuario).setVisible(true);
     }//GEN-LAST:event_bAltaActionPerformed
 
     /**
