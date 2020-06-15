@@ -322,10 +322,7 @@ public class AltaClienteProfesional extends javax.swing.JFrame {
         descripcionError.setText("");
 
         //boolean correcto = true;
-        boolean correoCorrecto = true;
-        boolean correcto2 = true;
         //boolean profe = profesional.isSelected();
-
         //Ubicacion ubic = new Ubicacion(codigoPostal.getText(), ciudad.getText());
         //Cliente cliente = new Cliente(correo.getText(), clave.getText(), nombre.getText(), dni.getText(), tarjeta.getText(), ubic);
         // Comprobación correo válido
@@ -372,6 +369,7 @@ public class AltaClienteProfesional extends javax.swing.JFrame {
             codigoPostalError.setText("Vacío");
             correcto = false;
         }*/
+        boolean correcto2 = true;
         if (pagWebPro.getText().isEmpty()) {
             pagWebError.setText("Vacío");
             correcto2 = false;
@@ -390,10 +388,10 @@ public class AltaClienteProfesional extends javax.swing.JFrame {
         }
 
         if (correcto2) {
-            ClienteProfesional clienteprof = new ClienteProfesional(cliente, descripcionPro.getText(), horarioAperPro.getText(), telefonoPro.getText(), pagWebPro.getText());
+            ClienteProfesional clienteprof = new ClienteProfesional((Cliente) usuario, descripcionPro.getText(), horarioAperPro.getText(), telefonoPro.getText(), pagWebPro.getText());
             //listaClientesProfesionales.add(clienteprof);
             listaClientes.add(clienteprof);
-            new LoginP().setVisible(true);
+            new PagClienteProfesional().setVisible(true);
             this.dispose();
         }
 
