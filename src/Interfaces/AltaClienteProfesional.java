@@ -5,6 +5,24 @@
  */
 package Interfaces;
 
+import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javapop.Aplicacion;
+import javapop.Cliente;
+import javapop.ClienteProfesional;
+import javapop.IOinfo;
+import javapop.Ubicacion;
+import static javapop.Variables.*;
+import javax.swing.ImageIcon;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
+
 /**
  *
  * @author nicmo
@@ -14,7 +32,7 @@ public class AltaClienteProfesional extends javax.swing.JFrame {
     /**
      * Creates new form AltaClienteProfesional
      */
-    public AltaClienteProfesional() {
+    public AltaClienteProfesional(Cliente cliente) {
         initComponents();
     }
 
@@ -27,21 +45,378 @@ public class AltaClienteProfesional extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        darseDeAlta = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        pagWebPro = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        descripcionPro = new javax.swing.JTextArea();
+        telefonoPro = new javax.swing.JFormattedTextField();
+        horarioAperPro = new javax.swing.JFormattedTextField();
+        pagWebError = new javax.swing.JLabel();
+        horarioError = new javax.swing.JLabel();
+        telefonoError = new javax.swing.JLabel();
+        descripcionError = new javax.swing.JLabel();
+        correoError = new javax.swing.JLabel();
+        nombreError = new javax.swing.JLabel();
+        claveError = new javax.swing.JLabel();
+        ciudadError = new javax.swing.JLabel();
+        dniError = new javax.swing.JLabel();
+        tarjetaError = new javax.swing.JLabel();
+        codigoPostalError = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 78, 415, 10));
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 30)); // NOI18N
+        jLabel2.setText("Alta");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+
+        darseDeAlta.setBackground(new java.awt.Color(255, 125, 0));
+        darseDeAlta.setFont(new java.awt.Font("Verdana", 0, 17)); // NOI18N
+        darseDeAlta.setForeground(new java.awt.Color(255, 255, 255));
+        darseDeAlta.setText("Darse de alta");
+        darseDeAlta.setBorder(null);
+        darseDeAlta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                darseDeAltaMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                darseDeAltaMouseReleased(evt);
+            }
+        });
+        darseDeAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                darseDeAltaActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(254, 176, 112));
+
+        pagWebPro.setEditable(false);
+        pagWebPro.setForeground(new java.awt.Color(153, 153, 153));
+        pagWebPro.setText("www.mywebsite.com");
+
+        jLabel9.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        jLabel9.setText("Página web");
+
+        jLabel11.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        jLabel11.setText("Teléfono");
+
+        jLabel12.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        jLabel12.setText("Horario de apertura");
+
+        jLabel13.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
+        jLabel13.setText("Descripción del negocio");
+
+        descripcionPro.setEditable(false);
+        descripcionPro.setBackground(new java.awt.Color(231, 231, 231));
+        descripcionPro.setColumns(20);
+        descripcionPro.setRows(5);
+        jScrollPane1.setViewportView(descripcionPro);
+
+        telefonoPro.setEditable(false);
+        try {
+            telefonoPro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("+34 ### ### ###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        horarioAperPro.setEditable(false);
+        horarioAperPro.setForeground(new java.awt.Color(153, 153, 153));
+        horarioAperPro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(""))));
+        horarioAperPro.setText("08:30-14:15");
+        horarioAperPro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                horarioAperProMouseClicked(evt);
+            }
+        });
+        horarioAperPro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                horarioAperProKeyTyped(evt);
+            }
+        });
+
+        pagWebError.setForeground(new java.awt.Color(255, 0, 0));
+
+        horarioError.setForeground(new java.awt.Color(255, 0, 0));
+
+        telefonoError.setForeground(new java.awt.Color(255, 0, 0));
+
+        descripcionError.setForeground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(descripcionError))
+                    .addComponent(pagWebPro)
+                    .addComponent(telefonoPro)
+                    .addComponent(horarioAperPro)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(18, 18, 18)
+                                .addComponent(telefonoError))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(pagWebError))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(horarioError)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE))
+                .addGap(105, 105, 105))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(pagWebError))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pagWebPro, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(horarioError))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(horarioAperPro, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(telefonoError))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(telefonoPro, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(descripcionError))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        correoError.setForeground(new java.awt.Color(255, 0, 0));
+
+        nombreError.setForeground(new java.awt.Color(255, 0, 0));
+
+        claveError.setForeground(new java.awt.Color(255, 0, 0));
+
+        ciudadError.setForeground(new java.awt.Color(255, 0, 0));
+
+        dniError.setForeground(new java.awt.Color(255, 0, 0));
+
+        tarjetaError.setForeground(new java.awt.Color(255, 0, 0));
+
+        codigoPostalError.setForeground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(correoError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(93, 93, 93)
+                                .addComponent(nombreError))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(72, 72, 72)
+                                .addComponent(ciudadError))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(dniError))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(117, 117, 117)
+                                .addComponent(codigoPostalError))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addComponent(claveError))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(148, 148, 148)
+                                .addComponent(tarjetaError)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(73, 73, 73))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(91, 91, 91))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(darseDeAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(correoError)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(darseDeAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(nombreError)
+                .addGap(69, 69, 69)
+                .addComponent(claveError)
+                .addGap(54, 54, 54)
+                .addComponent(ciudadError)
+                .addGap(57, 57, 57)
+                .addComponent(dniError)
+                .addGap(57, 57, 57)
+                .addComponent(tarjetaError)
+                .addGap(69, 69, 69)
+                .addComponent(codigoPostalError)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 520));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/LogoJavapop50.png"))); // NOI18N
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 11, 115, 61));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void darseDeAltaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_darseDeAltaMousePressed
+        // TODO add your handling code here:
+        Color naran = new Color(255, 160, 0);
+        darseDeAlta.setBackground(naran);
+    }//GEN-LAST:event_darseDeAltaMousePressed
+
+    private void darseDeAltaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_darseDeAltaMouseReleased
+        // TODO add your handling code here:
+
+        Color naran = new Color(255, 125, 0);
+        darseDeAlta.setBackground(naran);
+    }//GEN-LAST:event_darseDeAltaMouseReleased
+
+    private void darseDeAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_darseDeAltaActionPerformed
+        // TODO add your handling code here:
+
+        pagWebError.setText("");
+        horarioError.setText("");
+        telefonoError.setText("");
+        descripcionError.setText("");
+
+        //boolean correcto = true;
+        boolean correoCorrecto = true;
+        boolean correcto2 = true;
+        //boolean profe = profesional.isSelected();
+
+        //Ubicacion ubic = new Ubicacion(codigoPostal.getText(), ciudad.getText());
+        //Cliente cliente = new Cliente(correo.getText(), clave.getText(), nombre.getText(), dni.getText(), tarjeta.getText(), ubic);
+        // Comprobación correo válido
+        /*Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");*/
+
+ /*String email = correo.getText();
+        Matcher mather = pattern.matcher(email);
+
+        if (mather.find()) {
+            correoCorrecto = Aplicacion.correoApto(email);
+            if (!correoCorrecto) {
+                correoError.setText("Correo ya existente");
+                correcto = false;
+            }
+
+        } else {
+            correoError.setText("Correo no válido");
+            correcto = false;
+        }*/
+
+ /*comprobacion resto de elementos
+        if (nombre.getText().isEmpty()) {
+            nombreError.setText("Vacío");
+            correcto = false;
+        }
+        if (clave.getText().isEmpty()) {
+            claveError.setText("Vacío");
+            correcto = false;
+        }
+        if (ciudad.getText().isEmpty()) {
+            ciudadError.setText("Vacío");
+            correcto = false;
+        }
+        if (dni.getText().equals("          ")) {
+            dniError.setText("Vacío");
+            correcto = false;
+        }
+        if (tarjeta.getText().equals("                   ")) {
+            tarjetaError.setText("Vacío");
+            correcto = false;
+        }
+        if (codigoPostal.getText().equals("     ")) {
+            codigoPostalError.setText("Vacío");
+            correcto = false;
+        }*/
+        if (pagWebPro.getText().isEmpty()) {
+            pagWebError.setText("Vacío");
+            correcto2 = false;
+        }
+        if (horarioAperPro.getText().isEmpty() || horarioAperPro.getText().equals("  :  -  :  ")) {
+            horarioError.setText("Vacío");
+            correcto2 = false;
+        }
+        if (telefonoPro.getText().equals("+34            ")) {
+            telefonoError.setText("Vacío");
+            correcto2 = false;
+        }
+        if (descripcionPro.getText().isEmpty()) {
+            descripcionError.setText("Vacío");
+            correcto2 = false;
+        }
+
+        if (correcto2) {
+            ClienteProfesional clienteprof = new ClienteProfesional(cliente, descripcionPro.getText(), horarioAperPro.getText(), telefonoPro.getText(), pagWebPro.getText());
+            //listaClientesProfesionales.add(clienteprof);
+            listaClientes.add(clienteprof);
+            new LoginP().setVisible(true);
+            this.dispose();
+        }
+
+
+    }//GEN-LAST:event_darseDeAltaActionPerformed
+
+    private void horarioAperProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_horarioAperProMouseClicked
+
+    }//GEN-LAST:event_horarioAperProMouseClicked
+
+    private void horarioAperProKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_horarioAperProKeyTyped
+        // TODO add your handling code here:
+        if (horarioAperPro.getText().isEmpty()) {
+            try {
+                // TODO add your handling code here:
+                horarioAperPro.setFormatterFactory(
+                        new DefaultFormatterFactory(
+                                new MaskFormatter("##:##-##:##")));
+            } catch (ParseException ex) {
+                Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_horarioAperProKeyTyped
 
     /**
      * @param args the command line arguments
@@ -79,5 +454,31 @@ public class AltaClienteProfesional extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ciudadError;
+    private javax.swing.JLabel claveError;
+    private javax.swing.JLabel codigoPostalError;
+    private javax.swing.JLabel correoError;
+    private javax.swing.JButton darseDeAlta;
+    private javax.swing.JLabel descripcionError;
+    private javax.swing.JTextArea descripcionPro;
+    private javax.swing.JLabel dniError;
+    private javax.swing.JFormattedTextField horarioAperPro;
+    private javax.swing.JLabel horarioError;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel nombreError;
+    private javax.swing.JLabel pagWebError;
+    private javax.swing.JTextField pagWebPro;
+    private javax.swing.JLabel tarjetaError;
+    private javax.swing.JLabel telefonoError;
+    private javax.swing.JFormattedTextField telefonoPro;
     // End of variables declaration//GEN-END:variables
 }
