@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.util.ArrayList;
 import static javapop.Variables.listaClientes;
-
+import static javapop.Variables.listaProductos;
 
 /**
  *
@@ -25,13 +25,12 @@ public class Aplicacion implements Serializable {
                 return clienteProfesional;
             }
         }*/
-        
         for (Cliente cliente : listaClientes) {
             if (correo.equals(cliente.getCorreo())) {
                 return cliente;
             }
         }
-        
+
         Admin admin = new Admin();
         if (correo.equals(admin.getCorreo())) {
             return admin;
@@ -49,16 +48,16 @@ public class Aplicacion implements Serializable {
         return true;
     }
 
-    public static Object buscarTitulo(ArrayList<Producto> listaProductos, String titulo) {
+    public static ArrayList<Producto> buscarTitulo(String titulo) {
+        ArrayList<Producto> encontrados= new ArrayList<Producto>();
         for (Producto producto : listaProductos) {
-            if (producto.equals(producto.getTitulo())) {
-                return producto;
-            } else {
-                System.out.println("El titulo introducido no existe");
+            if (titulo.equals(producto.getTitulo())) {
+                encontrados.add(producto);
             }
         }
-        Object obj = new Object();
-        return obj;
+        
+        return encontrados;
+
     }
 
     public static Object login() {
@@ -119,27 +118,27 @@ public class Aplicacion implements Serializable {
         listaClientes.add(cp1);
         System.out.println("El registro se ha llevado a cabo con exito.");
     }
-    
-    public static void altaClienteProfesional(Cliente cliente){
-       
-        ClienteProfesional cp1 = new ClienteProfesional(cliente);   
-       
+
+    public static void altaClienteProfesional(Cliente cliente) {
+
+        ClienteProfesional cp1 = new ClienteProfesional(cliente);
+
         listaClientes.remove(cliente);
-        
+
         listaClientes.add(cp1);
-        
+
         System.out.println("Se ha dado de alta como cliente profesional con exito.");
-        
+
     }
-    
-    public static void bajaClienteProfesional(ClienteProfesional clientepro){
-        Cliente c1 = new Cliente(clientepro);   
-       
+
+    public static void bajaClienteProfesional(ClienteProfesional clientepro) {
+        Cliente c1 = new Cliente(clientepro);
+
         //listaClientesProfesionales.remove(clientepro);
         listaClientes.remove(clientepro);
-        
+
         listaClientes.add(c1);
-        
+
         System.out.println("Se ha dado de baja como cliente profesional con exito.");
     }
 }
