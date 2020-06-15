@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Producto implements Serializable {
 
@@ -38,7 +39,7 @@ public class Producto implements Serializable {
         this.cliente = cliente;
         this.urgente = urgente;
     }
-    public Producto(String titulo, String categoria, String descripcion, String estadoProducto, String fotografia, String precio, Ubicacion ubicacion, Cliente cliente, boolean urgente) {
+    public Producto(String titulo, String categoria, String descripcion, String estadoProducto, String fotografia, String precio, Cliente cliente, boolean urgente) {
         this.titulo = titulo;
         this.categoria = categoria;
         this.descripcion = descripcion;
@@ -46,7 +47,7 @@ public class Producto implements Serializable {
         setFechaPublicacion();
         this.fotografia = fotografia;
         this.precio = precio;
-        this.ubicacion = ubicacion;
+        this.ubicacion = cliente.getUbicacion();
         this.cliente = cliente;
         this.urgente = urgente;
     }
@@ -317,6 +318,68 @@ public class Producto implements Serializable {
     public String toString() {
         return "Producto{" + "titulo=" + titulo + ", categoria=" + categoria + ", descripcion=" + descripcion + ", estadoProducto=" + estadoProducto + ", fechaPublicacion=" + fechaPublicacion + ", fotografia=" + fotografia + ", precio=" + precio + ",cliente="+ cliente.getCorreo()+ ", ubicacion=" + ubicacion + ", urgente=" + urgente + '}';
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 29 * hash + Objects.hashCode(this.titulo);
+        hash = 29 * hash + Objects.hashCode(this.categoria);
+        hash = 29 * hash + Objects.hashCode(this.descripcion);
+        hash = 29 * hash + Objects.hashCode(this.estadoProducto);
+        hash = 29 * hash + Objects.hashCode(this.fechaPublicacion);
+        hash = 29 * hash + Objects.hashCode(this.fotografia);
+        hash = 29 * hash + Objects.hashCode(this.precio);
+        hash = 29 * hash + Objects.hashCode(this.ubicacion);
+        hash = 29 * hash + Objects.hashCode(this.cliente);
+        hash = 29 * hash + (this.urgente ? 1 : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Producto other = (Producto) obj;
+        if (this.urgente != other.urgente) {
+            return false;
+        }
+        if (!Objects.equals(this.titulo, other.titulo)) {
+            return false;
+        }
+        if (!Objects.equals(this.categoria, other.categoria)) {
+            return false;
+        }
+        if (!Objects.equals(this.descripcion, other.descripcion)) {
+            return false;
+        }
+        if (!Objects.equals(this.estadoProducto, other.estadoProducto)) {
+            return false;
+        }
+        if (!Objects.equals(this.fechaPublicacion, other.fechaPublicacion)) {
+            return false;
+        }
+        if (!Objects.equals(this.fotografia, other.fotografia)) {
+            return false;
+        }
+        if (!Objects.equals(this.precio, other.precio)) {
+            return false;
+        }
+        if (!Objects.equals(this.ubicacion, other.ubicacion)) {
+            return false;
+        }
+        if (!Objects.equals(this.cliente, other.cliente)) {
+            return false;
+        }
+        return true;
+    }
+    
 
 
 

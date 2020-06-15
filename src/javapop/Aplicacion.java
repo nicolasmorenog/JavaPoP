@@ -40,6 +40,32 @@ public class Aplicacion implements Serializable {
         return obj;
     }
 
+    public static int buscarCorreoIndex(String correo) {
+
+        /*for (ClienteProfesional clienteProfesional : listaClientesProfesionales) {
+            if (correo.equals(clienteProfesional.getCorreo())) {
+                return clienteProfesional;
+            }
+        }*/
+        int c = 0;
+
+        for (Cliente cliente : listaClientes) {
+            if (correo.equals(cliente.getCorreo())) {
+                
+                return c;
+            }
+            c++;
+        }
+        /*Admin admin = new Admin();
+        if (correo.equals(admin.getCorreo())) {
+            return admin;
+        }
+         */
+        //Object obj = new Object();
+        return -1;
+
+    }
+
     public static boolean correoApto(String correo) {
         Object user = buscarCorreo(correo);
         if (user instanceof Cliente || user instanceof ClienteProfesional || user instanceof Admin) {
@@ -49,13 +75,13 @@ public class Aplicacion implements Serializable {
     }
 
     public static ArrayList<Producto> buscarTitulo(String titulo) {
-        ArrayList<Producto> encontrados= new ArrayList<Producto>();
+        ArrayList<Producto> encontrados = new ArrayList<Producto>();
         for (Producto producto : listaProductos) {
             if (titulo.equals(producto.getTitulo())) {
                 encontrados.add(producto);
             }
         }
-        
+
         return encontrados;
 
     }

@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Image;
 import java.util.ArrayList;
+import javapop.Aplicacion;
 import static javapop.Aplicacion.buscarCorreo;
 import static javapop.Aplicacion.buscarTitulo;
 import javapop.Cliente;
@@ -60,31 +61,79 @@ public class PagAdmin extends javax.swing.JFrame {
         ArrayList<Producto> productos = cliente.getListaProductos();
 
         cliente.setListaProductos(new ArrayList<Producto>());
-        for (Producto producto : productos) {
-            listaProductos.remove(producto);
+        for (int i = 0; i< productos.size();i++) {
+            eliminarProducto(productos.get(i));
+            i--;
         }
 
     }
-    private void eliminarProducto(int num){
-        ArrayList<Producto> productos = productosMostrar.get(num).getCliente().getListaProductos();
+
+    /*private void eliminarProducto(Producto producto){
+        ArrayList<Producto> productos = producto.getCliente().getListaProductos();
 
         if (filtrado) {
-            listaProductos.remove(productosMostrar.get(num));
+            listaProductos.remove(producto);
+            System.out.println("Filtrado 1");
         } else if (filtrado2) {
-            listaProductos.remove(productosMostrar.get(num));
+            listaProductos.remove(producto);
 
-            productos.remove(productosMostrar.get(num));
-            productosMostrar.get(num).getCliente().setListaProductos(productos);
+            productos.remove(producto);
+            producto.getCliente().setListaProductos(productos);
+            
+            System.out.println("Filtrado 2");
 
         } else {
-            System.out.println("Hola");
-            productos.remove(productosMostrar.get(num));
-            productosMostrar.get(num).getCliente().setListaProductos(productos);
+            
+            productos.remove(producto);
+            producto.getCliente().setListaProductos(productos);
+            System.out.println("Sin filtrado");
         }
-        productosMostrar.remove(num);
+        productosMostrar.remove(producto);
 
         actualizarPag();
-}
+}*/
+ /*private void eliminarProducto(Producto producto){
+        
+        producto.getCliente().eliminarProducto(producto);
+        System.out.println("Productos mostrar"+productosMostrar);
+        productosMostrar.remove(producto);
+        listaProductos.remove(producto);
+        System.out.println("Productos mostrar"+productosMostrar);
+        actualizarPag();
+       
+        
+    }*/
+    private void eliminarProducto(Producto producto) {
+        System.out.println("ProductosMostrar: "+ productosMostrar);
+        int index = Aplicacion.buscarCorreoIndex(producto.getCliente().getCorreo());
+        System.out.println("index: "+index);
+        System.out.println("Cliente"+ producto);
+        
+        Cliente cliente = producto.getCliente();
+        
+        System.out.println(cliente);
+        
+        System.out.println("1");
+
+        cliente.eliminarProducto(producto);
+        
+        System.out.println("2");
+
+        System.out.println("3");
+        int u = listaProductos.indexOf(producto);
+        System.out.println("u"+u);
+        
+        listaProductos.remove(u);
+        if (filtrado2) {
+            int c = productosMostrar.indexOf(producto);
+            productosMostrar.remove(c);
+        }
+
+        listaClientes.set(index, cliente);
+
+        actualizarPag();
+
+    }
 
     public void actualizarPag() {
         jP8.setVisible(false);
@@ -1535,9 +1584,14 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        borrarProductosCliente(listaClientes.get(p));
+        listaClientes.get(p).getListaProductos();
+        for(int i = 0; i< listaClientes.get(p).getListaProductos().size();i++){
+            listaProductos.remove(listaClientes.get(p).getListaProductos().get(0));
+            
+        }
+        
+        
         listaClientes.remove(p);
-
         actualizarListaClientesPanel();
         borrarDatosCliente();
 
@@ -1643,17 +1697,18 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void pape8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape8ActionPerformed
         // TODO add your handling code here:
-        eliminarProducto(pp+7);
+        eliminarProducto(productosMostrar.get(pp + 7));
     }//GEN-LAST:event_pape8ActionPerformed
 
     private void pape6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape6ActionPerformed
         // TODO add your handling code here:
-        eliminarProducto(pp+5);
+        eliminarProducto(productosMostrar.get(pp + 5));
     }//GEN-LAST:event_pape6ActionPerformed
 
     private void pape1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape1ActionPerformed
         // TODO add your handling code here:
-    eliminarProducto(pp);
+        System.out.println("ProductosMostrarAntes: "+productosMostrar);
+        eliminarProducto(productosMostrar.get(pp));
     }//GEN-LAST:event_pape1ActionPerformed
 
     private void jPanelc4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelc4MouseClicked
@@ -1730,33 +1785,34 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void pape2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape2ActionPerformed
         // TODO add your handling code here:
-        eliminarProducto(pp+1);
+        eliminarProducto(productosMostrar.get(pp + 1));
     }//GEN-LAST:event_pape2ActionPerformed
 
     private void pape3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape3ActionPerformed
         // TODO add your handling code here:
-        eliminarProducto(pp+2);
+        eliminarProducto(productosMostrar.get(pp + 2));
     }//GEN-LAST:event_pape3ActionPerformed
 
     private void pape4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape4ActionPerformed
         // TODO add your handling code here:
-        eliminarProducto(pp+3);
+        eliminarProducto(productosMostrar.get(pp + 3));
     }//GEN-LAST:event_pape4ActionPerformed
 
     private void pape5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape5ActionPerformed
         // TODO add your handling code here:
-        eliminarProducto(pp+4);
+        eliminarProducto(productosMostrar.get(pp + 4));
     }//GEN-LAST:event_pape5ActionPerformed
 
     private void pape7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape7ActionPerformed
         // TODO add your handling code here:
-        eliminarProducto(pp+6);
+        eliminarProducto(productosMostrar.get(pp + 6));
     }//GEN-LAST:event_pape7ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
         if (!(indexCliente < 0)) {
             productosMostrar = listaClientes.get(indexCliente).getListaProductos();
+            
             adminProductos.setVisible(true);
             pp = 0;
             actualizarPag();

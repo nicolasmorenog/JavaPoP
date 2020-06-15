@@ -83,8 +83,8 @@ public class GestionProductos {
 
     ClienteProfesional cp1 = new ClienteProfesional(c1, "hola", "01:30-10:00", "123123123", "dsadda");
 
-    Producto p1 = new Producto("AMD Ryzen 9", "TV audio y foto", "Lo mejor que puedes encontrar calidad/precio", "Regular", "./javapop.ImagenesProductos/5BpIeRB5Ru-AMD Ryzen 9.png", "463,00", u1, cp1, true);
-    Producto p2 = new Producto("Cocacola", "Moda y accesorios", "Original", "Aceptable", "./javapop.Imagenes/5KebdiQKgG-cola-can.png", "1,50", u2, c2, false);
+    //Producto p1 = new Producto("AMD Ryzen 9", "TV audio y foto", "Lo mejor que puedes encontrar calidad/precio", "Regular", "./javapop.ImagenesProductos/5BpIeRB5Ru-AMD Ryzen 9.png", "463,00", u1, cp1, true);
+    //Producto p2 = new Producto("Cocacola", "Moda y accesorios", "Original", "Aceptable", "./javapop.Imagenes/5KebdiQKgG-cola-can.png", "1,50", u2, c2, false);
 
     //listaProductos.add(p1);
 

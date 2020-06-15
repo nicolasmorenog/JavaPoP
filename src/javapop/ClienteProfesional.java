@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -188,5 +189,47 @@ public class ClienteProfesional extends Cliente implements Serializable {
     public String toString() {
         return "ClienteProfesional{" + super.toString() + "descripcion=" + descripcion + ", horaApertura=" + horario + ", telefono=" + telefono + ", web=" + web + '}';
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 61 * hash + Objects.hashCode(this.descripcion);
+        hash = 61 * hash + Objects.hashCode(this.horario);
+        hash = 61 * hash + Objects.hashCode(this.telefono);
+        hash = 61 * hash + Objects.hashCode(this.web);
+        hash = 61 * hash + Objects.hashCode(this.ubicacion);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ClienteProfesional other = (ClienteProfesional) obj;
+        if (!Objects.equals(this.descripcion, other.descripcion)) {
+            return false;
+        }
+        if (!Objects.equals(this.horario, other.horario)) {
+            return false;
+        }
+        if (!Objects.equals(this.telefono, other.telefono)) {
+            return false;
+        }
+        if (!Objects.equals(this.web, other.web)) {
+            return false;
+        }
+        if (!Objects.equals(this.ubicacion, other.ubicacion)) {
+            return false;
+        }
+        return true;
+    }
+    
 
 }

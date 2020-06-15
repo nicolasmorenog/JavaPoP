@@ -69,7 +69,7 @@ public class AltaClientePro extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         darseDeAlta = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(254, 176, 112));
 

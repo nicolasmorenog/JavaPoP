@@ -209,16 +209,26 @@ public class Cliente implements Serializable {
 
     public void añadirProducto(Producto producto) {
 
-        
         this.listaProductosC.add(producto);
         listaProductos.add(producto);
 
     }
 
     public void eliminarProducto(Producto productoEliminar) {
+        System.out.println(this.listaProductosC);
+        //this.listaProductosC.remove(productoEliminar);
+        for (Producto prod : this.listaProductosC) {
+            if (prod.equals(productoEliminar)) {
+                System.out.println("True");
+            } else {
+                System.out.println("false");
+            }
+        }
 
-        this.listaProductosC.remove(productoEliminar);
-        listaProductos.remove(productoEliminar);
+        int index = this.listaProductosC.indexOf(productoEliminar);
+        this.listaProductosC.remove(index);
+
+        System.out.println(this.listaProductosC);
 
     }
 
@@ -234,5 +244,55 @@ public class Cliente implements Serializable {
     public String toString() {
         return "Cliente{" + "correo=" + correo + ", clave=" + clave + ", nombre=" + nombre + ", dni=" + dni + ", tarjeta=" + tarjeta + ", ubicacion=" + ubicacion + ", listaProductos=" + listaProductosC + '}';
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.correo);
+        hash = 79 * hash + Objects.hashCode(this.clave);
+        hash = 79 * hash + Objects.hashCode(this.nombre);
+        hash = 79 * hash + Objects.hashCode(this.dni);
+        hash = 79 * hash + Objects.hashCode(this.tarjeta);
+        hash = 79 * hash + Objects.hashCode(this.ubicacion);
+        hash = 79 * hash + Objects.hashCode(this.listaProductosC);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cliente other = (Cliente) obj;
+        if (!Objects.equals(this.correo, other.correo)) {
+            return false;
+        }
+        if (!Objects.equals(this.clave, other.clave)) {
+            return false;
+        }
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.dni, other.dni)) {
+            return false;
+        }
+        if (!Objects.equals(this.tarjeta, other.tarjeta)) {
+            return false;
+        }
+        if (!Objects.equals(this.ubicacion, other.ubicacion)) {
+            return false;
+        }
+        if (!Objects.equals(this.listaProductosC, other.listaProductosC)) {
+            return false;
+        }
+        return true;
+    }
+    
 
 }

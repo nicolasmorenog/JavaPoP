@@ -279,7 +279,7 @@ public class AddProducto extends javax.swing.JFrame {
                 run = false;
 
             }
-            Producto producto = new Producto(titulop,categoriap,descripcionp,estadop, direccionImg, preciop,((Cliente)usuario).getUbicacion(),((Cliente)usuario),urgentep);
+            Producto producto = new Producto(titulop,categoriap,descripcionp,estadop, direccionImg, preciop,((Cliente)usuario),urgentep);
             
             ((Cliente)usuario).añadirProducto(producto);
             
