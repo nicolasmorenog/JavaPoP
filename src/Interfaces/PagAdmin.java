@@ -35,6 +35,8 @@ public class PagAdmin extends javax.swing.JFrame {
     boolean b7 = false;
     boolean b8 = false;
     boolean b9 = false;
+    boolean filtrado = false;
+    boolean filtrado2 = false;
     int indexCliente = -1;
 
     /**
@@ -49,7 +51,7 @@ public class PagAdmin extends javax.swing.JFrame {
         p = 0;
 
         actualizarListaClientesPanel();
-        
+
         noProductos.setVisible(false);
 
     }
@@ -63,6 +65,26 @@ public class PagAdmin extends javax.swing.JFrame {
         }
 
     }
+    private void eliminarProducto(int num){
+        ArrayList<Producto> productos = productosMostrar.get(num).getCliente().getListaProductos();
+
+        if (filtrado) {
+            listaProductos.remove(productosMostrar.get(num));
+        } else if (filtrado2) {
+            listaProductos.remove(productosMostrar.get(num));
+
+            productos.remove(productosMostrar.get(num));
+            productosMostrar.get(num).getCliente().setListaProductos(productos);
+
+        } else {
+            System.out.println("Hola");
+            productos.remove(productosMostrar.get(num));
+            productosMostrar.get(num).getCliente().setListaProductos(productos);
+        }
+        productosMostrar.remove(num);
+
+        actualizarPag();
+}
 
     public void actualizarPag() {
         jP8.setVisible(false);
@@ -82,8 +104,8 @@ public class PagAdmin extends javax.swing.JFrame {
         pape7.setVisible(false);
         pape8.setVisible(false);
         noProductos.setVisible(false);
-        
-        if (productosMostrar.isEmpty()){
+
+        if (productosMostrar.isEmpty()) {
             noProductos.setVisible(true);
         }
 
@@ -1483,6 +1505,7 @@ public class PagAdmin extends javax.swing.JFrame {
             adminProductos.setVisible(true);
             productosMostrar = listaProductos;
             actualizarPag();
+            filtrado = false;
             //adminVentas.setVisible(false);
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
@@ -1620,41 +1643,17 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void pape8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape8ActionPerformed
         // TODO add your handling code here:
-        ArrayList<Producto> productos = productosMostrar.get(pp + 7).getCliente().getListaProductos();
-        productos.remove(productosMostrar.get(pp + 7));
-
-        productosMostrar.get(pp + 7).getCliente().setListaProductos(productos);
-        listaProductos.remove(productosMostrar.get(pp + 7));
-        
-        productosMostrar.remove(productosMostrar.get(pp + 7));
-
-        actualizarPag();
+        eliminarProducto(pp+7);
     }//GEN-LAST:event_pape8ActionPerformed
 
     private void pape6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape6ActionPerformed
         // TODO add your handling code here:
-        ArrayList<Producto> productos = productosMostrar.get(pp + 5).getCliente().getListaProductos();
-        productos.remove(productosMostrar.get(pp + 5));
-
-        productosMostrar.get(pp + 5).getCliente().setListaProductos(productos);
-        listaProductos.remove(productosMostrar.get(pp + 5));
-        
-        productosMostrar.remove(productosMostrar.get(pp + 5));
-
-        actualizarPag();
+        eliminarProducto(pp+5);
     }//GEN-LAST:event_pape6ActionPerformed
 
     private void pape1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape1ActionPerformed
         // TODO add your handling code here:
-        ArrayList<Producto> productos = productosMostrar.get(pp).getCliente().getListaProductos();
-        productos.remove(productosMostrar.get(pp));
-
-        productosMostrar.get(pp).getCliente().setListaProductos(productos);
-
-        listaProductos.remove(productosMostrar.get(pp));
-        
-        productosMostrar.remove(productosMostrar.get(pp));
-        actualizarPag();
+    eliminarProducto(pp);
     }//GEN-LAST:event_pape1ActionPerformed
 
     private void jPanelc4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelc4MouseClicked
@@ -1731,69 +1730,27 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void pape2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape2ActionPerformed
         // TODO add your handling code here:
-        ArrayList<Producto> productos = productosMostrar.get(pp + 1).getCliente().getListaProductos();
-
-        productos.remove(productosMostrar.get(pp + 1));
-        productosMostrar.get(pp + 1).getCliente().setListaProductos(productos);
-
-        listaProductos.remove(productosMostrar.get(pp + 1));
-        
-        productosMostrar.remove(productosMostrar.get(pp + 1));
-
-        actualizarPag();
+        eliminarProducto(pp+1);
     }//GEN-LAST:event_pape2ActionPerformed
 
     private void pape3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape3ActionPerformed
         // TODO add your handling code here:
-        ArrayList<Producto> productos = productosMostrar.get(pp + 2).getCliente().getListaProductos();
-        productos.remove(productosMostrar.get(pp + 2));
-
-        productosMostrar.get(pp + 2).getCliente().setListaProductos(productos);
-        listaProductos.remove(productosMostrar.get(pp + 2));
-        
-        productosMostrar.remove(productosMostrar.get(pp + 2));
-
-        actualizarPag();
+        eliminarProducto(pp+2);
     }//GEN-LAST:event_pape3ActionPerformed
 
     private void pape4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape4ActionPerformed
         // TODO add your handling code here:
-        ArrayList<Producto> productos = productosMostrar.get(pp + 3).getCliente().getListaProductos();
-        productos.remove(productosMostrar.get(pp + 3));
-
-        productosMostrar.get(pp + 3).getCliente().setListaProductos(productos);
-
-        listaProductos.remove(productosMostrar.get(pp + 3));
-        
-        productosMostrar.remove(productosMostrar.get(pp + 3));
-
-        actualizarPag();
+        eliminarProducto(pp+3);
     }//GEN-LAST:event_pape4ActionPerformed
 
     private void pape5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape5ActionPerformed
         // TODO add your handling code here:
-        ArrayList<Producto> productos = productosMostrar.get(pp + 4).getCliente().getListaProductos();
-        productos.remove(productosMostrar.get(pp + 4));
-
-        productosMostrar.get(pp + 4).getCliente().setListaProductos(productos);
-        listaProductos.remove(productosMostrar.get(pp + 4));
-        
-        productosMostrar.remove(productosMostrar.get(pp + 4));
-
-        actualizarPag();
+        eliminarProducto(pp+4);
     }//GEN-LAST:event_pape5ActionPerformed
 
     private void pape7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pape7ActionPerformed
         // TODO add your handling code here:
-        ArrayList<Producto> productos = productosMostrar.get(pp + 6).getCliente().getListaProductos();
-        productos.remove(productosMostrar.get(pp + 6));
-
-        productosMostrar.get(pp + 6).getCliente().setListaProductos(productos);
-        listaProductos.remove(productosMostrar.get(pp + 6));
-        
-        productosMostrar.remove(productosMostrar.get(pp + 6));
-
-        actualizarPag();
+        eliminarProducto(pp+6);
     }//GEN-LAST:event_pape7ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -1805,6 +1762,7 @@ public class PagAdmin extends javax.swing.JFrame {
             actualizarPag();
             jComboBox1.setSelectedIndex(1);
             adminClientes.setVisible(false);
+            filtrado = true;
 
         }
     }//GEN-LAST:event_jButton10ActionPerformed
@@ -1851,6 +1809,7 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
+
         if (jComboBox1.getSelectedIndex() == 0) {
             Object result = buscarCorreo(jBusqueda.getText());
             if (result instanceof Cliente) {
@@ -1863,10 +1822,10 @@ public class PagAdmin extends javax.swing.JFrame {
             }
         } else if (jComboBox1.getSelectedIndex() == 1) {
             ArrayList<Producto> pEncontrados = buscarTitulo(jBusqueda.getText());
-            
-            productosMostrar= pEncontrados;
+            filtrado2 = true;
+            productosMostrar = pEncontrados;
             actualizarPag();
-            
+
         }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
