@@ -166,6 +166,13 @@ public class PagCliente extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1100, 650));
         setResizable(false);
         setSize(new java.awt.Dimension(1100, 650));
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -483,6 +490,11 @@ public class PagCliente extends javax.swing.JFrame {
         }
         actualizarPag();
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        // TODO add your handling code here:
+        actualizarPag();
+    }//GEN-LAST:event_formWindowGainedFocus
 
     /**
      * @param args the command line arguments

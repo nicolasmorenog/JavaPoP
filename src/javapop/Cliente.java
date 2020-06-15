@@ -215,10 +215,10 @@ public class Cliente implements Serializable {
 
     }
 
-    public void eliminarProducto(ArrayList<Producto> listaProductosGlobal, Producto productoEliminar) {
+    public void eliminarProducto(Producto productoEliminar) {
 
         this.listaProductosC.remove(productoEliminar);
-        listaProductosGlobal.remove(productoEliminar);
+        listaProductos.remove(productoEliminar);
 
     }
 
