@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Image;
 import java.util.ArrayList;
+import static javapop.Aplicacion.buscarCorreo;
+import static javapop.Aplicacion.buscarTitulo;
 import javapop.Cliente;
 import javapop.ClienteProfesional;
 import javapop.IOinfo;
@@ -17,6 +19,7 @@ import static javapop.Variables.listaClientes;
 import static javapop.Variables.listaProductos;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -48,15 +51,15 @@ public class PagAdmin extends javax.swing.JFrame {
         actualizarListaClientesPanel();
 
     }
-    
-    private void borrarProductosCliente(Cliente cliente){
+
+    private void borrarProductosCliente(Cliente cliente) {
         ArrayList<Producto> productos = cliente.getListaProductos();
-        
+
         cliente.setListaProductos(new ArrayList<Producto>());
-        for (Producto producto : productos){
+        for (Producto producto : productos) {
             listaProductos.remove(producto);
         }
-        
+
     }
 
     public void actualizarPag() {
@@ -166,7 +169,8 @@ public class PagAdmin extends javax.swing.JFrame {
         }
 
     }
-    private void borrarDatosCliente(){
+
+    private void borrarDatosCliente() {
         profesional1.setSelected(false);
         pagWeb1.setText("");
         horarioAper1.setText("");
@@ -180,7 +184,7 @@ public class PagAdmin extends javax.swing.JFrame {
         tarjeta.setText("");
         dni.setText("");
         indexCliente = -1;
-        
+
     }
 
     private void actualizarListaClientesPanel() {
@@ -406,7 +410,8 @@ public class PagAdmin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        jBusqueda = new javax.swing.JTextField();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -1343,6 +1348,15 @@ public class PagAdmin extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/lupaVolt30x30.png"))); // NOI18N
+        jToggleButton1.setBorder(null);
+        jToggleButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout TopPanelLayout = new javax.swing.GroupLayout(TopPanel);
         TopPanel.setLayout(TopPanelLayout);
         TopPanelLayout.setHorizontalGroup(
@@ -1354,10 +1368,12 @@ public class PagAdmin extends javax.swing.JFrame {
                 .addGroup(TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TopPanelLayout.createSequentialGroup()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 496, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(TopPanelLayout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1371,8 +1387,9 @@ public class PagAdmin extends javax.swing.JFrame {
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(36, 36, 36)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -1456,16 +1473,16 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         borrarProductosCliente(listaClientes.get(p));
         listaClientes.remove(p);
-        
+
         actualizarListaClientesPanel();
         borrarDatosCliente();
-        
+
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        borrarProductosCliente(listaClientes.get(p+1));
+        borrarProductosCliente(listaClientes.get(p + 1));
         listaClientes.remove(p + 1);
         actualizarListaClientesPanel();
         borrarDatosCliente();
@@ -1473,7 +1490,7 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        borrarProductosCliente(listaClientes.get(p+2));
+        borrarProductosCliente(listaClientes.get(p + 2));
         listaClientes.remove(p + 2);
         actualizarListaClientesPanel();
         borrarDatosCliente();
@@ -1481,7 +1498,7 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        borrarProductosCliente(listaClientes.get(p+3));
+        borrarProductosCliente(listaClientes.get(p + 3));
         listaClientes.remove(p + 3);
         actualizarListaClientesPanel();
         borrarDatosCliente();
@@ -1489,7 +1506,7 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        borrarProductosCliente(listaClientes.get(p+4));
+        borrarProductosCliente(listaClientes.get(p + 4));
         listaClientes.remove(p + 4);
         actualizarListaClientesPanel();
         borrarDatosCliente();
@@ -1497,7 +1514,7 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-        borrarProductosCliente(listaClientes.get(p+5));
+        borrarProductosCliente(listaClientes.get(p + 5));
         listaClientes.remove(p + 5);
         actualizarListaClientesPanel();
         borrarDatosCliente();
@@ -1731,7 +1748,7 @@ public class PagAdmin extends javax.swing.JFrame {
             actualizarPag();
             jComboBox1.setSelectedIndex(1);
             adminClientes.setVisible(false);
-            
+
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
@@ -1774,6 +1791,27 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         new InfoProducto(productosMostrar.get(pp + 7)).setVisible(true);
     }//GEN-LAST:event_jP8MouseClicked
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        if (jComboBox1.getSelectedIndex() == 0) {
+            Object result = buscarCorreo(jBusqueda.getText());
+            if (result instanceof Cliente) {
+                rellenarDatosCliente((Cliente) result);
+                indexCliente = listaClientes.indexOf((Cliente) result);
+            } else {
+                JOptionPane.showMessageDialog(this, "No se ha encontrado ningun usuario registrado con ese correo", "Error", JOptionPane.INFORMATION_MESSAGE);
+                indexCliente = -1;
+                borrarDatosCliente();
+            }
+        } else if (jComboBox1.getSelectedIndex() == 1) {
+            ArrayList<Producto> pEncontrados = buscarTitulo(jBusqueda.getText());
+            
+            productosMostrar= pEncontrados;
+            actualizarPag();
+            
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1828,6 +1866,7 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel dniError;
     private javax.swing.JFormattedTextField horarioAper1;
     private javax.swing.JLabel horarioError1;
+    private javax.swing.JTextField jBusqueda;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
@@ -1904,7 +1943,7 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelc5;
     private javax.swing.JPanel jPanelc6;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel jcorreoc1;
     private javax.swing.JLabel jcorreoc2;
     private javax.swing.JLabel jcorreoc3;
