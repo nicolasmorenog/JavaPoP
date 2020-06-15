@@ -32,6 +32,7 @@ public class PagAdmin extends javax.swing.JFrame {
     boolean b7 = false;
     boolean b8 = false;
     boolean b9 = false;
+    int indexCliente = -1;
 
     /**
      * Creates new form PagAdmin
@@ -322,6 +323,7 @@ public class PagAdmin extends javax.swing.JFrame {
         dniError = new javax.swing.JLabel();
         tarjetaError = new javax.swing.JLabel();
         codigoPostalError = new javax.swing.JLabel();
+        jButton10 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         adminProductos = new javax.swing.JPanel();
         jP1 = new javax.swing.JPanel();
@@ -797,7 +799,7 @@ public class PagAdmin extends javax.swing.JFrame {
                     .addComponent(descripcionError1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         dni.setEditable(false);
@@ -835,52 +837,65 @@ public class PagAdmin extends javax.swing.JFrame {
 
         codigoPostalError.setForeground(new java.awt.Color(255, 0, 0));
 
+        jButton10.setText("Ver productos cliente");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tarjeta, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addGap(29, 29, 29)
-                        .addComponent(correoError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(correo1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(clave1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nombre1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ciudad1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dni, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(codigoPostal)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tarjeta, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel16)
-                                .addGap(34, 34, 34)
-                                .addComponent(nombreError))
+                                .addComponent(jLabel14)
+                                .addGap(29, 29, 29)
+                                .addComponent(correoError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(correo1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(clave1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nombre1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ciudad1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dni, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(codigoPostal)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addGap(18, 18, 18)
-                                .addComponent(ciudadError))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel18)
-                                .addGap(18, 18, 18)
-                                .addComponent(dniError))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addGap(18, 18, 18)
-                                .addComponent(codigoPostalError))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addGap(18, 18, 18)
-                                .addComponent(claveError))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addGap(18, 18, 18)
-                                .addComponent(tarjetaError)))
-                        .addGap(0, 111, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel16)
+                                        .addGap(34, 34, 34)
+                                        .addComponent(nombreError))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel17)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ciudadError))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel18)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(dniError))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel20)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(codigoPostalError))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel15)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(claveError))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel19)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(tarjetaError)))
+                                .addGap(0, 111, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jButton10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -929,6 +944,8 @@ public class PagAdmin extends javax.swing.JFrame {
                     .addComponent(codigoPostalError))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(codigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton10)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -1413,6 +1430,7 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!b4) {
             rellenarDatosCliente(listaClientes.get(p));
+            indexCliente = 0;
         }
 
     }//GEN-LAST:event_jPanelc1MouseClicked
@@ -1441,6 +1459,7 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!b5) {
             rellenarDatosCliente(listaClientes.get(p + 1));
+            indexCliente = 1;
         }
     }//GEN-LAST:event_jPanelc2MouseClicked
 
@@ -1497,6 +1516,7 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!b7) {
             rellenarDatosCliente(listaClientes.get(p + 3));
+            indexCliente = 3;
         }
     }//GEN-LAST:event_jPanelc4MouseClicked
 
@@ -1504,6 +1524,7 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!b8) {
             rellenarDatosCliente(listaClientes.get(p + 4));
+            indexCliente = 4;
         }
     }//GEN-LAST:event_jPanelc5MouseClicked
 
@@ -1511,6 +1532,7 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!b9) {
             rellenarDatosCliente(listaClientes.get(p + 5));
+            indexCliente = 5;
         }
     }//GEN-LAST:event_jPanelc6MouseClicked
 
@@ -1558,6 +1580,7 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!b6) {
             rellenarDatosCliente(listaClientes.get(p + 2));
+            indexCliente = 2;
         }
     }//GEN-LAST:event_jPanelc3MouseClicked
 
@@ -1618,6 +1641,13 @@ public class PagAdmin extends javax.swing.JFrame {
         actualizarPag();
     }//GEN-LAST:event_pape7ActionPerformed
 
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        productosMostrar = listaClientes.get(indexCliente).getListaProductos();
+        adminProductos.setVisible(true);
+        adminClientes.setVisible(false);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1672,6 +1702,7 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField horarioAper1;
     private javax.swing.JLabel horarioError1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
