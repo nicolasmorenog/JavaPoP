@@ -151,6 +151,8 @@ public class Register extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(254, 176, 112));
 
         pagWeb.setEditable(false);
+        pagWeb.setForeground(new java.awt.Color(153, 153, 153));
+        pagWeb.setText("www.mywebsite.com");
 
         jLabel9.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         jLabel9.setText("Página web");
@@ -187,7 +189,9 @@ public class Register extends javax.swing.JFrame {
         }
 
         horarioAper.setEditable(false);
+        horarioAper.setForeground(new java.awt.Color(153, 153, 153));
         horarioAper.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(""))));
+        horarioAper.setText("08:30-14:15");
         horarioAper.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 horarioAperMouseClicked(evt);

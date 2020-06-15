@@ -719,10 +719,11 @@ public class PagAdmin extends javax.swing.JFrame {
 
         telefono1.setEditable(false);
         try {
-            telefono1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("+34 ### ### ###")));
+            telefono1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        telefono1.setText("");
 
         horarioAper1.setEditable(false);
         horarioAper1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(""))));
@@ -978,6 +979,11 @@ public class PagAdmin extends javax.swing.JFrame {
         jP1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1.setForeground(new java.awt.Color(255, 125, 0));
         jP1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP1MouseClicked(evt);
+            }
+        });
         jP1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
@@ -1617,6 +1623,12 @@ public class PagAdmin extends javax.swing.JFrame {
 
         actualizarPag();
     }//GEN-LAST:event_pape7ActionPerformed
+
+    private void jP1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP1MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(pp)).setVisible(true);
+       
+    }//GEN-LAST:event_jP1MouseClicked
 
     /**
      * @param args the command line arguments
