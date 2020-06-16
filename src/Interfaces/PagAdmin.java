@@ -31,6 +31,7 @@ import javax.swing.JPanel;
 public class PagAdmin extends javax.swing.JFrame {
 
     static int p;
+    static int pagVentas = 0;
     boolean b4 = false;
     boolean b5 = false;
     boolean b6 = false;
@@ -58,6 +59,39 @@ public class PagAdmin extends javax.swing.JFrame {
 
     }
 
+    private void actualizarVentas() {
+        venta1.setVisible(false);
+        venta2.setVisible(false);
+        venta3.setVisible(false);
+        venta4.setVisible(false);
+
+        if (pagVentas < listaVentas.size()) {
+            venta1.setVisible(true);
+            comprador.setText(listaVentas.get(pagVentas).getComprador().getCorreo());
+            producto.setText(listaVentas.get(pagVentas).getProducto().getTitulo());
+            vendedor.setText(listaVentas.get(pagVentas).getVendedor().getCorreo());
+        }
+        if (pagVentas + 1 < listaVentas.size()) {
+            venta2.setVisible(true);
+            comprador2.setText(listaVentas.get(pagVentas + 1).getComprador().getCorreo());
+            producto2.setText(listaVentas.get(pagVentas + 1).getProducto().getTitulo());
+            vendedor2.setText(listaVentas.get(pagVentas + 1).getVendedor().getCorreo());
+        }
+        if (pagVentas + 2 < listaVentas.size()) {
+            venta3.setVisible(true);
+            comprador3.setText(listaVentas.get(pagVentas + 2).getComprador().getCorreo());
+            producto3.setText(listaVentas.get(pagVentas + 2).getProducto().getTitulo());
+            vendedor3.setText(listaVentas.get(pagVentas + 2).getVendedor().getCorreo());
+        }
+        if (pagVentas + 3 < listaVentas.size()) {
+            venta4.setVisible(true);
+            comprador1.setText(listaVentas.get(pagVentas + 3).getComprador().getCorreo());
+            producto1.setText(listaVentas.get(pagVentas + 3).getProducto().getTitulo());
+            vendedor1.setText(listaVentas.get(pagVentas + 3).getVendedor().getCorreo());
+        }
+
+    }
+
     private void borrarProductosCliente(Cliente cliente) {
         /*ArrayList<Producto> productos = cliente.getListaProductos();
 
@@ -66,16 +100,16 @@ public class PagAdmin extends javax.swing.JFrame {
             eliminarProducto(productos.get(i));
             i--;
         }*/
-        
+
         String foto;
-        for(Producto prod: cliente.getListaProductos()){
+        for (Producto prod : cliente.getListaProductos()) {
             foto = prod.getFotografia();
-            for (Producto hola: listaProductos){
-                if (foto.equals(hola.getFotografia())){
+            for (Producto hola : listaProductos) {
+                if (foto.equals(hola.getFotografia())) {
                     listaProductos.remove(hola);
                     break;
                 }
-                    
+
             }
         }
 
@@ -121,7 +155,7 @@ public class PagAdmin extends javax.swing.JFrame {
         int index = Aplicacion.buscarCorreoIndex(producto.getCliente().getCorreo());
         System.out.println("index: " + index);
         System.out.println("Cliente" + producto);
-        
+
         int index1 = listaProductos.indexOf(producto);
 
         Cliente cliente = producto.getCliente();
@@ -144,11 +178,12 @@ public class PagAdmin extends javax.swing.JFrame {
         if (filtrado2) {
             int c = productosMostrar.indexOf(producto);
             productosMostrar.remove(c);
-        } if (filtrado){
-            System.out.println("Fotografia producto "+ producto.getFotografia());
-            for (Producto prod:listaProductos){
-                System.out.println("FotografiaLista: "+ prod.getFotografia());
-                if (prod.getFotografia().equals(producto.getFotografia())){
+        }
+        if (filtrado) {
+            System.out.println("Fotografia producto " + producto.getFotografia());
+            for (Producto prod : listaProductos) {
+                System.out.println("FotografiaLista: " + prod.getFotografia());
+                if (prod.getFotografia().equals(producto.getFotografia())) {
                     listaProductos.remove(prod);
                     break;
                 }
@@ -160,13 +195,13 @@ public class PagAdmin extends javax.swing.JFrame {
         actualizarPag();
 
     }
+
     /*private void eliminarProducto(Producto producto){
         producto.getCliente().getListaProductos().remove(producto);
         listaProductos.remove(producto);
         productosMostrar.remove(producto);
         actualizarPag();
     }*/
-
     public void actualizarPag() {
         jP8.setVisible(false);
         jP7.setVisible(false);
@@ -520,13 +555,27 @@ public class PagAdmin extends javax.swing.JFrame {
         jLabelNopp = new javax.swing.JLabel();
         travolta = new javax.swing.JLabel();
         adminVentas = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel49 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
+        venta1 = new javax.swing.JPanel();
+        comprador = new javax.swing.JLabel();
+        vendedor = new javax.swing.JLabel();
+        producto = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
+        venta4 = new javax.swing.JPanel();
+        comprador1 = new javax.swing.JLabel();
+        vendedor1 = new javax.swing.JLabel();
+        producto1 = new javax.swing.JLabel();
+        venta2 = new javax.swing.JPanel();
+        comprador2 = new javax.swing.JLabel();
+        vendedor2 = new javax.swing.JLabel();
+        producto2 = new javax.swing.JLabel();
+        venta3 = new javax.swing.JPanel();
+        comprador3 = new javax.swing.JLabel();
+        vendedor3 = new javax.swing.JLabel();
+        producto3 = new javax.swing.JLabel();
+        comprador4 = new javax.swing.JLabel();
+        producto4 = new javax.swing.JLabel();
+        vendedor4 = new javax.swing.JLabel();
         TopPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -1482,56 +1531,27 @@ public class PagAdmin extends javax.swing.JFrame {
 
         jPanel3.add(adminProductos, "card2");
 
-        jPanel2.setBackground(new java.awt.Color(244, 184, 44));
-        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+        venta1.setBackground(new java.awt.Color(244, 184, 44));
+        venta1.setForeground(new java.awt.Color(255, 255, 255));
+        venta1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        comprador.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        comprador.setForeground(new java.awt.Color(255, 255, 255));
+        comprador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        comprador.setText("Comprador");
+        venta1.add(comprador, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 190, 40));
 
-        jPanel6.setBackground(new java.awt.Color(244, 184, 44));
-        jPanel6.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        vendedor.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        vendedor.setForeground(new java.awt.Color(255, 255, 255));
+        vendedor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        vendedor.setText("Vendedor");
+        venta1.add(vendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 200, 40));
 
-        jLabel49.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jLabel49.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel49.setText("Comprador");
-        jPanel6.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 40));
-
-        jPanel7.setBackground(new java.awt.Color(244, 184, 44));
-        jPanel7.setForeground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jPanel8.setBackground(new java.awt.Color(244, 184, 44));
-        jPanel8.setForeground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 778, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        producto.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        producto.setForeground(new java.awt.Color(255, 255, 255));
+        producto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        producto.setText("Producto");
+        venta1.add(producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 200, 40));
 
         jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/flechaIzquierda100.png"))); // NOI18N
         jLabel47.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1549,6 +1569,84 @@ public class PagAdmin extends javax.swing.JFrame {
             }
         });
 
+        venta4.setBackground(new java.awt.Color(244, 184, 44));
+        venta4.setForeground(new java.awt.Color(255, 255, 255));
+        venta4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        comprador1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        comprador1.setForeground(new java.awt.Color(255, 255, 255));
+        comprador1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        comprador1.setText("Comprador");
+        venta4.add(comprador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 190, 40));
+
+        vendedor1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        vendedor1.setForeground(new java.awt.Color(255, 255, 255));
+        vendedor1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        vendedor1.setText("Vendedor");
+        venta4.add(vendedor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 200, 40));
+
+        producto1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        producto1.setForeground(new java.awt.Color(255, 255, 255));
+        producto1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        producto1.setText("Producto");
+        venta4.add(producto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 200, 40));
+
+        venta2.setBackground(new java.awt.Color(244, 184, 44));
+        venta2.setForeground(new java.awt.Color(255, 255, 255));
+        venta2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        comprador2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        comprador2.setForeground(new java.awt.Color(255, 255, 255));
+        comprador2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        comprador2.setText("Comprador");
+        venta2.add(comprador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 190, 40));
+
+        vendedor2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        vendedor2.setForeground(new java.awt.Color(255, 255, 255));
+        vendedor2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        vendedor2.setText("Vendedor");
+        venta2.add(vendedor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 200, 40));
+
+        producto2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        producto2.setForeground(new java.awt.Color(255, 255, 255));
+        producto2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        producto2.setText("Producto");
+        venta2.add(producto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 200, 40));
+
+        venta3.setBackground(new java.awt.Color(244, 184, 44));
+        venta3.setForeground(new java.awt.Color(255, 255, 255));
+        venta3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        comprador3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        comprador3.setForeground(new java.awt.Color(255, 255, 255));
+        comprador3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        comprador3.setText("Comprador");
+        venta3.add(comprador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 190, 40));
+
+        vendedor3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        vendedor3.setForeground(new java.awt.Color(255, 255, 255));
+        vendedor3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        vendedor3.setText("Vendedor");
+        venta3.add(vendedor3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 200, 40));
+
+        producto3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        producto3.setForeground(new java.awt.Color(255, 255, 255));
+        producto3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        producto3.setText("Producto");
+        venta3.add(producto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 200, 40));
+
+        comprador4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        comprador4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        comprador4.setText("Comprador");
+
+        producto4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        producto4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        producto4.setText("Producto");
+
+        vendedor4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        vendedor4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        vendedor4.setText("Vendedor");
+
         javax.swing.GroupLayout adminVentasLayout = new javax.swing.GroupLayout(adminVentas);
         adminVentas.setLayout(adminVentasLayout);
         adminVentasLayout.setHorizontalGroup(
@@ -1556,12 +1654,21 @@ public class PagAdmin extends javax.swing.JFrame {
             .addGroup(adminVentasLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addGroup(adminVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(adminVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(adminVentasLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(adminVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(venta1, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(venta4, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(venta2, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(venta3, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(adminVentasLayout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(comprador4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addComponent(producto4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(vendedor4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(49, 49, 49)
                 .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(49, Short.MAX_VALUE))
@@ -1571,19 +1678,24 @@ public class PagAdmin extends javax.swing.JFrame {
             .addGroup(adminVentasLayout.createSequentialGroup()
                 .addGroup(adminVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(adminVentasLayout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(adminVentasLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(adminVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(adminVentasLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(adminVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comprador4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(producto4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(vendedor4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(venta1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(venta2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(venta3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(venta4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -1681,7 +1793,7 @@ public class PagAdmin extends javax.swing.JFrame {
         IOinfo.guardarClientes(listaClientes);
         IOinfo.guardarProductos(listaProductos);
         IOinfo.guardarVentas(listaVentas);
-        
+
         System.out.println("final programa" + listaVentas);
     }//GEN-LAST:event_formWindowClosing
 
@@ -1693,14 +1805,21 @@ public class PagAdmin extends javax.swing.JFrame {
             adminClientes.setVisible(true);
             actualizarListaClientesPanel();
             adminProductos.setVisible(false);
-            //adminVentas.setVisible(false);
+            adminVentas.setVisible(false);
         } else if (selec == 1 && !adminProductos.isVisible()) {
             adminClientes.setVisible(false);
             adminProductos.setVisible(true);
             productosMostrar = listaProductos;
             actualizarPag();
             filtrado = false;
-            //adminVentas.setVisible(false);
+            adminVentas.setVisible(false);
+        } else if (selec == 2 && !adminVentas.isVisible()) {
+            adminClientes.setVisible(false);
+            adminProductos.setVisible(false);
+
+            actualizarVentas();
+            filtrado = false;
+            adminVentas.setVisible(true);
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
@@ -1731,10 +1850,10 @@ public class PagAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         listaClientes.get(p).getListaProductos();
         borrarProductosCliente(listaClientes.get(p));
-        
+
         listaClientes.remove(p);
         actualizarListaClientesPanel();
-        
+
         borrarDatosCliente();
 
 
@@ -1742,52 +1861,52 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        
+
         borrarProductosCliente(listaClientes.get(p + 1));
         listaClientes.remove(p + 1);
         actualizarListaClientesPanel();
-        
+
         borrarDatosCliente();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        
+
         borrarProductosCliente(listaClientes.get(p + 2));
         listaClientes.remove(p + 2);
         actualizarListaClientesPanel();
-        
+
         borrarDatosCliente();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        
+
         borrarProductosCliente(listaClientes.get(p + 3));
         listaClientes.remove(p + 3);
         actualizarListaClientesPanel();
-        
+
         borrarDatosCliente();
-        
+
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-       
+
         borrarProductosCliente(listaClientes.get(p + 4));
         listaClientes.remove(p + 4);
         actualizarListaClientesPanel();
-        
+
         borrarDatosCliente();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-        
+
         borrarProductosCliente(listaClientes.get(p + 5));
         listaClientes.remove(p + 5);
         actualizarListaClientesPanel();
-        
+
         borrarDatosCliente();
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -2040,10 +2159,18 @@ public class PagAdmin extends javax.swing.JFrame {
 
     private void jLabel47MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel47MouseClicked
         // TODO add your handling code here:
+        if (pagVentas - 4 >= 0) {
+            pagVentas -= 4;
+        }
+        actualizarVentas();
     }//GEN-LAST:event_jLabel47MouseClicked
 
     private void jLabel48MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel48MouseClicked
         // TODO add your handling code here:
+        if (pagVentas + 4 < listaVentas.size()) {
+            pagVentas += 4;
+        }
+        actualizarVentas();
     }//GEN-LAST:event_jLabel48MouseClicked
 
     /**
@@ -2092,6 +2219,11 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel claveError;
     private javax.swing.JFormattedTextField codigoPostal;
     private javax.swing.JLabel codigoPostalError;
+    private javax.swing.JLabel comprador;
+    private javax.swing.JLabel comprador1;
+    private javax.swing.JLabel comprador2;
+    private javax.swing.JLabel comprador3;
+    private javax.swing.JLabel comprador4;
     private javax.swing.JTextField correo1;
     private javax.swing.JLabel correoError;
     private javax.swing.JTextArea descripcion1;
@@ -2155,7 +2287,6 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2171,13 +2302,9 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jP7;
     private javax.swing.JPanel jP8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanelc1;
     private javax.swing.JPanel jPanelc2;
     private javax.swing.JPanel jPanelc3;
@@ -2218,11 +2345,25 @@ public class PagAdmin extends javax.swing.JFrame {
     private javax.swing.JButton pape6;
     private javax.swing.JButton pape7;
     private javax.swing.JButton pape8;
+    private javax.swing.JLabel producto;
+    private javax.swing.JLabel producto1;
+    private javax.swing.JLabel producto2;
+    private javax.swing.JLabel producto3;
+    private javax.swing.JLabel producto4;
     private javax.swing.JCheckBox profesional1;
     private javax.swing.JFormattedTextField tarjeta;
     private javax.swing.JLabel tarjetaError;
     private javax.swing.JFormattedTextField telefono1;
     private javax.swing.JLabel telefonoError1;
     private javax.swing.JLabel travolta;
+    private javax.swing.JLabel vendedor;
+    private javax.swing.JLabel vendedor1;
+    private javax.swing.JLabel vendedor2;
+    private javax.swing.JLabel vendedor3;
+    private javax.swing.JLabel vendedor4;
+    private javax.swing.JPanel venta1;
+    private javax.swing.JPanel venta2;
+    private javax.swing.JPanel venta3;
+    private javax.swing.JPanel venta4;
     // End of variables declaration//GEN-END:variables
 }

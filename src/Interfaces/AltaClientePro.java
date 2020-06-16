@@ -321,8 +321,9 @@ public class AltaClientePro extends javax.swing.JFrame {
             descripcionError.setText("Vacío");
             correcto2 = false;
         }
-        int confirmacion = JOptionPane.showConfirmDialog(null, "¿Seguro que quieres darte de alta como cliente profesional?\n Se abonarán 30€ mensuales a la tarjeta: " + ((Cliente)usuario).getTarjeta(), "Confirmación", JOptionPane.OK_CANCEL_OPTION);
+        
         if (correcto2) {
+            int confirmacion = JOptionPane.showConfirmDialog(null, "¿Seguro que quieres darte de alta como cliente profesional?\n Se abonarán 30€ mensuales a la tarjeta: " + ((Cliente)usuario).getTarjeta(), "Confirmación", JOptionPane.OK_CANCEL_OPTION);
             ClienteProfesional profesional = new ClienteProfesional((Cliente) usuario, descripcionPro.getText(), horarioAperPro.getText(), telefonoPro.getText(), pagWebPro.getText());
             //listaClientes.remove((Cliente)usuario);
             //listaClientes.add(profesional);
