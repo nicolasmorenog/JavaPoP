@@ -11,8 +11,19 @@ import java.util.Scanner;
 
 /**
  *
- * @author Jesús Palomino
+ * @author Jesús Palomino Abreu
+ * @author Nicolás Moreno González
+ * 
+ * @version v2.0 06/2019
+ * 
+ * Clase obsoleta que funciona como una máquina de estados que representan:
+ * Estado 0: Pantalla de inicio y registro 
+ * Estado 1: Página de administrador
+ * Estado 2: Página de Cliente
+ * Estado 3: Página de Cliente Profesional
+ * 
  */
+
 public class Javapop {
 
     /**

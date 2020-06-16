@@ -1,17 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package javapop;
 
-
-
+/**
+ *
+ * @author Jesús Palomino Abreu
+ * @author Nicolás Moreno González
+ * 
+ * @version v2.0 06/2019
+ */
 
 public class Admin{
     private final String correo;
     private final String clave;
     private final String nombre;
+    
     public Admin(){
         this.correo= "admin@javapop.com";
         this.clave= "admin";

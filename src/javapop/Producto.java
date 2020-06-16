@@ -13,6 +13,15 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ *
+ * @author Jesús Palomino Abreu
+ * @author Nicolás Moreno González
+ * 
+ * @version v2.0 06/2019
+ */
+
+
 public class Producto implements Serializable {
 
     private String titulo;
@@ -246,28 +255,6 @@ public class Producto implements Serializable {
 
         }
     }
-
-    //precio desactualizado, ya no sirve
-    /*
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public void setPrecio() {
-        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-        boolean correcto = false;
-        while (!correcto) {
-            try {
-                String pprecio = entrada.readLine();
-                this.precio = Double.parseDouble(pprecio);
-                correcto = true;
-
-            } catch (Exception e) {
-                System.out.println("El precio debe estar compuesto por un numero decimal. Intentelo de nuevo");
-
-            }
-        }
-    }*/
 
     //fecha de publicacion
     public void setFechaPublicacion(String fechaPublicacion) {

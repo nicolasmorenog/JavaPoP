@@ -11,7 +11,10 @@ import static javapop.Variables.*;
 
 /**
  *
- * @author Jesus
+ * @author Jesús Palomino Abreu
+ * @author Nicolás Moreno González
+ * 
+ * @version v2.0 06/2019
  */
 public class SubirEjemplos {
 

@@ -2,9 +2,12 @@
 package javapop;
 /**
  *
- * @author Jesús Palomino
- * @author Nicolás Moreno
+ * @author Jesús Palomino Abreu
+ * @author Nicolás Moreno González
+ * 
+ * @version v2.0 06/2019
  */
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Serializable;
