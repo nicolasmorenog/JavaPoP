@@ -1,4 +1,4 @@
-# Memoria JavaPoP
+# JavaPoP
 ```
 Grado en Ingeniería Informática
 Curso 2019/20 Práctica de POO 2020
