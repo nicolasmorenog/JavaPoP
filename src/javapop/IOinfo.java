@@ -113,7 +113,7 @@ public class IOinfo implements Serializable{
             escribirFichero.close();
 
         } catch (Exception e) {
-            System.out.println("Error guardar ventas");
+            System.out.println("Error guardar ventas: "+e.toString());
         }
     }
     

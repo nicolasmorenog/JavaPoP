@@ -1120,11 +1120,13 @@ public class PagCliente extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
+        System.out.println("final programa" + listaVentas);
+        
         IOinfo.guardarClientes(listaClientes);
         IOinfo.guardarProductos(listaProductos);
         IOinfo.guardarVentas(listaVentas);
         
-        System.out.println("final programa" + listaVentas);
+        
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -1299,6 +1301,8 @@ public class PagCliente extends javax.swing.JFrame {
 
     private void IniSesion4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniSesion4ActionPerformed
         // TODO add your handling code here:
+        new LoginP().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_IniSesion4ActionPerformed
 
     /**

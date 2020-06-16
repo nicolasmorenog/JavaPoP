@@ -16,7 +16,7 @@ public class GestionProductos {
     /**
      * Método para ordenar los productos por cercanía comparando el código 
      * postal del cliente con el código postal de los propietarios de 
-     * dichos productos
+     * dichos productos, método de ordenación por insercción.O(n) ((n^2)/4)
      * @param listaProductos. Lista de productos en venta
      * @param comprador. Cliente comprador 
      */
@@ -29,10 +29,7 @@ public class GestionProductos {
         int disj;
         int j;
         Producto aux;
-        /**
-         * Recorre la lista entera.
-         * 
-         */
+        
         for (int i = 1; i < listaProductos.size(); i++) {
             aux = listaProductos.get(i);
             locProductoi = Integer.parseInt(listaProductos.get(i).getUbicacion().getCodigoPostal());

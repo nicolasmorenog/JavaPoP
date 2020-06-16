@@ -5,6 +5,7 @@
  */
 package javapop;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -12,7 +13,7 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Jesus
  */
-public class Venta {
+public class Venta implements Serializable{
 
     private Producto producto;
     private Cliente comprador;
