@@ -16,7 +16,11 @@ import static javapop.Variables.listaVentas;
 import static javapop.Variables.usuario;
 import javapop.Venta;
 import javax.swing.ImageIcon;
+<<<<<<< HEAD
 import javax.swing.JFrame;
+=======
+import javax.swing.JOptionPane;
+>>>>>>> e25d5d65e947569ac9dc4f499aa73ff29019ca83
 
 /**
  *
@@ -218,6 +222,9 @@ public class CompraProducto extends javax.swing.JFrame {
             }
         }
         
+        int confirmacion=JOptionPane.showConfirmDialog(null, "¿Seguro que quieres comprar este producto?", "Confirmación",JOptionPane.OK_CANCEL_OPTION);
+        
+        if (confirmacion==JOptionPane.YES_OPTION){
         Cliente aux = produc.getCliente();
         
         aux.getListaProductos().remove(produc);
@@ -230,6 +237,7 @@ public class CompraProducto extends javax.swing.JFrame {
         listaProductos.remove(produc);
         
         
+<<<<<<< HEAD
         pagCliente.dispose();
         new PagCliente().setVisible(true);
         
@@ -238,6 +246,11 @@ public class CompraProducto extends javax.swing.JFrame {
         
         
         
+=======
+       
+        }
+         this.dispose();
+>>>>>>> e25d5d65e947569ac9dc4f499aa73ff29019ca83
     }//GEN-LAST:event_botonComprarActionPerformed
 
 
