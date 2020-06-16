@@ -1,22 +1,25 @@
-
 package javapop;
 
 /**
  *
  * @author Jesús Palomino Abreu
  * @author Nicolás Moreno González
- * 
+ *
  * @version v2.0 06/2019
  */
+public class Admin {
 
-public class Admin{
     private final String correo;
     private final String clave;
     private final String nombre;
-    
-    public Admin(){
-        this.correo= "admin@javapop.com";
-        this.clave= "admin";
+
+    /**
+     * <p>
+     * Constructor por defecto</p>
+     */
+    public Admin() {
+        this.correo = "admin@javapop.com";
+        this.clave = "admin";
         this.nombre = "admin";
     }
 
@@ -36,7 +39,5 @@ public class Admin{
     public String toString() {
         return "Admin{" + "correo=" + correo + ", clave=" + clave + ", nombre=" + nombre + '}';
     }
-    
-        
-    
+
 }

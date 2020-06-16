@@ -34,7 +34,7 @@ public class Producto implements Serializable {
     private boolean urgente;
 
     /**
-     * Constructor con parámetros
+     * <p>Constructor con parámetros</p>
      *
      * @param titulo. Título tipo (String) del producto
      * @param categoria. Categoría tipo (String) del producto
@@ -62,7 +62,7 @@ public class Producto implements Serializable {
     }
 
     /**
-     * Constructor sin fechaPublicacion ni ubicacion como parámetros
+     * <p>Constructor sin fechaPublicacion ni ubicacion como parámetros</p>
      *
      * @param titulo. Título tipo (String) del producto
      * @param categoria. Categoría tipo (String) del producto
@@ -87,7 +87,7 @@ public class Producto implements Serializable {
     }
 
     /**
-     * Constructor con únicamente cliente como parámetro
+     * <p>Constructor con únicamente cliente como parámetro</p>
      *
      * @param cliente. Cliente propietario del producto
      */

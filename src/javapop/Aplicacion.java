@@ -17,7 +17,8 @@ import static javapop.Variables.listaProductos;
 public class Aplicacion implements Serializable {
 
     /**
-     * Método que devuelve el tipo del correo introducido
+     * <p>
+     * Método que devuelve el tipo del correo introducido</p>
      *
      * @return obj. Retorna un objeto vacío si no se ha encontrado ningún correo
      * que coincida
@@ -26,8 +27,9 @@ public class Aplicacion implements Serializable {
     public static Object buscarCorreo(String correo) {
 
         /**
+         * <p>
          * Recorre la lista de clientes hasta encontrar el correo del cliente o
-         * hasta que llegue al final de la lista
+         * hasta que llegue al final de la lista</p>
          *
          * @return cliente. Cliente asociado al correo encontrado
          */
@@ -39,7 +41,8 @@ public class Aplicacion implements Serializable {
 
         Admin admin = new Admin();
         /**
-         * Mira si el correo coincide con el correo del administrador
+         * <p>
+         * Mira si el correo coincide con el correo del administrador</p>
          *
          * @return admin. Administrador asociado al correo encontrado
          */
@@ -52,7 +55,8 @@ public class Aplicacion implements Serializable {
     }
 
     /**
-     * Método que devuelve el index del correo introducido
+     * <p>
+     * Método que devuelve el index del correo introducido</p>
      *
      * @param correo. Correo tipo (String) a buscar
      * @return -1. Retorna -1 si no se ha encontrado ningún correo que coincida
@@ -61,8 +65,9 @@ public class Aplicacion implements Serializable {
 
         int c = 0;
         /**
+         * <p>
          * Recorre la lista de clientes hasta encontrar el correo del cliente o
-         * hasta que llegue al final de la lista
+         * hasta que llegue al final de la lista</p>
          *
          * @return c. Index del correo encontrado
          */
@@ -84,7 +89,8 @@ public class Aplicacion implements Serializable {
     }
 
     /**
-     * Método para saber si el nuevo correo es apto para registro o no
+     * <p>
+     * Método para saber si el nuevo correo es apto para registro o no</p>
      *
      * @param correo
      * @return boolean. Devuelve si el correo es apto para registro o no
@@ -110,8 +116,9 @@ public class Aplicacion implements Serializable {
     public static ArrayList<Producto> buscarTitulo(String titulo) {
         ArrayList<Producto> encontrados = new ArrayList<Producto>();
         /**
+         * <p>
          * Recorre la lista de productos hasta encontrar una coincidencia con el
-         * titulo del producto o hasta que llegue al final de la lista
+         * titulo del producto o hasta que llegue al final de la lista</p>
          */
         for (Producto producto : listaProductos) {
             if (titulo.equals(producto.getTitulo())) {
@@ -137,7 +144,8 @@ public class Aplicacion implements Serializable {
              * condiciones
              */
             /**
-             * Se pide al usuario que introduzca su corre y contraseña
+             * <p>
+             * Se pide al usuario que introduzca su corre y contraseña</p>
              */
             System.out.println("Introduce el correo: ");
             String correo = entrada.readLine();
@@ -218,15 +226,15 @@ public class Aplicacion implements Serializable {
     }
 
     /**
+     * <p>
      * Dar de baja un cliente profesional y convertirlo en Cliente Función para
-     * ejecución por consola
+     * ejecución por consola</p>
      *
      * @param clientepro
      */
     public static void bajaClienteProfesional(ClienteProfesional clientepro) {
         Cliente c1 = new Cliente(clientepro);
 
-        //listaClientesProfesionales.remove(clientepro);
         listaClientes.remove(clientepro);
 
         listaClientes.add(c1);
