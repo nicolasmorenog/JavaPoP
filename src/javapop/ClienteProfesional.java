@@ -41,15 +41,15 @@ public class ClienteProfesional extends Cliente implements Serializable {
     }
     
     public ClienteProfesional(Cliente cliente, String descripcion, String horario,String telefono, String web) {
-
-        super(cliente.getCorreo(), cliente.getClave(), cliente.getNombre(), cliente.getDni(), cliente.getTarjeta(), cliente.getUbicacion());
-        
+        //(String correo, String clave, String nombre, String dni, String tarjeta, Ubicacion ubicacion)
+        super (cliente.getCorreo(), cliente.getClave(), cliente.getNombre(), cliente.getDni(), cliente.getTarjeta(), cliente.getUbicacion());
         this.descripcion=descripcion;
         this.horario=horario;
         
         this.telefono=telefono;
         
         this.web=web;
+        
         
         
     }

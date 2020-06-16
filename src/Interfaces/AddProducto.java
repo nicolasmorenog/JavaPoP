@@ -126,7 +126,7 @@ public class AddProducto extends javax.swing.JFrame {
         estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nuevo", "Como nuevo", "Bueno", "Aceptable", "Regular" }));
         getContentPane().add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 191, 32));
 
-        categoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Moda y accesorios", "TV", "audio y foto", "Móviles y telefonía", "Informática y electrónica", "Consolas y videojuegos", "Deporte y ocio", "" }));
+        categoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Moda y accesorios", "TV audio y foto", "Móviles y telefonía", "Informática y electrónica", "Consolas y videojuegos", "Deporte y ocio" }));
         getContentPane().add(categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 93, 191, 32));
 
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
