@@ -29,6 +29,10 @@ public class GestionProductos {
         int disj;
         int j;
         Producto aux;
+        /**
+         * Recorre la lista entera.
+         * 
+         */
         for (int i = 1; i < listaProductos.size(); i++) {
             aux = listaProductos.get(i);
             locProductoi = Integer.parseInt(listaProductos.get(i).getUbicacion().getCodigoPostal());
@@ -58,6 +62,11 @@ public class GestionProductos {
     public static void subirUrgentes(ArrayList<Producto> listaProductos) {
         Producto aux;
         int contador = 0;
+        /**
+         * Recorre la lista de productos entera desde el final.
+         * Si alguno de los productos es urgente, lo elimina de la lista
+         * y lo añade al principio de la misma
+         */
         for (int i = listaProductos.size() - 1; i >= contador; i--) {
             if (listaProductos.get(i).isUrgente()) {
                 aux = listaProductos.get(i);
