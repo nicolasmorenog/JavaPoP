@@ -27,6 +27,7 @@ import static javapop.Variables.usuario;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -98,6 +99,7 @@ public class AddProducto extends javax.swing.JFrame {
         precioError = new javax.swing.JLabel();
         descripcionError = new javax.swing.JLabel();
         fotoError = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -194,6 +196,9 @@ public class AddProducto extends javax.swing.JFrame {
         fotoError.setForeground(new java.awt.Color(204, 51, 0));
         getContentPane().add(fotoError, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
 
+        jLabel6.setText("(+5€ por 7 dias)");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 394, -1, 20));
+
         setSize(new java.awt.Dimension(612, 485));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -267,7 +272,6 @@ public class AddProducto extends javax.swing.JFrame {
                 File imgFolder = new File(".\\src\\javapop\\ImagenesProductos\\");
                 File image = new File(direccionImg);
                 String newAddress;
-                
 
                 newAddress = ".\\src\\javapop\\ImagenesProductos\\" + nombreRandom(10) + "-" + image.getName();
                 try {
@@ -279,6 +283,9 @@ public class AddProducto extends javax.swing.JFrame {
                 this.direccionImg = newAddress;
                 run = false;
 
+            }
+            if (urgentep) {
+                JOptionPane.showMessageDialog(null,"Se han cargado 5€ a la tarjeta: " + ((Cliente) usuario).getTarjeta(),"Información",JOptionPane.INFORMATION_MESSAGE);
             }
             Producto producto = new Producto(titulop, categoriap, descripcionp, estadop, direccionImg, preciop, ((Cliente) usuario), urgentep);
 
@@ -351,6 +358,7 @@ public class AddProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JFormattedTextField precio;

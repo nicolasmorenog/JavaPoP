@@ -52,6 +52,7 @@ public class InfoProducto extends javax.swing.JFrame {
         infopropietario = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         tituloInfo = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -122,7 +123,10 @@ public class InfoProducto extends javax.swing.JFrame {
         tituloInfo.setForeground(new java.awt.Color(255, 255, 255));
         tituloInfo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tituloInfo.setBorder(null);
-        jPanel2.add(tituloInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 612, 68));
+        jPanel2.add(tituloInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 11, 320, 68));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/LogoBlanco50.png"))); // NOI18N
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -206,6 +210,7 @@ public class InfoProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

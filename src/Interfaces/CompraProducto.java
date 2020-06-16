@@ -16,11 +16,10 @@ import static javapop.Variables.listaVentas;
 import static javapop.Variables.usuario;
 import javapop.Venta;
 import javax.swing.ImageIcon;
-<<<<<<< HEAD
+
 import javax.swing.JFrame;
-=======
+
 import javax.swing.JOptionPane;
->>>>>>> e25d5d65e947569ac9dc4f499aa73ff29019ca83
 
 /**
  *
@@ -33,14 +32,24 @@ public class CompraProducto extends javax.swing.JFrame {
      */
     PagCliente pagCliente;
     Producto produc;
+
     public CompraProducto(Producto producto, PagCliente pantallaAnterior) {
         initComponents();
         produc = producto;
-        pagCliente =pantallaAnterior;
-        
+        pagCliente = pantallaAnterior;
+
         rellenarDatosProducto(producto);
+
+        if (producto.getCliente().getCorreo().equals(((Cliente) usuario).getCorreo())) {
+            botonComprar.setVisible(false);
+            borrar.setVisible(true);
+
+        } else {
+            botonComprar.setVisible(true);
+            borrar.setVisible(false);
+        }
     }
-    
+
     private void rellenarDatosProducto(Producto producto) {
         tituloInfo.setText(producto.getTitulo());
         categoriaInfo.setText(producto.getCategoria());
@@ -79,8 +88,10 @@ public class CompraProducto extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         infopropietario = new javax.swing.JLabel();
         botonComprar = new javax.swing.JButton();
+        borrar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         tituloInfo = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -148,20 +159,33 @@ public class CompraProducto extends javax.swing.JFrame {
         botonComprar.setText("Comprar");
         botonComprar.setBorder(null);
         botonComprar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        botonComprar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                botonComprarMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                botonComprarMouseReleased(evt);
-            }
-        });
         botonComprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonComprarActionPerformed(evt);
             }
         });
         jPanel3.add(botonComprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 430, 40));
+
+        borrar.setBackground(new java.awt.Color(255, 255, 255));
+        borrar.setFont(new java.awt.Font("Verdana", 0, 17)); // NOI18N
+        borrar.setForeground(new java.awt.Color(204, 102, 0));
+        borrar.setText("Eliminar producto");
+        borrar.setBorder(null);
+        borrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        borrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                borrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                borrarMouseExited(evt);
+            }
+        });
+        borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 190, 40));
 
         jPanel2.setBackground(new java.awt.Color(244, 184, 44));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -172,7 +196,10 @@ public class CompraProducto extends javax.swing.JFrame {
         tituloInfo.setForeground(new java.awt.Color(255, 255, 255));
         tituloInfo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tituloInfo.setBorder(null);
-        jPanel2.add(tituloInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 612, 68));
+        jPanel2.add(tituloInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 11, 410, 68));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/LogoBlanco50.png"))); // NOI18N
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -197,65 +224,85 @@ public class CompraProducto extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botonComprarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonComprarMousePressed
-        // TODO add your handling code here:
-        Color naran = new Color(255, 160, 0);
-        botonComprar.setBackground(naran);
-    }//GEN-LAST:event_botonComprarMousePressed
-
-    private void botonComprarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonComprarMouseReleased
-        // TODO add your handling code here:
-
-        Color naran = new Color(255, 125, 0);
-        botonComprar.setBackground(naran);
-    }//GEN-LAST:event_botonComprarMouseReleased
-
     private void botonComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonComprarActionPerformed
         // TODO add your handling code here:
-        
-        Venta venta = new Venta(produc, (Cliente)usuario, produc.getCliente());
+        // TODO add your handling code here:
+
+        Venta venta = new Venta(produc, (Cliente) usuario, produc.getCliente());
         int index = -1;
-        
-        for (Cliente cliente: listaClientes){
-            if (cliente.getCorreo().equals(produc.getCliente().getCorreo())){
+
+        for (Cliente cliente : listaClientes) {
+            if (cliente.getCorreo().equals(produc.getCliente().getCorreo())) {
                 index = listaClientes.indexOf(cliente);
             }
         }
-        
-        int confirmacion=JOptionPane.showConfirmDialog(null, "¿Seguro que quieres comprar este producto?", "Confirmación",JOptionPane.OK_CANCEL_OPTION);
-        
-        if (confirmacion==JOptionPane.YES_OPTION){
-        Cliente aux = produc.getCliente();
-        
-        aux.getListaProductos().remove(produc);
-        
-        
-        listaClientes.set(index, aux);
-        
-        listaVentas.add(venta);
-        
-        listaProductos.remove(produc);
-        
-        
-<<<<<<< HEAD
-        pagCliente.dispose();
-        new PagCliente().setVisible(true);
-        
-        this.dispose();
-        
-        
-        
-        
-=======
-       
+
+        int confirmacion = JOptionPane.showConfirmDialog(null, "¿Seguro que quieres comprar este producto? \nSe cargará la cantidad de "+produc.getPrecio()+"€ \nTarjeta: "+((Cliente)usuario).getTarjeta(), "Confirmación", JOptionPane.OK_CANCEL_OPTION);
+
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            Cliente aux = produc.getCliente();
+
+            aux.getListaProductos().remove(produc);
+
+            listaClientes.set(index, aux);
+
+            listaVentas.add(venta);
+
+            listaProductos.remove(produc);
+
+            pagCliente.dispose();
+            new PagCliente().setVisible(true);
+
+            this.dispose();
         }
-         this.dispose();
->>>>>>> e25d5d65e947569ac9dc4f499aa73ff29019ca83
     }//GEN-LAST:event_botonComprarActionPerformed
 
+    private void borrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrarMouseEntered
+        // TODO add your handling code here:
+        borrar.setBackground(new Color(244, 184, 44));
+        borrar.setForeground(Color.WHITE);
+    }//GEN-LAST:event_borrarMouseEntered
+
+    private void borrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrarMouseExited
+        // TODO add your handling code here:
+        borrar.setBackground(Color.WHITE);
+        borrar.setForeground(new Color(255, 125, 0));
+    }//GEN-LAST:event_borrarMouseExited
+
+    private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
+        // TODO add your handling code here:
+        
+
+        int index = -1;
+
+        for (Cliente cliente : listaClientes) {
+            if (cliente.getCorreo().equals(produc.getCliente().getCorreo())) {
+                index = listaClientes.indexOf(cliente);
+            }
+        }
+
+        int confirmacion = JOptionPane.showConfirmDialog(null, "¿Seguro que quieres eliminar este producto?", "Confirmación", JOptionPane.OK_CANCEL_OPTION);
+
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            Cliente aux = produc.getCliente();
+
+            aux.getListaProductos().remove(produc);
+
+            listaClientes.set(index, aux);
+
+
+            listaProductos.remove(produc);
+
+            pagCliente.dispose();
+            new PagCliente().setVisible(true);
+
+            this.dispose();
+        }
+    }//GEN-LAST:event_borrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton borrar;
     private javax.swing.JButton botonComprar;
     private javax.swing.JTextField categoriaInfo;
     private javax.swing.JTextArea descripcionInfo;
@@ -266,6 +313,7 @@ public class CompraProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

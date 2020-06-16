@@ -20,6 +20,7 @@ import javapop.IOinfo;
 import javapop.Ubicacion;
 import static javapop.Variables.*;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 
@@ -151,8 +152,6 @@ public class Register extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(254, 176, 112));
 
         pagWeb.setEditable(false);
-        pagWeb.setForeground(new java.awt.Color(153, 153, 153));
-        pagWeb.setText("www.mywebsite.com");
 
         jLabel9.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         jLabel9.setText("Página web");
@@ -189,9 +188,7 @@ public class Register extends javax.swing.JFrame {
         }
 
         horarioAper.setEditable(false);
-        horarioAper.setForeground(new java.awt.Color(153, 153, 153));
         horarioAper.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(""))));
-        horarioAper.setText("08:30-14:15");
         horarioAper.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 horarioAperMouseClicked(evt);
@@ -601,7 +598,11 @@ public class Register extends javax.swing.JFrame {
 
             if (correcto2) {
                 ClienteProfesional clienteprof = new ClienteProfesional(cliente, descripcion.getText(), horarioAper.getText(), telefono.getText(), pagWeb.getText());
-                //listaClientesProfesionales.add(clienteprof);
+
+                if (profesional.isSelected()) {
+                    JOptionPane.showMessageDialog(null, "Se han cargado 5€ a la tarjeta: " + ((Cliente) usuario).getTarjeta(), "Información", JOptionPane.INFORMATION_MESSAGE);
+                }
+
                 listaClientes.add(clienteprof);
                 new LoginP().setVisible(true);
                 this.dispose();
