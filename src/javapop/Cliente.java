@@ -26,7 +26,8 @@ public class Cliente implements Serializable {
     private ArrayList<Producto> listaProductosC;
 
     /**
-     * Constructor con parámetros
+     * <p>
+     * Constructor con parámetros</p>
      *
      * @param correo. Correo asociado a la cuenta del cliente
      * @param clave. Contraseña de la cuenta del cliente
@@ -47,7 +48,8 @@ public class Cliente implements Serializable {
     }
 
     /**
-     * Constructor por defecto
+     * <p>
+     * Constructor por defecto</p>
      */
     public Cliente() {
         System.out.println("Introduzca el correo electronico: ");
@@ -66,8 +68,9 @@ public class Cliente implements Serializable {
     }
 
     /**
+     * <p>
      * Método constructor de cliente tomando como parámetro un profesional (Baja
-     * como Cliente Profesional)
+     * como Cliente Profesional)</p>
      *
      * @param clientepro. Cliente profesional
      */
@@ -114,14 +117,16 @@ public class Cliente implements Serializable {
 
     public void setCorreo() {
         /**
-         * Patrón para validar el email
+         * <p>
+         * Patrón para validar el email</p>
          */
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
         /**
+         * <p>
          * Comprobación de si el email ingresado ya ha sido registrado
-         * previamente o no es válido
+         * previamente o no es válido</p>
          */
         try {
             boolean correcto = false;
@@ -195,7 +200,8 @@ public class Cliente implements Serializable {
     public void setTarjeta() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         /**
-         * Comprobación para validar la tarjeta
+         * <p>
+         * Comprobación para validar la tarjeta</p>
          */
         try {
             boolean correcto = false;
@@ -230,8 +236,11 @@ public class Cliente implements Serializable {
     }
 
     /**
-     * Método para añadir productos a la lista de productos global
-     * @param listaProductosGlobal. Lista con los productos de todos los clientes
+     * <p>
+     * Método para añadir productos a la lista de productos global</p>
+     *
+     * @param listaProductosGlobal. Lista con los productos de todos los
+     * clientes
      */
     public void añadirProducto(ArrayList<Producto> listaProductosGlobal) {
 
@@ -242,7 +251,9 @@ public class Cliente implements Serializable {
     }
 
     /**
-     * Método para añadir un producto a la lista de productos de un cliente
+     * <p>
+     * Método para añadir un producto a la lista de productos de un cliente</p>
+     *
      * @param producto. Producto a añadir
      */
     public void añadirProducto(Producto producto) {
@@ -253,7 +264,9 @@ public class Cliente implements Serializable {
     }
 
     /**
-     * Método para eliminar un producto de la lista del cliente
+     * <p>
+     * Método para eliminar un producto de la lista del cliente</p>
+     *
      * @param productoEliminar. Producto a eliminar
      */
     public void eliminarProducto(Producto productoEliminar) {
@@ -271,7 +284,6 @@ public class Cliente implements Serializable {
         this.listaProductosC.remove(index);
 
         //System.out.println(this.listaProductosC);
-
     }
 
     public ArrayList<Producto> getListaProductos() {

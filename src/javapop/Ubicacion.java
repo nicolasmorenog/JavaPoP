@@ -1,13 +1,12 @@
-
 package javapop;
+
 /**
  *
  * @author Jesús Palomino Abreu
  * @author Nicolás Moreno González
- * 
+ *
  * @version v2.0 06/2019
  */
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Serializable;
@@ -18,8 +17,9 @@ public class Ubicacion implements Serializable {
     private String ciudad;
 
     /**
-     * <p> Metodo constructor con parametros de la clase Ubicacion <p>
-     * 
+     * <p>
+     * Metodo constructor con parametros de la clase Ubicacion<p>
+     *
      * @param codigoPostal codigo postal de la ciudad donde reside el cliente
      * @param ciudad ciudad donde reside el cliente
      */
@@ -29,7 +29,8 @@ public class Ubicacion implements Serializable {
     }
 
     /**
-     * <p>Metodo constructor de la clase Ubicacion a introducir por teclado</p>
+     * <p>
+     * Metodo constructor de la clase Ubicacion a introducir por teclado</p>
      */
     public Ubicacion() {
         System.out.println("Introduce el codigo postal (debe ser un numero de 5 cifras): ");
@@ -39,7 +40,7 @@ public class Ubicacion implements Serializable {
     }
 
     /**
-     * 
+     *
      * @return codigoPostal
      */
     public String getCodigoPostal() {
@@ -47,16 +48,17 @@ public class Ubicacion implements Serializable {
     }
 
     /**
-     * 
-     * @param codigoPostal 
+     *
+     * @param codigoPostal
      */
     public void setCodigoPostal(String codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
 
     /**
-     * <p>Metodo para introducir por teclado el codigo postal y que valide
-     * que tenga unicamente 5 cifras de tipo int</p>
+     * <p>
+     * Metodo para introducir por teclado el codigo postal y que valide que
+     * tenga unicamente 5 cifras de tipo int</p>
      */
     public void setCodigoPostal() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
@@ -82,7 +84,7 @@ public class Ubicacion implements Serializable {
     }
 
     /**
-     * 
+     *
      * @return ciudad
      */
     public String getCiudad() {
@@ -90,17 +92,19 @@ public class Ubicacion implements Serializable {
     }
 
     /**
-     * 
-     * @param ciudad 
+     *
+     * @param ciudad
      */
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
+
     /**
-     *<p>Metodo para introducir por teclado la ciudad en la que reside
-     * el cliente y que valide que sea de tipo String </p>
-     * 
-     * 
+     * <p>
+     * Metodo para introducir por teclado la ciudad en la que reside el cliente
+     * y que valide que sea de tipo String </p>
+     *
+     *
      */
     public void setCiudad() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
@@ -112,7 +116,7 @@ public class Ubicacion implements Serializable {
     }
 
     /**
-     * 
+     *
      * @return codigoPosta
      * @return ciudad
      */

@@ -1,14 +1,12 @@
-
 package javapop;
 
 /**
  *
  * @author Jesús Palomino Abreu
  * @author Nicolás Moreno González
- * 
+ *
  * @version v2.0 06/2019
  */
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,11 +22,13 @@ public class ClienteProfesional extends Cliente implements Serializable {
     private String horario;
     private String telefono;
     private String web;
-    private Ubicacion ubicacion; 
+    private Ubicacion ubicacion;
 
     /**
+     * <p>
      * Constructo con cliente como parámetro, para darse de alta como profesiona
-     * Entrada por consola
+     * Entrada por consola</p>
+     *
      * @param cliente. Cliente que se quiere dar de alta
      */
     public ClienteProfesional(Cliente cliente) {
@@ -41,35 +41,37 @@ public class ClienteProfesional extends Cliente implements Serializable {
         setTelefono();
         System.out.println("Introduce una pagina web: ");
         setWeb();
-        
+
     }
-    
+
     /**
-     * Constructo con parámetros, para darse de alta como profesiona
+     * <p>
+     * Constructo con parámetros, para darse de alta como profesional</p>
+     *
      * @param cliente. Cliente que se quiere dar de alta
      * @param descripcion. Descripción del negocio del cliente
      * @param horario. Horario del cliente
      * @param telefono. Teléfono del cliente
-     * @param web. Página web del cliente 
+     * @param web. Página web del cliente
      */
-    public ClienteProfesional(Cliente cliente, String descripcion, String horario,String telefono, String web) {
+    public ClienteProfesional(Cliente cliente, String descripcion, String horario, String telefono, String web) {
         //(String correo, String clave, String nombre, String dni, String tarjeta, Ubicacion ubicacion)
-        super (cliente.getCorreo(), cliente.getClave(), cliente.getNombre(), cliente.getDni(), cliente.getTarjeta(), cliente.getUbicacion());
-        this.descripcion=descripcion;
-        this.horario=horario;
-        
-        this.telefono=telefono;
-        
-        this.web=web;
-        
-        
-        
+        super(cliente.getCorreo(), cliente.getClave(), cliente.getNombre(), cliente.getDni(), cliente.getTarjeta(), cliente.getUbicacion());
+        this.descripcion = descripcion;
+        this.horario = horario;
+
+        this.telefono = telefono;
+
+        this.web = web;
+
     }
+
     /**
-     * Constructor por defecto
+     * <p>
+     * Constructor por defecto</p>
      */
     public ClienteProfesional() {
-        
+
         super();
         System.out.println("Introduce una descripción para tu perfil: ");
         setDescripcion();
@@ -77,13 +79,12 @@ public class ClienteProfesional extends Cliente implements Serializable {
         System.out.println("Introduce un numero de telefono: ");
         setTelefono();
         System.out.println("Introduce una pagina web: ");
-        setWeb(); 
-        
+        setWeb();
 
     }
 
     //Setters y Getters
-    public void setHorario(){
+    public void setHorario() {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         boolean comprobado = false;
         while (!comprobado) {
@@ -91,9 +92,9 @@ public class ClienteProfesional extends Cliente implements Serializable {
                 System.out.print("Introduzca el horario de apertura(00:00-00:00): ");
                 String horarioApertura = input.readLine();
                 Pattern pat = Pattern.compile("[0-2]+[0-9]+:+[0-5]+[0-9]" + "-" + "[0-2]+[0-9]+:+[0-5]+[0-9]");
-                
+
                 Matcher mat = pat.matcher(horarioApertura);
-                
+
                 if (mat.matches()) {
                     int hora1 = Integer.parseInt(horarioApertura.substring(0, 2));
                     //System.out.println(hora1); //para comprobar horas
@@ -105,7 +106,7 @@ public class ClienteProfesional extends Cliente implements Serializable {
                     } else {
                         System.out.println("Las horas no pueden superar las 24h");
                     }
-                }  else{
+                } else {
                     System.out.println("El horario debe seguir la estructura 00:00-00:00");
                 }
             } catch (IOException ioe) {
@@ -113,6 +114,7 @@ public class ClienteProfesional extends Cliente implements Serializable {
             }
         }
     }
+
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
@@ -131,8 +133,7 @@ public class ClienteProfesional extends Cliente implements Serializable {
     /*public String getTelefono() {
         return telefono;
     }
-    */
-
+     */
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
@@ -152,7 +153,6 @@ public class ClienteProfesional extends Cliente implements Serializable {
     public String getWeb() {
         return web;
     }
-    
 
     public void setTelefono() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
@@ -189,6 +189,7 @@ public class ClienteProfesional extends Cliente implements Serializable {
 
         }
     }
+
     //funciones propias
     /*public void añadirProducto(ArrayList<Producto> listaProductosGlobal){
         
@@ -198,8 +199,6 @@ public class ClienteProfesional extends Cliente implements Serializable {
         
     }*/
 
-    
-    
     @Override
     public String toString() {
         return "ClienteProfesional{" + super.toString() + "descripcion=" + descripcion + ", horaApertura=" + horario + ", telefono=" + telefono + ", web=" + web + '}';
@@ -245,6 +244,5 @@ public class ClienteProfesional extends Cliente implements Serializable {
         }
         return true;
     }
-    
 
 }

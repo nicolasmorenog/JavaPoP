@@ -17,11 +17,9 @@ import java.util.Objects;
  *
  * @author Jesús Palomino Abreu
  * @author Nicolás Moreno González
- * 
+ *
  * @version v2.0 06/2019
  */
-
-
 public class Producto implements Serializable {
 
     private String titulo;
@@ -35,7 +33,21 @@ public class Producto implements Serializable {
     private Cliente cliente;
     private boolean urgente;
 
-    //constructor normal
+    /**
+     * <p>Constructor con parámetros</p>
+     *
+     * @param titulo. Título tipo (String) del producto
+     * @param categoria. Categoría tipo (String) del producto
+     * @param descripcion. Descripción tipo (String) del producto
+     * @param estadoProducto. Estado tipo (String) del producto
+     * @param fechaPublicacion. Fecha de publicación tipo (String) del producto
+     * @param fotografia. Ruta de la fotografía tipo (String) del producto
+     * @param precio. Precio tipo (String) del producto
+     * @param ubicacion. Ubicación tipo (Ubicacion) del cliente propietario del
+     * producto
+     * @param cliente. Cliente propietario tipo (Cliente) del producto
+     * @param urgente . Urgencia tipo (boolean) del producto
+     */
     public Producto(String titulo, String categoria, String descripcion, String estadoProducto, String fechaPublicacion, String fotografia, String precio, Ubicacion ubicacion, Cliente cliente, boolean urgente) {
         this.titulo = titulo;
         this.categoria = categoria;
@@ -48,6 +60,19 @@ public class Producto implements Serializable {
         this.cliente = cliente;
         this.urgente = urgente;
     }
+
+    /**
+     * <p>Constructor sin fechaPublicacion ni ubicacion como parámetros</p>
+     *
+     * @param titulo. Título tipo (String) del producto
+     * @param categoria. Categoría tipo (String) del producto
+     * @param descripcion. Descripción tipo (String) del producto
+     * @param estadoProducto. Estado tipo (String) del producto
+     * @param fotografia. Ruta de la fotografía tipo (String) del producto
+     * @param precio. Precio tipo (String) del producto
+     * @param cliente. Cliente propietario tipo (Cliente) del producto
+     * @param urgente . Urgencia tipo (boolean) del producto
+     */
     public Producto(String titulo, String categoria, String descripcion, String estadoProducto, String fotografia, String precio, Cliente cliente, boolean urgente) {
         this.titulo = titulo;
         this.categoria = categoria;
@@ -61,8 +86,12 @@ public class Producto implements Serializable {
         this.urgente = urgente;
     }
 
-    //constructor de nuevo producto
-   public Producto(Cliente cliente) {
+    /**
+     * <p>Constructor con únicamente cliente como parámetro</p>
+     *
+     * @param cliente. Cliente propietario del producto
+     */
+    public Producto(Cliente cliente) {
         System.out.println("Introduzca el título: ");
         setTitulo();
         setCategoria();
@@ -78,20 +107,7 @@ public class Producto implements Serializable {
         this.cliente = cliente;
         setUrgente();
     }
-    //constructor pruebas
-    /*public Producto(Cliente c1) {
-        setTitulo();
-        this.categoria = "Deportes y ocio";
-        this.descripcion = "hola";
-        this.estadoProducto = "perfecto";
-        this.fotografia = "pene.png";
-        this.precio = 12;
-        this.ubicacion = new Ubicacion();
-        cliente = c1;
-        setUrgente();this.cliente = c1;
-        setUrgente();
-    }*/
-   
+
     public Producto(ClienteProfesional clienteProfesional) {
         System.out.println("Introduzca el título: ");
         setTitulo();
@@ -109,8 +125,7 @@ public class Producto implements Serializable {
         setUrgente();
     }
 
-    
-
+    //Getters y Setters
     //titulo
     public void setTitulo(String titulo) {
     }
@@ -124,50 +139,57 @@ public class Producto implements Serializable {
         }
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public String getEstadoProducto() {
-        return estadoProducto;
-    }
-
-    public String getFechaPublicacion() {
-        return fechaPublicacion;
-    }
-
-    public String getFotografia() {
-        return fotografia;
-    }
-    
     public String getTitulo() {
         return titulo;
     }
 
+    //descripcion
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setDescripcion() {
+        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            this.descripcion = entrada.readLine();
+        } catch (Exception e) {
+
+        }
+    }
+
+    //cliente
     public Cliente getCliente() {
         return cliente;
     }
 
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    //ubicacion
     public Ubicacion getUbicacion() {
         return ubicacion;
     }
 
-    //categoria
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setUbicacion(Ubicacion ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
-    public String getCategoria() {
-        return categoria;
-    }
-
+    //precio
     public void setPrecio(String precio) {
         this.precio = precio;
     }
-    
-    
-    
-    public void setCategoria() { //he dejado todo sin tildes...
+
+    public String getPrecio() {
+        return precio;
+    }
+
+    //categoria
+    public void setCategoria() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         boolean correcto = false;
         String[] categorias = "Moda y accesorios:TV, audio y foto:Moviles y Telefonia:Informatica y electronica:Consolas y videojuegos:Deportes y ocio".split(":");
@@ -197,18 +219,12 @@ public class Producto implements Serializable {
 
     }
 
-    //descripcion
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
-    public void setDescripcion() {
-        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            this.descripcion = entrada.readLine();
-        } catch (Exception e) {
-
-        }
+    public String getCategoria() {
+        return categoria;
     }
 
     //estadoproducto
@@ -242,6 +258,10 @@ public class Producto implements Serializable {
         }
     }
 
+    public String getEstadoProducto() {
+        return estadoProducto;
+    }
+
     //fotografia
     public void setFotografia(String fotografia) {
         this.fotografia = fotografia;
@@ -255,7 +275,10 @@ public class Producto implements Serializable {
 
         }
     }
-    
+
+    public String getFotografia() {
+        return fotografia;
+    }
 
     //fecha de publicacion
     public void setFechaPublicacion(String fechaPublicacion) {
@@ -268,6 +291,11 @@ public class Producto implements Serializable {
         this.fechaPublicacion = dtf.format(ahora);
     }
 
+    public String getFechaPublicacion() {
+        return fechaPublicacion;
+    }
+
+    //urgente
     public boolean isUrgente() {
         return urgente;
     }
@@ -297,22 +325,10 @@ public class Producto implements Serializable {
             System.out.println(e.toString());
         }
     }
-    public String getPrecio() {
-        return precio;
-    }
 
-    public void setUbicacion(Ubicacion ubicacion) {
-        this.ubicacion = ubicacion;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-    
-    
     @Override
     public String toString() {
-        return "Producto{" + "titulo=" + titulo + ", categoria=" + categoria + ", descripcion=" + descripcion + ", estadoProducto=" + estadoProducto + ", fechaPublicacion=" + fechaPublicacion + ", fotografia=" + fotografia + ", precio=" + precio + ",cliente="+ cliente.getCorreo()+ ", ubicacion=" + ubicacion + ", urgente=" + urgente + '}';
+        return "Producto{" + "titulo=" + titulo + ", categoria=" + categoria + ", descripcion=" + descripcion + ", estadoProducto=" + estadoProducto + ", fechaPublicacion=" + fechaPublicacion + ", fotografia=" + fotografia + ", precio=" + precio + ",cliente=" + cliente.getCorreo() + ", ubicacion=" + ubicacion + ", urgente=" + urgente + '}';
     }
 
     @Override
@@ -333,7 +349,7 @@ public class Producto implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (this.getFotografia().equals(((Producto)obj).getFotografia())){
+        if (this.getFotografia().equals(((Producto) obj).getFotografia())) {
             return true;
         }
         if (this == obj) {
@@ -378,8 +394,5 @@ public class Producto implements Serializable {
         }
         return true;
     }
-    
-
-
 
 }

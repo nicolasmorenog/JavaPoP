@@ -1,4 +1,3 @@
-
 package javapop;
 
 import java.util.ArrayList;
@@ -7,18 +6,19 @@ import java.util.ArrayList;
  *
  * @author Jesús Palomino Abreu
  * @author Nicolás Moreno González
- * 
+ *
  * @version v2.0 06/2019
  */
-
 public class GestionProductos {
 
     /**
-     * Método para ordenar los productos por cercanía comparando el código 
-     * postal del cliente con el código postal de los propietarios de 
-     * dichos productos, método de ordenación por insercción.O(n) ((n^2)/4)
+     * <p>
+     * Método para ordenar los productos por cercanía comparando el código
+     * postal del cliente con el código postal de los propietarios de dichos
+     * productos, método de ordenación por insercción.O(n) ((n^2)/4) </p>
+     *
      * @param listaProductos. Lista de productos en venta
-     * @param comprador. Cliente comprador 
+     * @param comprador. Cliente comprador
      */
     public static void ordenarProductosCercania(ArrayList<Producto> listaProductos, Cliente comprador) {
         String txt = comprador.getUbicacion().getCodigoPostal();
@@ -29,7 +29,12 @@ public class GestionProductos {
         int disj;
         int j;
         Producto aux;
-        
+
+        /**
+         * <p>
+         * Recorre la lista entera.</p>
+         *
+         */
         for (int i = 1; i < listaProductos.size(); i++) {
             aux = listaProductos.get(i);
             locProductoi = Integer.parseInt(listaProductos.get(i).getUbicacion().getCodigoPostal());
@@ -52,16 +57,20 @@ public class GestionProductos {
     }
 
     /**
-     * Método que sube los productos urgentes al principio de la lista
-     * ordenada por cercania
+     * <p>
+     * Método que sube los productos urgentes al principio de la lista ordenada
+     * por cercania</p>
+     *
      * @param listaProductos. Lista de productos ordenada por cercanía
      */
     public static void subirUrgentes(ArrayList<Producto> listaProductos) {
         Producto aux;
         int contador = 0;
         /**
-         * Recorre la lista de productos entera desde el final.
-         * Si alguno de los productos es urgente, lo elimina de la lista
+         * <p>
+         * Recorre la lista de productos entera desde el final.</p>
+         * <p>
+         * Si alguno de los productos es urgente, lo elimina de la lista</p>
          * y lo añade al principio de la misma
          */
         for (int i = listaProductos.size() - 1; i >= contador; i--) {

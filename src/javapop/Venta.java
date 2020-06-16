@@ -11,7 +11,10 @@ import java.time.format.DateTimeFormatter;
 
 /**
  *
- * @author Jesus
+ * @author Jesús Palomino Abreu
+ * @author Nicolás Moreno González
+ *
+ * @version v2.0 06/2019
  */
 public class Venta implements Serializable{
 
@@ -20,6 +23,14 @@ public class Venta implements Serializable{
     private Cliente vendedor;
     private String fecha;
 
+    /**
+     * <p>
+     * Constructor con parámetros</p>
+     *
+     * @param producto. Producto a vender
+     * @param comprador. Cliente que compra el producto
+     * @param vendedor. Cliente que vende el producto
+     */
     public Venta(Producto producto, Cliente comprador, Cliente vendedor) {
         this.producto = producto;
         this.comprador = comprador;
@@ -27,6 +38,7 @@ public class Venta implements Serializable{
         setFecha();
     }
 
+    //Getters y Setters
     public Producto getProducto() {
         return producto;
     }
