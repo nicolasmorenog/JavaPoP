@@ -255,6 +255,7 @@ public class Producto implements Serializable {
 
         }
     }
+    
 
     //fecha de publicacion
     public void setFechaPublicacion(String fechaPublicacion) {
@@ -299,7 +300,15 @@ public class Producto implements Serializable {
     public String getPrecio() {
         return precio;
     }
-       
+
+    public void setUbicacion(Ubicacion ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    
     
     @Override
     public String toString() {
@@ -324,6 +333,9 @@ public class Producto implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
+        if (this.getFotografia().equals(((Producto)obj).getFotografia())){
+            return true;
+        }
         if (this == obj) {
             return true;
         }

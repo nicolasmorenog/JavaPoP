@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Image;
 import java.util.ArrayList;
+import javapop.Aplicacion;
 import javapop.IOinfo;
 import javapop.Producto;
 import static javapop.Variables.*;
@@ -19,8 +20,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javapop.Cliente;
 import javapop.ClienteProfesional;
-
-
+import java.util.ArrayList;
+import javapop.GestionProductos;
 
 /**
  *
@@ -36,12 +37,118 @@ public class PagCliente extends javax.swing.JFrame {
 
     public PagCliente() {
         initComponents();
-        productosMostrar = listaProductos;
-        actualizarPag();
-        super.setIconImage(new ImageIcon("./javapop.Imagenes/LogoJavapop.png").getImage());
+
+        productosSinUser();
+
+        
     }
 
+    private void productosCategoria() {
+        
+        productosSinUser();
+        
+        ArrayList<Producto> listaAux = new ArrayList(0);
+        
+        for (Producto prod: productosMostrar){
+            listaAux.add(prod);
+        }
+        
+        String value= jCategorias.getSelectedItem().toString();
+        System.out.println("Categoria= "+value);
+        for (int i = 0; i < listaAux.size(); i++) {
+            
+            if (!listaAux.get(i).getCategoria().equals(value)) {
+                listaAux.remove(i);
+                i--;
+                System.out.println("Entró");
+            }
+        }
+        System.out.println("ListaAux: " + listaAux);
+        productosMostrar = listaAux;
+        actualizarPag();
+    }
+
+    private void productosSinUser() {
+        ArrayList<Producto> listaAux = new ArrayList<Producto>();
+        for (Producto produc: listaProductos){
+            listaAux.add(produc);
+        }
+        
+        
+        for (int i = 0; i < listaAux.size(); i++) {
+
+            if (listaAux.get(i).getCliente().getCorreo().equals(((Cliente) usuario).getCorreo())) {
+                listaAux.remove(i);
+                i--;
+
+            }
+        }
+
+        productosMostrar = listaAux;
+        actualizarPag();
+    } 
+    private void productosUser(){
+        productosMostrar = new ArrayList(0);
+        
+        for (int i = 0; i < listaProductos.size(); i++) {
+
+            if (listaProductos.get(i).getCliente().getCorreo().equals(((Cliente) usuario).getCorreo())) {
+                productosMostrar.add(listaProductos.get(i));
+                
+            }
+        }
+        actualizarPag();
+    }
+   
+
+    /*private void eliminarProducto(Producto producto) {
+        System.out.println("ProductosMostrar: " + productosMostrar);
+        int index = Aplicacion.buscarCorreoIndex(producto.getCliente().getCorreo());
+        System.out.println("index: " + index);
+        System.out.println("Cliente" + producto);
+        
+        int index1 = listaProductos.indexOf(producto);
+
+        Cliente cliente = producto.getCliente();
+
+        System.out.println(cliente);
+
+        System.out.println("1");
+
+        cliente.eliminarProducto(producto);
+
+        System.out.println("2");
+
+        if (!filtrado || filtrado2) {
+            System.out.println("3");
+            int u = listaProductos.indexOf(producto);
+            System.out.println("u" + u);
+
+            listaProductos.remove(u);
+        }
+        if (filtrado2) {
+            int c = productosMostrar.indexOf(producto);
+            productosMostrar.remove(c);
+        } if (filtrado){
+            System.out.println("Fotografia producto "+ producto.getFotografia());
+            for (Producto prod:listaProductos){
+                System.out.println("FotografiaLista: "+ prod.getFotografia());
+                if (prod.getFotografia().equals(producto.getFotografia())){
+                    listaProductos.remove(prod);
+                    break;
+                }
+            }
+        }
+
+        listaClientes.set(index, cliente);
+
+        actualizarPag();
+
+    }*/
     public void actualizarPag() {
+        GestionProductos.ordenarProductosCercania(productosMostrar, (Cliente)usuario);
+        GestionProductos.subirUrgentes(productosMostrar);
+        
         jP8.setVisible(false);
         jP7.setVisible(false);
         jP6.setVisible(false);
@@ -50,32 +157,59 @@ public class PagCliente extends javax.swing.JFrame {
         jP3.setVisible(false);
         jP2.setVisible(false);
         jP1.setVisible(false);
-        
-        
+        /*pape1.setVisible(false);
+        pape2.setVisible(false);
+        pape3.setVisible(false);
+        pape4.setVisible(false);
+        pape5.setVisible(false);
+        pape6.setVisible(false);
+        pape7.setVisible(false);
+        pape8.setVisible(false);*/
+        noProductos.setVisible(false);
+
+        if (productosMostrar.isEmpty()) {
+            noProductos.setVisible(true);
+        }
+
         if (productosMostrar.size() >= p + 8) {
             rellenarPanel(jP8, productosMostrar.get(p + 7));
             jP8.setVisible(true);
-        }if (productosMostrar.size() >= p + 7) {
+            //pape8.setVisible(true);
+        }
+        if (productosMostrar.size() >= p + 7) {
             rellenarPanel(jP7, productosMostrar.get(p + 6));
             jP7.setVisible(true);
-        }if (productosMostrar.size() >= p + 6) {
+            //pape7.setVisible(true);
+        }
+        if (productosMostrar.size() >= p + 6) {
             rellenarPanel(jP6, productosMostrar.get(p + 5));
             jP6.setVisible(true);
-        }if (productosMostrar.size() >= p + 5) {
+            //pape6.setVisible(true);
+        }
+        if (productosMostrar.size() >= p + 5) {
             rellenarPanel(jP5, productosMostrar.get(p + 4));
             jP5.setVisible(true);
-        }if (productosMostrar.size() >= p + 4) {
+            //pape5.setVisible(true);
+        }
+        if (productosMostrar.size() >= p + 4) {
             rellenarPanel(jP4, productosMostrar.get(p + 3));
             jP4.setVisible(true);
-        }if (productosMostrar.size() >= p + 3) {
+            //pape4.setVisible(true);
+        }
+        if (productosMostrar.size() >= p + 3) {
             rellenarPanel(jP3, productosMostrar.get(p + 2));
             jP3.setVisible(true);
-        }if (productosMostrar.size() >= p + 2) {
+            //pape3.setVisible(true);
+        }
+        if (productosMostrar.size() >= p + 2) {
             rellenarPanel(jP2, productosMostrar.get(p + 1));
             jP2.setVisible(true);
-        }if (productosMostrar.size() >= p + 1) {
+            //pape2.setVisible(true);
+        }
+        if (productosMostrar.size() >= p + 1) {
             rellenarPanel(jP1, productosMostrar.get(p));
             jP1.setVisible(true);
+            //pape1.setVisible(true);
         }
 
     }
@@ -114,15 +248,16 @@ public class PagCliente extends javax.swing.JFrame {
 
         TopPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jTextField1 = new javax.swing.JTextField();
+        MisProductos = new javax.swing.JButton();
+        jLupa = new javax.swing.JToggleButton();
+        jBusqueda = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jCategorias = new javax.swing.JComboBox<>();
         bAlta = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        adminProductos = new javax.swing.JPanel();
         jP1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -138,33 +273,36 @@ public class PagCliente extends javax.swing.JFrame {
         jP3 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jP4 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jP6 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jP8 = new javax.swing.JPanel();
-        jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
+        jP4 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
-        jP5 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        jP6 = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
-        jP7 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
+        jP8 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jP5 = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jP7 = new javax.swing.JPanel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        noProductos = new javax.swing.JPanel();
+        jLabelNopp = new javax.swing.JLabel();
+        travolta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1100, 650));
@@ -187,24 +325,34 @@ public class PagCliente extends javax.swing.JFrame {
         TopPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/LogoBlanco.png"))); // NOI18N
-        TopPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, 100));
-
-        jButton1.setText("Añadir producto");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
             }
         });
-        TopPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 111, 32));
+        TopPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, 100));
 
-        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/lupaVolt30x30.png"))); // NOI18N
-        jToggleButton1.setBorder(null);
-        jToggleButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        TopPanel.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1055, 70, 40, 32));
-        jToggleButton1.getAccessibleContext().setAccessibleParent(jTextField1);
+        MisProductos.setText("Mis productos");
+        MisProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MisProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MisProductosActionPerformed(evt);
+            }
+        });
+        TopPanel.add(MisProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 111, 32));
 
-        TopPanel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 70, 200, 32));
+        jLupa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/lupaVolt30x30.png"))); // NOI18N
+        jLupa.setBorder(null);
+        jLupa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLupa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jLupaActionPerformed(evt);
+            }
+        });
+        TopPanel.add(jLupa, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 70, 40, 32));
+        jLupa.getAccessibleContext().setAccessibleParent(jBusqueda);
+
+        TopPanel.add(jBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 70, 200, 32));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Verdana", 1, 13)); // NOI18N
@@ -217,18 +365,18 @@ public class PagCliente extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        TopPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, 130, 30));
+        TopPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 20, 130, 30));
 
-        jButton4.setText("Bandeja de entrada");
+        jButton4.setText("Inicio");
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        TopPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, 32));
+        TopPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, 32));
 
-        jCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Moda y accesorios", "TV audio y foto", "Móviles y telefonía", "Informática y electrónica", "Consolas y videojuegos", "Deporte y ocio", "" }));
+        jCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Moda y accesorios", "TV audio y foto", "Móviles y telefonía", "Informática y electrónica", "Consolas y videojuegos", "Deporte y ocio" }));
         jCategorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCategoriasActionPerformed(evt);
@@ -244,14 +392,28 @@ public class PagCliente extends javax.swing.JFrame {
         });
         TopPanel.add(bAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, 190, 30));
 
+        jButton3.setText("Añadir producto");
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        TopPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 111, 32));
+
         jPanel1.setLayout(new java.awt.CardLayout());
 
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        adminProductos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jP1.setBackground(new java.awt.Color(255, 255, 255));
         jP1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP1.setForeground(new java.awt.Color(255, 125, 0));
         jP1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP1MouseClicked(evt);
+            }
+        });
         jP1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
@@ -267,7 +429,7 @@ public class PagCliente extends javax.swing.JFrame {
         jP1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
         jP1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
 
-        jPanel2.add(jP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 11, -1, 296));
+        adminProductos.add(jP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 11, -1, 296));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/flechaderecha100.png"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -276,7 +438,7 @@ public class PagCliente extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1034, 20, 88, 580));
+        adminProductos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 40, 88, 550));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/flechaIzquierda100.png"))); // NOI18N
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -285,12 +447,17 @@ public class PagCliente extends javax.swing.JFrame {
                 jLabel3MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, 86, 570));
+        adminProductos.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, 86, 570));
 
         jP2.setBackground(new java.awt.Color(255, 255, 255));
         jP2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP2.setForeground(new java.awt.Color(255, 125, 0));
         jP2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP2MouseClicked(evt);
+            }
+        });
         jP2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
@@ -306,12 +473,17 @@ public class PagCliente extends javax.swing.JFrame {
         jP2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
         jP2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
 
-        jPanel2.add(jP2, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 11, -1, 296));
+        adminProductos.add(jP2, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 11, -1, 296));
 
         jP3.setBackground(new java.awt.Color(255, 255, 255));
         jP3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP3.setForeground(new java.awt.Color(255, 125, 0));
         jP3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP3MouseClicked(evt);
+            }
+        });
         jP3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
@@ -322,119 +494,156 @@ public class PagCliente extends javax.swing.JFrame {
         jLabel13.setText("jLabel4");
         jP3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
 
-        jLabel14.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel14.setText("jLabel4");
-        jP3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+        jLabel25.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel25.setText("jLabel4");
+        jP3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 190));
 
-        jPanel2.add(jP3, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 11, -1, 296));
+        adminProductos.add(jP3, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 11, -1, 296));
 
         jP4.setBackground(new java.awt.Color(255, 255, 255));
         jP4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP4.setForeground(new java.awt.Color(255, 125, 0));
         jP4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP4MouseClicked(evt);
+            }
+        });
         jP4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel16.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel16.setText("jLabel4");
-        jP4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+        jLabel27.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel27.setText("jLabel4");
+        jP4.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
 
-        jLabel17.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel17.setText("jLabel4");
-        jP4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+        jLabel28.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel28.setText("jLabel4");
+        jP4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
 
-        jLabel18.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel18.setText("jLabel4");
-        jP4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+        jLabel29.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel29.setText("jLabel4");
+        jP4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
 
-        jPanel2.add(jP4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 11, -1, 296));
+        adminProductos.add(jP4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 11, -1, 296));
 
         jP6.setBackground(new java.awt.Color(255, 255, 255));
         jP6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP6.setForeground(new java.awt.Color(255, 125, 0));
         jP6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP6MouseClicked(evt);
+            }
+        });
         jP6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel20.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel20.setText("jLabel4");
-        jP6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+        jLabel31.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel31.setText("jLabel4");
+        jP6.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
 
-        jLabel21.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel21.setText("jLabel4");
-        jP6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+        jLabel32.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel32.setText("jLabel4");
+        jP6.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
 
-        jLabel22.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel22.setText("jLabel4");
-        jP6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP6.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+        jLabel33.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel33.setText("jLabel4");
+        jP6.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP6.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
 
-        jPanel2.add(jP6, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 313, -1, 296));
+        adminProductos.add(jP6, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 313, -1, 296));
 
         jP8.setBackground(new java.awt.Color(255, 255, 255));
         jP8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP8.setForeground(new java.awt.Color(255, 125, 0));
         jP8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP8MouseClicked(evt);
+            }
+        });
         jP8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel24.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel24.setText("jLabel4");
-        jP8.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+        jLabel35.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel35.setText("jLabel4");
+        jP8.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
 
-        jLabel25.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel25.setText("jLabel4");
-        jP8.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+        jLabel36.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel36.setText("jLabel4");
+        jP8.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
 
-        jLabel26.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel26.setText("jLabel4");
-        jP8.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP8.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+        jLabel37.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel37.setText("jLabel4");
+        jP8.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP8.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
 
-        jPanel2.add(jP8, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 313, -1, 296));
+        adminProductos.add(jP8, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 313, -1, 296));
 
         jP5.setBackground(new java.awt.Color(255, 255, 255));
         jP5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP5.setForeground(new java.awt.Color(255, 125, 0));
         jP5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP5MouseClicked(evt);
+            }
+        });
         jP5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel28.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel28.setText("jLabel4");
-        jP5.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+        jLabel39.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel39.setText("jLabel4");
+        jP5.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
 
-        jLabel29.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel29.setText("jLabel4");
-        jP5.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+        jLabel40.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel40.setText("jLabel4");
+        jP5.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
 
-        jLabel30.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel30.setText("jLabel4");
-        jP5.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP5.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+        jLabel41.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel41.setText("jLabel4");
+        jP5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
 
-        jPanel2.add(jP5, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 313, -1, 296));
+        adminProductos.add(jP5, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 313, -1, 296));
 
         jP7.setBackground(new java.awt.Color(255, 255, 255));
         jP7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jP7.setForeground(new java.awt.Color(255, 125, 0));
         jP7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jP7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jP7MouseClicked(evt);
+            }
+        });
         jP7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel32.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
-        jLabel32.setText("jLabel4");
-        jP7.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
+        jLabel43.setFont(new java.awt.Font("Verdana", 1, 15)); // NOI18N
+        jLabel43.setText("jLabel4");
+        jP7.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 200, -1));
 
-        jLabel33.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel33.setText("jLabel4");
-        jP7.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
+        jLabel44.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel44.setText("jLabel4");
+        jP7.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 200, -1));
 
-        jLabel34.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
-        jLabel34.setText("jLabel4");
-        jP7.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
-        jP7.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
+        jLabel45.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jLabel45.setText("jLabel4");
+        jP7.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, -1));
+        jP7.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 190));
 
-        jPanel2.add(jP7, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 313, -1, 296));
+        adminProductos.add(jP7, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 313, -1, 296));
 
-        jPanel1.add(jPanel2, "card2");
+        noProductos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelNopp.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        jLabelNopp.setText("No se han encontrado productos con las características indicadas");
+        jLabelNopp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 51)));
+        noProductos.add(jLabelNopp, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, -1, 40));
+
+        travolta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/travolta.gif"))); // NOI18N
+        noProductos.add(travolta, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 11, -1, -1));
+
+        adminProductos.add(noProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 550, 560));
+
+        jPanel1.add(adminProductos, "card2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -451,7 +660,7 @@ public class PagCliente extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(1140, 812));
+        setSize(new java.awt.Dimension(1154, 812));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -466,12 +675,12 @@ public class PagCliente extends javax.swing.JFrame {
         System.out.println("final programa productos" + listaProductos);
     }//GEN-LAST:event_formWindowClosing
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void MisProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MisProductosActionPerformed
         // TODO add your handling code here:
-        new AddProducto().setVisible(true);
+        productosUser();
 
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_MisProductosActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -481,27 +690,14 @@ public class PagCliente extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        productosSinUser();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCategoriasActionPerformed
         // TODO add your handling code here:
+        productosCategoria();
+        
     }//GEN-LAST:event_jCategoriasActionPerformed
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        // TODO add your handling code here:
-        if (p+8 < productosMostrar.size()){
-            p+=8;
-        }
-        actualizarPag();
-    }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        // TODO add your handling code here:
-        if (p-8>= 0){
-            p-=8;
-        }
-        actualizarPag();
-    }//GEN-LAST:event_jLabel3MouseClicked
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         // TODO add your handling code here:
@@ -510,9 +706,91 @@ public class PagCliente extends javax.swing.JFrame {
 
     private void bAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAltaActionPerformed
         // TODO add your handling code here:
-        
-        new AltaClientePro((Cliente) usuario).setVisible(true);
+
+        new AltaClientePro((Cliente) usuario, this).setVisible(true);
     }//GEN-LAST:event_bAltaActionPerformed
+
+    private void jP1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP1MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(p)).setVisible(true);
+    }//GEN-LAST:event_jP1MouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        if (p + 8 < productosMostrar.size()) {
+            p += 8;
+        }
+        actualizarPag();
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        if (p - 8 >= 0) {
+            p -= 8;
+        }
+        actualizarPag();
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jP2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP2MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(p + 1)).setVisible(true);
+    }//GEN-LAST:event_jP2MouseClicked
+
+    private void jP3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP3MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(p + 2)).setVisible(true);
+    }//GEN-LAST:event_jP3MouseClicked
+
+    private void jP4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP4MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(p + 3)).setVisible(true);
+    }//GEN-LAST:event_jP4MouseClicked
+
+    private void jP6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP6MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(p + 5)).setVisible(true);
+    }//GEN-LAST:event_jP6MouseClicked
+
+    private void jP8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP8MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(p + 7)).setVisible(true);
+    }//GEN-LAST:event_jP8MouseClicked
+
+    private void jP5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP5MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(p + 4)).setVisible(true);
+    }//GEN-LAST:event_jP5MouseClicked
+
+    private void jP7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP7MouseClicked
+        // TODO add your handling code here:
+        new InfoProducto(productosMostrar.get(p + 6)).setVisible(true);
+    }//GEN-LAST:event_jP7MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+        //productosSinUser();
+        System.out.println("listaProductos: "+listaProductos);
+        System.out.println("productosMostrar: "+productosMostrar);
+        
+        productosMostrar = listaProductos;
+        
+        actualizarPag();
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jLupaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLupaActionPerformed
+        // TODO add your handling code here:
+        productosMostrar = new ArrayList(0);
+        for (Producto product: listaProductos){
+            if (jBusqueda.getText().equals(product.getTitulo()) && !product.getCliente().getCorreo().equals(((Cliente)usuario).getCorreo())){
+                productosMostrar.add(product);
+            }
+        }
+        actualizarPag();
+    }//GEN-LAST:event_jLupaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -550,10 +828,13 @@ public class PagCliente extends javax.swing.JFrame {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton MisProductos;
     private javax.swing.JPanel TopPanel;
+    private javax.swing.JPanel adminProductos;
     private javax.swing.JButton bAlta;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField jBusqueda;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jCategorias;
     private javax.swing.JLabel jLabel1;
@@ -561,18 +842,7 @@ public class PagCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
@@ -585,12 +855,25 @@ public class PagCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelNopp;
+    private javax.swing.JToggleButton jLupa;
     private javax.swing.JPanel jP1;
     private javax.swing.JPanel jP2;
     private javax.swing.JPanel jP3;
@@ -600,8 +883,7 @@ public class PagCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jP7;
     private javax.swing.JPanel jP8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JPanel noProductos;
+    private javax.swing.JLabel travolta;
     // End of variables declaration//GEN-END:variables
 }

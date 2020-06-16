@@ -159,6 +159,12 @@ public class PagAdmin extends javax.swing.JFrame {
         actualizarPag();
 
     }
+    /*private void eliminarProducto(Producto producto){
+        producto.getCliente().getListaProductos().remove(producto);
+        listaProductos.remove(producto);
+        productosMostrar.remove(producto);
+        actualizarPag();
+    }*/
 
     public void actualizarPag() {
         jP8.setVisible(false);

@@ -17,9 +17,11 @@ import javapop.Aplicacion;
 import javapop.Cliente;
 import javapop.ClienteProfesional;
 import javapop.IOinfo;
+import javapop.Producto;
 import javapop.Ubicacion;
 import static javapop.Variables.*;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 
@@ -28,12 +30,15 @@ import javax.swing.text.MaskFormatter;
  * @author nicmo
  */
 public class AltaClientePro extends javax.swing.JFrame {
-
+    
+    JFrame pestaCliente;
     /**
      * Creates new form AltaClientePro
      */
-    public AltaClientePro(Cliente cliente) {
+    public AltaClientePro(Cliente cliente, JFrame pagClientes) {
         initComponents();
+        pestaCliente = pagClientes;
+        
     }
 
     private void convertir(Cliente cliente) {
@@ -246,7 +251,8 @@ public class AltaClientePro extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(390, 680));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void horarioAperProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_horarioAperProMouseClicked
@@ -302,10 +308,23 @@ public class AltaClientePro extends javax.swing.JFrame {
         }
 
         if (correcto2) {
-
-            convertir((Cliente)usuario);
+            ClienteProfesional profesional = new ClienteProfesional((Cliente) usuario, descripcionPro.getText(), horarioAperPro.getText(), telefonoPro.getText(), pagWebPro.getText());
+            //listaClientes.remove((Cliente)usuario);
+            //listaClientes.add(profesional);
+            
+            listaClientes.set(listaClientes.indexOf((Cliente)usuario), profesional);
+            
+            profesional.setListaProductos(((Cliente)usuario).getListaProductos());
+            for (Producto produc : ((Cliente)usuario).getListaProductos()){
+                produc.setCliente(profesional);
+            }
+            
             new PagClienteProfesional().setVisible(true);
+            
+            pestaCliente.dispose();
             this.dispose();
+            
+            
         }
 
 
