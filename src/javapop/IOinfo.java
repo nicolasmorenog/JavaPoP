@@ -22,7 +22,7 @@ public class IOinfo implements Serializable{
             escribirFichero.close();
 
         } catch (Exception e) {
-            System.out.println("Error guardar clientes");// ESTO ES TEMPORAL, ARREGLALO PUTO VAGO
+            System.out.println("Error guardar clientes");
         }
     }
 
@@ -83,7 +83,7 @@ public class IOinfo implements Serializable{
             escribirFichero.close();
 
         } catch (Exception e) {
-            System.out.println("Error guardar Productos");// ESTO ES TEMPORAL, ARREGLALO PUTO VAGO
+            System.out.println("Error guardar Productos");
         }
     }
     public static ArrayList<Producto> leerListaProductos() {
@@ -103,4 +103,36 @@ public class IOinfo implements Serializable{
             return listaProductos;
         }
 }
+    
+    
+    public static void guardarVentas(ArrayList<Venta> listaVentas) {
+        try {
+
+            ObjectOutputStream escribirFichero = new ObjectOutputStream(new FileOutputStream(".\\src\\javapop\\datos\\listaVentas.dat"));
+            escribirFichero.writeObject(listaVentas);
+            escribirFichero.close();
+
+        } catch (Exception e) {
+            System.out.println("Error guardar ventas");
+        }
+    }
+    
+        public static ArrayList<Venta> leerListaVentas() {
+        ArrayList<Venta> listaVentas = new ArrayList<Venta>();
+        try {
+            ObjectInputStream leerFicheros = new ObjectInputStream(new FileInputStream(".\\src\\javapop\\datos\\listaVentas.dat"));
+
+            listaVentas = (ArrayList<Venta>) leerFicheros.readObject();
+            leerFicheros.close();
+            return listaVentas;
+        } catch (FileNotFoundException e) {
+            System.out.println("El archivo listaVentas no ha sido encontrado, pruebe a ejecutar de nuevo el programa");
+            return listaVentas;
+        } catch (Exception e) {
+            //System.out.println("Error lectura clientes(Es posible que no haya ningún cliente registrado)");
+            System.out.println(e.toString());
+            return listaVentas;
+        }
+
+    }
 }

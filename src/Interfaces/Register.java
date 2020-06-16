@@ -35,7 +35,7 @@ public class Register extends javax.swing.JFrame {
     public Register() {
         initComponents();
         //super.setIconImage(new ImageIcon("./javapop.Imagenes/LogoJavapop.png").getImage());
-        
+
     }
 
     /**
@@ -586,7 +586,7 @@ public class Register extends javax.swing.JFrame {
                 pagWebError.setText("Vacío");
                 correcto2 = false;
             }
-            if (horarioAper.getText().isEmpty()||horarioAper.getText().equals("  :  -  :  ")) {
+            if (horarioAper.getText().isEmpty() || horarioAper.getText().equals("  :  -  :  ")) {
                 horarioError.setText("Vacío");
                 correcto2 = false;
             }
@@ -598,7 +598,7 @@ public class Register extends javax.swing.JFrame {
                 descripcionError.setText("Vacío");
                 correcto2 = false;
             }
-            
+
             if (correcto2) {
                 ClienteProfesional clienteprof = new ClienteProfesional(cliente, descripcion.getText(), horarioAper.getText(), telefono.getText(), pagWeb.getText());
                 //listaClientesProfesionales.add(clienteprof);
@@ -633,13 +633,11 @@ public class Register extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-        //IOinfo.guardarClientesProfesionales(listaClientesProfesionales);
         IOinfo.guardarClientes(listaClientes);
         IOinfo.guardarProductos(listaProductos);
+        IOinfo.guardarVentas(listaVentas);
 
-        System.out.println("final programa" + listaClientes);
-        //System.out.println("final programa clientes profesionales" + listaClientesProfesionales);
-        System.out.println("final programa productos" + listaProductos);
+        System.out.println("final programa" + listaVentas);
     }//GEN-LAST:event_formWindowClosing
 
     /**

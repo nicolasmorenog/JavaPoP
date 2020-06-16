@@ -21,12 +21,10 @@ public class Main {
         
 
         listaClientes = IOinfo.leerListaClientes();
-        //listaClientesProfesionales = IOinfo.leerListaClientesProfesionales();
         listaProductos = IOinfo.leerListaProductos();
+        listaVentas = IOinfo.leerListaVentas();
 
-        System.out.println("comienzo programa clientes" + listaClientes);
-        //System.out.println("comienzo programa clientes profesionales" + listaClientesProfesionales);
-        System.out.println("comienzo programa productos" + listaProductos);
+        System.out.println("comienzo programa ventas" + listaVentas);
         
         
         

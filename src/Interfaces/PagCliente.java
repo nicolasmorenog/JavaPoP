@@ -308,6 +308,11 @@ public class PagCliente extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1100, 650));
         setResizable(false);
         setSize(new java.awt.Dimension(1100, 650));
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 formWindowGainedFocus(evt);
@@ -666,13 +671,11 @@ public class PagCliente extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-        //IOinfo.guardarClientesProfesionales(listaClientesProfesionales);
         IOinfo.guardarClientes(listaClientes);
         IOinfo.guardarProductos(listaProductos);
-
-        System.out.println("final programa" + listaClientes);
-        //System.out.println("final programa clientes profesionales" + listaClientesProfesionales);
-        System.out.println("final programa productos" + listaProductos);
+        IOinfo.guardarVentas(listaVentas);
+        
+        System.out.println("final programa" + listaVentas);
     }//GEN-LAST:event_formWindowClosing
 
     private void MisProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MisProductosActionPerformed
@@ -712,7 +715,7 @@ public class PagCliente extends javax.swing.JFrame {
 
     private void jP1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP1MouseClicked
         // TODO add your handling code here:
-        new InfoProducto(productosMostrar.get(p)).setVisible(true);
+        new CompraProducto(productosMostrar.get(p)).setVisible(true);
     }//GEN-LAST:event_jP1MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -733,37 +736,37 @@ public class PagCliente extends javax.swing.JFrame {
 
     private void jP2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP2MouseClicked
         // TODO add your handling code here:
-        new InfoProducto(productosMostrar.get(p + 1)).setVisible(true);
+        new CompraProducto(productosMostrar.get(p + 1)).setVisible(true);
     }//GEN-LAST:event_jP2MouseClicked
 
     private void jP3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP3MouseClicked
         // TODO add your handling code here:
-        new InfoProducto(productosMostrar.get(p + 2)).setVisible(true);
+        new CompraProducto(productosMostrar.get(p + 2)).setVisible(true);
     }//GEN-LAST:event_jP3MouseClicked
 
     private void jP4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP4MouseClicked
         // TODO add your handling code here:
-        new InfoProducto(productosMostrar.get(p + 3)).setVisible(true);
+        new CompraProducto(productosMostrar.get(p + 3)).setVisible(true);
     }//GEN-LAST:event_jP4MouseClicked
 
     private void jP6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP6MouseClicked
         // TODO add your handling code here:
-        new InfoProducto(productosMostrar.get(p + 5)).setVisible(true);
+        new CompraProducto(productosMostrar.get(p + 5)).setVisible(true);
     }//GEN-LAST:event_jP6MouseClicked
 
     private void jP8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP8MouseClicked
         // TODO add your handling code here:
-        new InfoProducto(productosMostrar.get(p + 7)).setVisible(true);
+        new CompraProducto(productosMostrar.get(p + 7)).setVisible(true);
     }//GEN-LAST:event_jP8MouseClicked
 
     private void jP5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP5MouseClicked
         // TODO add your handling code here:
-        new InfoProducto(productosMostrar.get(p + 4)).setVisible(true);
+        new CompraProducto(productosMostrar.get(p + 4)).setVisible(true);
     }//GEN-LAST:event_jP5MouseClicked
 
     private void jP7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jP7MouseClicked
         // TODO add your handling code here:
-        new InfoProducto(productosMostrar.get(p + 6)).setVisible(true);
+        new CompraProducto(productosMostrar.get(p + 6)).setVisible(true);
     }//GEN-LAST:event_jP7MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -791,6 +794,11 @@ public class PagCliente extends javax.swing.JFrame {
         }
         actualizarPag();
     }//GEN-LAST:event_jLupaActionPerformed
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        // TODO add your handling code here:
+        actualizarPag();
+    }//GEN-LAST:event_formFocusGained
 
     /**
      * @param args the command line arguments

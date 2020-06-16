@@ -7,8 +7,8 @@ package Interfaces;
 
 import javapop.IOinfo;
 import static javapop.Variables.listaClientes;
-
 import static javapop.Variables.listaProductos;
+import static javapop.Variables.listaVentas;
 import javax.swing.ImageIcon;
 
 /**
@@ -57,13 +57,11 @@ public class PagClienteProfesional extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-        //IOinfo.guardarClientesProfesionales(listaClientesProfesionales);
         IOinfo.guardarClientes(listaClientes);
         IOinfo.guardarProductos(listaProductos);
-
-        System.out.println("final programa" + listaClientes);
-        //System.out.println("final programa clientes profesionales" + listaClientesProfesionales);
-        System.out.println("final programa productos" + listaProductos);
+        IOinfo.guardarVentas(listaVentas);
+        
+        System.out.println("final programa" + listaVentas);
     }//GEN-LAST:event_formWindowClosing
 
     /**

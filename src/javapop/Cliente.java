@@ -219,7 +219,7 @@ public class Cliente implements Serializable {
     }
 
     public void eliminarProducto(Producto productoEliminar) {
-        System.out.println(this.listaProductosC);
+        /*System.out.println(this.listaProductosC);
         //this.listaProductosC.remove(productoEliminar);
         for (Producto prod : this.listaProductosC) {
             if (prod.equals(productoEliminar)) {
@@ -227,12 +227,12 @@ public class Cliente implements Serializable {
             } else {
                 System.out.println("false");
             }
-        }
+        }*/
 
         int index = this.listaProductosC.indexOf(productoEliminar);
         this.listaProductosC.remove(index);
 
-        System.out.println(this.listaProductosC);
+        //System.out.println(this.listaProductosC);
 
     }
 
