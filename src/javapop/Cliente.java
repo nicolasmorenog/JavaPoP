@@ -75,12 +75,12 @@ public class Cliente implements Serializable {
      * @param clientepro. Cliente profesional
      */
     public Cliente(ClienteProfesional clientepro) {
-        clientepro.getCorreo();
-        clientepro.getClave();
-        clientepro.getNombre();
-        clientepro.getDni();
-        clientepro.getTarjeta();
-        clientepro.getUbicacion();
+        this.correo = clientepro.getCorreo();
+        this.clave = clientepro.getClave();
+        this.nombre = clientepro.getNombre();
+        this.dni = clientepro.getDni();
+        this. tarjeta = clientepro.getTarjeta();
+        this.ubicacion = clientepro.getUbicacion();
         this.listaProductosC = new ArrayList<Producto>();
 
     }

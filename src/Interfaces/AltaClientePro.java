@@ -334,7 +334,9 @@ public class AltaClientePro extends javax.swing.JFrame {
                 produc.setCliente(profesional);
             }
             
-            new PagClienteProfesional().setVisible(true);
+            usuario = profesional;
+            
+            new PagCliente().setVisible(true);
             
             pestaCliente.dispose();
             this.dispose();

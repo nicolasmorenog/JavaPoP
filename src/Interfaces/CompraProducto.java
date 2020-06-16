@@ -5,7 +5,6 @@
  */
 package Interfaces;
 
-import Interfaces.panels.listaClientes;
 import java.awt.Color;
 import java.awt.Image;
 import javapop.Cliente;
@@ -49,6 +48,7 @@ public class CompraProducto extends javax.swing.JFrame {
             borrar.setVisible(false);
         }
     }
+    
 
     private void rellenarDatosProducto(Producto producto) {
         tituloInfo.setText(producto.getTitulo());

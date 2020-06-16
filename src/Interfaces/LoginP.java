@@ -279,7 +279,7 @@ public class LoginP extends javax.swing.JFrame {
             if (user instanceof ClienteProfesional) {
                 usuario = user;
                 if (textClave.equals(((ClienteProfesional) usuario).getClave())) {
-                    new PagClienteProfesional().setVisible(true);
+                    new PagCliente().setVisible(true);
                     this.dispose();
                     JOptionPane.showMessageDialog(this, "Ha iniciado sesión como Cliente Profesional.");
                     
