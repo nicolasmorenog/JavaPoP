@@ -26,7 +26,10 @@ import javax.swing.text.MaskFormatter;
 
 /**
  *
- * @author Jesus
+ * @author Jesús Palomino Abreu
+ * @author Nicolás Moreno González
+ *
+ * @version v2.0 06/2019
  */
 public class Register extends javax.swing.JFrame {
 
@@ -472,6 +475,11 @@ public class Register extends javax.swing.JFrame {
 
     }//GEN-LAST:event_horarioAperMouseClicked
 
+    /**
+     * Formato para el horario de apertura
+     *
+     * @param evt
+     */
     private void horarioAperKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_horarioAperKeyTyped
         // TODO add your handling code here:
         if (horarioAper.getText().isEmpty()) {
@@ -485,7 +493,12 @@ public class Register extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_horarioAperKeyTyped
-
+    /**
+     * <p>
+     * Si se hace click vuelve a la ventana Login y se cierra la de Register</p>
+     *
+     * @param evt
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
@@ -506,6 +519,13 @@ public class Register extends javax.swing.JFrame {
         registrarse.setBackground(naran);
     }//GEN-LAST:event_registrarseMouseReleased
 
+    /**
+     * <p>
+     * Se comprueba que están todos los campos rellenados, y si su formato es
+     * válido o no. Si no es válido o esta vacío salta un mensaje de aviso</p>
+     *
+     * @param evt
+     */
     private void registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseActionPerformed
         // TODO add your handling code here: 
         correoError.setText("");
@@ -528,7 +548,7 @@ public class Register extends javax.swing.JFrame {
         Ubicacion ubic = new Ubicacion(codigoPostal.getText(), ciudad.getText());
         Cliente cliente = new Cliente(correo.getText(), clave.getText(), nombre.getText(), dni.getText(), tarjeta.getText(), ubic);
 
-        // Comprobación correo válido
+        //Comprobación correo válido
         Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
@@ -612,6 +632,13 @@ public class Register extends javax.swing.JFrame {
 
     }//GEN-LAST:event_registrarseActionPerformed
 
+    /**
+     * <p>
+     * Si se selecciona la casilla de Casilla Profesional se habilitan el restos
+     * de campos para poder rellenarse</p>
+     *
+     * @param evt
+     */
     private void profesionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profesionalActionPerformed
         // TODO add your handling code here:
 
@@ -631,7 +658,12 @@ public class Register extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_profesionalActionPerformed
-
+    /**
+     * <p>
+     * Se guarda la informacion en un archivo cuando se cierra el programa</p>
+     *
+     * @param evt
+     */
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
         IOinfo.guardarClientes(listaClientes);
