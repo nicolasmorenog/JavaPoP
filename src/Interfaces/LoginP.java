@@ -19,10 +19,12 @@ import static javapop.Variables.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-
 /**
  *
- * @author Jesus
+ * @author Jesús Palomino Abreu
+ * @author Nicolás Moreno González
+ *
+ * @version v2.0 06/2019
  */
 public class LoginP extends javax.swing.JFrame {
 
@@ -243,6 +245,13 @@ public class LoginP extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * <p>
+     * Si se hace click se borra el contenido de la casilla y se cambia el color
+     * del mensaje a negro</p>
+     *
+     * @param evt
+     */
     private void correoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_correoMouseClicked
         // TODO add your handling code here:
         if (correo.getText().equals("Introduzca su correo")) {
@@ -251,10 +260,18 @@ public class LoginP extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_correoMouseClicked
 
+
     private void claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_claveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_claveActionPerformed
 
+    /**
+     * <p>
+     * Si se hace click se borra el contenido de la casilla y se cambia el color
+     * del mensaje a negro</p>
+     *
+     * @param evt
+     */
     private void claveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_claveMouseClicked
         // TODO add your handling code here:
         String pass = new String(clave.getPassword());
@@ -265,14 +282,22 @@ public class LoginP extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_claveMouseClicked
 
+    /**
+     * <p>
+     * Si el usuario hace click le llevará a su ventana correspondiente
+     * dependiendo de si es usuario normal, usuario profesional o
+     * administrador</p>
+     *
+     * @param evt
+     */
     private void IniSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniSesionActionPerformed
         // TODO add your handling code here:
-        
-       try {
+
+        try {
             errorContra.setText("");
             errorCorreo.setText("");
             String textCorreo = correo.getText();
-            
+
             String textClave = new String(clave.getPassword());
 
             Object user = buscarCorreo(textCorreo);
@@ -282,10 +307,10 @@ public class LoginP extends javax.swing.JFrame {
                     new PagCliente().setVisible(true);
                     this.dispose();
                     JOptionPane.showMessageDialog(this, "Ha iniciado sesión como Cliente Profesional.");
-                    
+
                 } else {
                     errorContra.setText("La contraseña es incorrecta");
-                    
+
                 }
             } else if (user instanceof Cliente) {
                 usuario = user;
@@ -293,10 +318,10 @@ public class LoginP extends javax.swing.JFrame {
                     new PagCliente().setVisible(true);
                     this.dispose();
                     JOptionPane.showMessageDialog(this, "Ha iniciado sesión como Cliente.");
-                    
+
                 } else {
                     errorContra.setText("La contraseña es incorrecta");
-                    
+
                 }
             } else if (user instanceof Admin) {
                 usuario = user;
@@ -304,19 +329,19 @@ public class LoginP extends javax.swing.JFrame {
                     new PagAdmin().setVisible(true);
                     this.dispose();
                     JOptionPane.showMessageDialog(this, "Ha iniciado sesión como Admin.");
-                    
+
                 } else {
                     errorContra.setText("La contraseña es incorrecta");
-                    
+
                 }
             } else {
                 errorCorreo.setText("El correo no está asociado a ninguna cuenta de usuario");
-                
+
             }
-            
+
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,"Ha surgido un error: " + e.toString());
-            
+            JOptionPane.showMessageDialog(this, "Ha surgido un error: " + e.toString());
+
         }
 
     }//GEN-LAST:event_IniSesionActionPerformed
@@ -337,14 +362,19 @@ public class LoginP extends javax.swing.JFrame {
     private void correoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_correoFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_correoFocusLost
-
+    /**
+     * <p>
+     * Se guarda la informacion en un archivo cuando se cierra el programa</p>
+     *
+     * @param evt
+     */
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
 
         IOinfo.guardarClientes(listaClientes);
         IOinfo.guardarProductos(listaProductos);
         IOinfo.guardarVentas(listaVentas);
-        
+
         System.out.println("final programa" + listaVentas);
     }//GEN-LAST:event_formWindowClosing
 
@@ -354,16 +384,26 @@ public class LoginP extends javax.swing.JFrame {
 
     private void registrateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrateMouseEntered
         // TODO add your handling code here:
-        registrate.setFont(new java.awt.Font("verdana",1,12));
-        
-    }//GEN-LAST:event_registrateMouseEntered
+        registrate.setFont(new java.awt.Font("verdana", 1, 12));
 
+    }//GEN-LAST:event_registrateMouseEntered
+    /**
+     * <p>
+     * Si se hace click se abre la ventana Register y se cierra la de Login</p>
+     *
+     * @param evt
+     */
     private void registrateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrateActionPerformed
         // TODO add your handling code here:
         new Register().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_registrateActionPerformed
-
+    /**
+     * <p>
+     * Si se hace click se abre la ventana PagAdmin y se cierra la de Login</p>
+     *
+     * @param evt
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         new PagAdmin().setVisible(true);
@@ -372,15 +412,15 @@ public class LoginP extends javax.swing.JFrame {
 
     private void registrateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrateMouseExited
         // TODO add your handling code here:
-        registrate.setFont(new java.awt.Font("verdana",0,12));
+        registrate.setFont(new java.awt.Font("verdana", 0, 12));
     }//GEN-LAST:event_registrateMouseExited
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         correo.setText("cliente@gmail.com");
         clave.setText("avionetas");
-        
-        
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -434,5 +474,4 @@ public class LoginP extends javax.swing.JFrame {
     private javax.swing.JButton registrate;
     // End of variables declaration//GEN-END:variables
 
-    
 }

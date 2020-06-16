@@ -7,13 +7,15 @@ package Interfaces;
 
 /**
  *
- * @author nicmo
+ * @author Jesús Palomino Abreu
+ * @author Nicolás Moreno González
+ *
+ * @version v2.0 06/2019
  */
 import java.awt.Image;
 import javapop.Producto;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
 
 public class InfoProducto extends javax.swing.JFrame {
 
@@ -23,7 +25,7 @@ public class InfoProducto extends javax.swing.JFrame {
     public InfoProducto(Producto producto) {
         initComponents();
         rellenarDatosProducto(producto);
-       
+
     }
 
     /**
@@ -151,6 +153,12 @@ public class InfoProducto extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * <p>
+     * Método para rellenar los datos del producto para poder mostrarlos</p>
+     *
+     * @param producto. Producto cuya informacion queremos mostrar
+     */
     private void rellenarDatosProducto(Producto producto) {
         tituloInfo.setText(producto.getTitulo());
         categoriaInfo.setText(producto.getCategoria());
@@ -164,17 +172,16 @@ public class InfoProducto extends javax.swing.JFrame {
         uploadImgInfo.setIcon(new ImageIcon(resizedImage));
     }
 
-
     /**
      * @param args the command line arguments
      */
     //public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    /* Set the Nimbus look and feel */
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        /*try {
+     */
+ /*try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());

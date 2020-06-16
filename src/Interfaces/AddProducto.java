@@ -32,7 +32,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
- * @author Jesus
+ * @author Jesús Palomino Abreu
+ * @author Nicolás Moreno González
+ *
+ * @version v2.0 06/2019
  */
 public class AddProducto extends javax.swing.JFrame {
 
@@ -93,7 +96,7 @@ public class AddProducto extends javax.swing.JFrame {
         precio = new javax.swing.JFormattedTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         descripcion = new javax.swing.JTextArea();
-        registrarse = new javax.swing.JButton();
+        subirProducto = new javax.swing.JButton();
         urgente = new javax.swing.JCheckBox();
         tituloError = new javax.swing.JLabel();
         precioError = new javax.swing.JLabel();
@@ -159,26 +162,26 @@ public class AddProducto extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 190, 100));
 
-        registrarse.setBackground(new java.awt.Color(255, 125, 0));
-        registrarse.setFont(new java.awt.Font("Verdana", 0, 17)); // NOI18N
-        registrarse.setForeground(new java.awt.Color(255, 255, 255));
-        registrarse.setText("Subir producto");
-        registrarse.setBorder(null);
-        registrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        registrarse.addMouseListener(new java.awt.event.MouseAdapter() {
+        subirProducto.setBackground(new java.awt.Color(255, 125, 0));
+        subirProducto.setFont(new java.awt.Font("Verdana", 0, 17)); // NOI18N
+        subirProducto.setForeground(new java.awt.Color(255, 255, 255));
+        subirProducto.setText("Subir producto");
+        subirProducto.setBorder(null);
+        subirProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        subirProducto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                registrarseMousePressed(evt);
+                subirProductoMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                registrarseMouseReleased(evt);
+                subirProductoMouseReleased(evt);
             }
         });
-        registrarse.addActionListener(new java.awt.event.ActionListener() {
+        subirProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registrarseActionPerformed(evt);
+                subirProductoActionPerformed(evt);
             }
         });
-        getContentPane().add(registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 230, 30));
+        getContentPane().add(subirProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 230, 30));
 
         urgente.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         urgente.setText("Urgente");
@@ -203,20 +206,27 @@ public class AddProducto extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void registrarseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseMousePressed
+    private void subirProductoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_subirProductoMousePressed
         // TODO add your handling code here:
         Color naran = new Color(255, 160, 0);
-        registrarse.setBackground(naran);
-    }//GEN-LAST:event_registrarseMousePressed
+        subirProducto.setBackground(naran);
+    }//GEN-LAST:event_subirProductoMousePressed
 
-    private void registrarseMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseMouseReleased
+    private void subirProductoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_subirProductoMouseReleased
         // TODO add your handling code here:
 
         Color naran = new Color(255, 125, 0);
-        registrarse.setBackground(naran);
-    }//GEN-LAST:event_registrarseMouseReleased
+        subirProducto.setBackground(naran);
+    }//GEN-LAST:event_subirProductoMouseReleased
 
-
+    /**
+     * <p>
+     * Permite elegir una imagen de tu producto de entre los archivos de tu
+     * ordenador. Si la imagen no cumple las medidas de tamaño requeridas se
+     * cambiará su tamaño automáticamente.</p>
+     *
+     * @param evt
+     */
     private void uploadImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadImgMouseClicked
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
@@ -234,7 +244,14 @@ public class AddProducto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_uploadImgMouseClicked
 
-    private void registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseActionPerformed
+    /**
+     * <p>
+     * Se comprueba que están todos los campos rellenados, y si su formato es
+     * válido o no. Si no es válido o esta vacío salta un mensaje de aviso</p>
+     *
+     * @param evt
+     */
+    private void subirProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subirProductoActionPerformed
         // TODO add your handling code here:  (String titulo, String categoria, String descripcion, String estadoProducto, String fotografia, String precio, Ubicacion ubicacion, Cliente cliente, boolean urgente)
         boolean correcto = true;
         tituloError.setText("");
@@ -285,7 +302,7 @@ public class AddProducto extends javax.swing.JFrame {
 
             }
             if (urgentep) {
-                JOptionPane.showMessageDialog(null,"Se han cargado 5€ a la tarjeta: " + ((Cliente) usuario).getTarjeta(),"Información",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Se han cargado 5€ a la tarjeta: " + ((Cliente) usuario).getTarjeta(), "Información", JOptionPane.INFORMATION_MESSAGE);
             }
             Producto producto = new Producto(titulop, categoriap, descripcionp, estadop, direccionImg, preciop, ((Cliente) usuario), urgentep);
 
@@ -296,7 +313,7 @@ public class AddProducto extends javax.swing.JFrame {
 
         //(String titulo, String categoria, String descripcion, String estadoProducto, String fotografia, String precio, Ubicacion ubicacion, Cliente cliente, boolean urgente);
 
-    }//GEN-LAST:event_registrarseActionPerformed
+    }//GEN-LAST:event_subirProductoActionPerformed
 
     private void uploadImgMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadImgMouseEntered
         // TODO add your handling code here:
@@ -363,7 +380,7 @@ public class AddProducto extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JFormattedTextField precio;
     private javax.swing.JLabel precioError;
-    private javax.swing.JButton registrarse;
+    private javax.swing.JButton subirProducto;
     private javax.swing.JTextField titulo;
     private javax.swing.JLabel tituloError;
     private javax.swing.JLabel uploadImg;
