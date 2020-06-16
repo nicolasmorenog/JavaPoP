@@ -1,4 +1,3 @@
-
 package javapop;
 
 import java.io.BufferedReader;
@@ -13,10 +12,9 @@ import static javapop.Variables.*;
  *
  * @author Jesús Palomino Abreu
  * @author Nicolás Moreno González
- * 
+ *
  * @version v2.0 06/2019
  */
-
 public class Cliente implements Serializable {
 
     private String correo;
@@ -27,7 +25,17 @@ public class Cliente implements Serializable {
     private Ubicacion ubicacion;
     private ArrayList<Producto> listaProductosC;
 
-    //constructor normal
+    /**
+     * Constructor con parámetros
+     *
+     * @param correo. Correo asociado a la cuenta del cliente
+     * @param clave. Contraseña de la cuenta del cliente
+     * @param nombre. Nombre del cliente
+     * @param dni. DNI del cliente
+     * @param tarjeta. Tarjeta del cliente
+     * @param ubicacion. Ubicación del cliente que consiste en ciudad y código
+     * postal
+     */
     public Cliente(String correo, String clave, String nombre, String dni, String tarjeta, Ubicacion ubicacion) {
         this.correo = correo;
         this.clave = clave;
@@ -38,7 +46,9 @@ public class Cliente implements Serializable {
         this.listaProductosC = new ArrayList<Producto>();
     }
 
-    //constructor entradas
+    /**
+     * Constructor por defecto
+     */
     public Cliente() {
         System.out.println("Introduzca el correo electronico: ");
         setCorreo();
@@ -55,6 +65,12 @@ public class Cliente implements Serializable {
 
     }
 
+    /**
+     * Método constructor de cliente tomando como parámetro un profesional (Baja
+     * como Cliente Profesional)
+     *
+     * @param clientepro. Cliente profesional
+     */
     public Cliente(ClienteProfesional clientepro) {
         clientepro.getCorreo();
         clientepro.getClave();
@@ -97,11 +113,16 @@ public class Cliente implements Serializable {
     }
 
     public void setCorreo() {
-        // Patrón para validar el email
+        /**
+         * Patrón para validar el email
+         */
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-        // El email a validar
+        /**
+         * Comprobación de si el email ingresado ya ha sido registrado
+         * previamente o no es válido
+         */
         try {
             boolean correcto = false;
             while (!correcto) {
@@ -120,6 +141,9 @@ public class Cliente implements Serializable {
                     System.out.println("El email ingresado no es válido.");
                 }
             }
+            /**
+             * @exception e. Se lanza si no entra en el while
+             */
         } catch (Exception e) {
 
         }
@@ -170,6 +194,9 @@ public class Cliente implements Serializable {
 
     public void setTarjeta() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+        /**
+         * Comprobación para validar la tarjeta
+         */
         try {
             boolean correcto = false;
 
@@ -202,7 +229,10 @@ public class Cliente implements Serializable {
         this.ubicacion = ubicacion;
     }
 
-    //metodos
+    /**
+     * Método para añadir productos a la lista de productos global
+     * @param listaProductosGlobal. Lista con los productos de todos los clientes
+     */
     public void añadirProducto(ArrayList<Producto> listaProductosGlobal) {
 
         Producto producto = new Producto(this);
@@ -211,6 +241,10 @@ public class Cliente implements Serializable {
 
     }
 
+    /**
+     * Método para añadir un producto a la lista de productos de un cliente
+     * @param producto. Producto a añadir
+     */
     public void añadirProducto(Producto producto) {
 
         this.listaProductosC.add(producto);
@@ -218,6 +252,10 @@ public class Cliente implements Serializable {
 
     }
 
+    /**
+     * Método para eliminar un producto de la lista del cliente
+     * @param productoEliminar. Producto a eliminar
+     */
     public void eliminarProducto(Producto productoEliminar) {
         /*System.out.println(this.listaProductosC);
         //this.listaProductosC.remove(productoEliminar);
@@ -297,6 +335,5 @@ public class Cliente implements Serializable {
         }
         return true;
     }
-    
 
 }

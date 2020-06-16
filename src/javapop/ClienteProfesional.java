@@ -26,7 +26,11 @@ public class ClienteProfesional extends Cliente implements Serializable {
     private String web;
     private Ubicacion ubicacion; 
 
-    //constructor normal
+    /**
+     * Constructo con cliente como parámetro, para darse de alta como profesiona
+     * Entrada por consola
+     * @param cliente. Cliente que se quiere dar de alta
+     */
     public ClienteProfesional(Cliente cliente) {
 
         super(cliente.getCorreo(), cliente.getClave(), cliente.getNombre(), cliente.getDni(), cliente.getTarjeta(), cliente.getUbicacion());
@@ -40,6 +44,14 @@ public class ClienteProfesional extends Cliente implements Serializable {
         
     }
     
+    /**
+     * Constructo con parámetros, para darse de alta como profesiona
+     * @param cliente. Cliente que se quiere dar de alta
+     * @param descripcion. Descripción del negocio del cliente
+     * @param horario. Horario del cliente
+     * @param telefono. Teléfono del cliente
+     * @param web. Página web del cliente 
+     */
     public ClienteProfesional(Cliente cliente, String descripcion, String horario,String telefono, String web) {
         //(String correo, String clave, String nombre, String dni, String tarjeta, Ubicacion ubicacion)
         super (cliente.getCorreo(), cliente.getClave(), cliente.getNombre(), cliente.getDni(), cliente.getTarjeta(), cliente.getUbicacion());
@@ -53,7 +65,9 @@ public class ClienteProfesional extends Cliente implements Serializable {
         
         
     }
-    //constructor de entrada
+    /**
+     * Constructor por defecto
+     */
     public ClienteProfesional() {
         
         super();
@@ -68,6 +82,7 @@ public class ClienteProfesional extends Cliente implements Serializable {
 
     }
 
+    //Setters y Getters
     public void setHorario(){
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         boolean comprobado = false;
