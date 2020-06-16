@@ -215,7 +215,11 @@ public class Aplicacion implements Serializable {
         System.out.println("Se ha dado de alta como cliente profesional con exito.");
 
     }
-
+    /**
+     * Dar de baja un cliente profesional y convertirlo en Cliente
+     * Función para ejecución por consola
+     * @param clientepro 
+     */
     public static void bajaClienteProfesional(ClienteProfesional clientepro) {
         Cliente c1 = new Cliente(clientepro);
 
