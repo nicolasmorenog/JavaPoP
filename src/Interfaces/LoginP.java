@@ -67,13 +67,12 @@ public class LoginP extends javax.swing.JFrame {
                 formWindowClosing(evt);
             }
         });
-        addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                formKeyTyped(evt);
-            }
-        });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javapop/Imagenes/LogoJavapop.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 216, 117));
+
+        loginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         correo.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
         correo.setForeground(new java.awt.Color(153, 153, 153));
@@ -90,6 +89,7 @@ public class LoginP extends javax.swing.JFrame {
                 correoMouseClicked(evt);
             }
         });
+        loginPanel.add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 283, 28));
 
         clave.setFont(new java.awt.Font("Verdana", 0, 15)); // NOI18N
         clave.setForeground(new java.awt.Color(153, 153, 153));
@@ -105,6 +105,7 @@ public class LoginP extends javax.swing.JFrame {
                 claveActionPerformed(evt);
             }
         });
+        loginPanel.add(clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 283, 29));
 
         IniSesion.setBackground(new java.awt.Color(255, 125, 0));
         IniSesion.setFont(new java.awt.Font("Verdana", 0, 17)); // NOI18N
@@ -125,45 +126,20 @@ public class LoginP extends javax.swing.JFrame {
                 IniSesionActionPerformed(evt);
             }
         });
+        loginPanel.add(IniSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 283, 26));
 
         errorCorreo.setForeground(new java.awt.Color(255, 0, 0));
+        loginPanel.add(errorCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 280, 20));
 
         errorContra.setForeground(new java.awt.Color(204, 0, 0));
+        loginPanel.add(errorContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 230, 20));
 
-        javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
-        loginPanel.setLayout(loginPanelLayout);
-        loginPanelLayout.setHorizontalGroup(
-            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(errorContra)
-                    .addComponent(errorCorreo)
-                    .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(IniSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(clave, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(48, 48, 48))
-        );
-        loginPanelLayout.setVerticalGroup(
-            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loginPanelLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(errorCorreo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(errorContra)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(clave, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addComponent(IniSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-        );
+        getContentPane().add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, 230));
 
         NuevoJavaPop.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         NuevoJavaPop.setForeground(new java.awt.Color(102, 102, 102));
         NuevoJavaPop.setText("¿Nuevo en JavaPoP?");
+        getContentPane().add(NuevoJavaPop, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 442, -1, -1));
 
         registrate.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         registrate.setForeground(new java.awt.Color(255, 125, 0));
@@ -184,39 +160,7 @@ public class LoginP extends javax.swing.JFrame {
                 registrateActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(loginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(NuevoJavaPop)
-                .addGap(18, 18, 18)
-                .addComponent(registrate, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(loginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NuevoJavaPop)
-                    .addComponent(registrate))
-                .addContainerGap())
-        );
+        getContentPane().add(registrate, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 442, 98, -1));
 
         setSize(new java.awt.Dimension(418, 509));
         setLocationRelativeTo(null);
@@ -354,13 +298,6 @@ public class LoginP extends javax.swing.JFrame {
 
         System.out.println("final programa" + listaVentas);
     }//GEN-LAST:event_formWindowClosing
-
-    private void formKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyTyped
-        // TODO add your handling code here:
-        if (evt.getKeyChar() == '\n'){
-            System.out.println("Funciona");
-        }
-    }//GEN-LAST:event_formKeyTyped
 
     private void registrateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrateMouseEntered
         // TODO add your handling code here:
