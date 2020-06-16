@@ -16,6 +16,7 @@ import static javapop.Variables.listaVentas;
 import static javapop.Variables.usuario;
 import javapop.Venta;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  *
@@ -26,10 +27,12 @@ public class CompraProducto extends javax.swing.JFrame {
     /**
      * Creates new form CompraProducto
      */
+    PagCliente pagCliente;
     Producto produc;
-    public CompraProducto(Producto producto) {
+    public CompraProducto(Producto producto, PagCliente pantallaAnterior) {
         initComponents();
         produc = producto;
+        pagCliente =pantallaAnterior;
         
         rellenarDatosProducto(producto);
     }
@@ -140,6 +143,7 @@ public class CompraProducto extends javax.swing.JFrame {
         botonComprar.setForeground(new java.awt.Color(255, 255, 255));
         botonComprar.setText("Comprar");
         botonComprar.setBorder(null);
+        botonComprar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonComprar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 botonComprarMousePressed(evt);
@@ -226,7 +230,12 @@ public class CompraProducto extends javax.swing.JFrame {
         listaProductos.remove(produc);
         
         
+        pagCliente.dispose();
+        new PagCliente().setVisible(true);
+        
         this.dispose();
+        
+        
         
         
     }//GEN-LAST:event_botonComprarActionPerformed
