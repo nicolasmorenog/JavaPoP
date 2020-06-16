@@ -16,7 +16,11 @@ import static javapop.Variables.listaVentas;
 import static javapop.Variables.usuario;
 import javapop.Venta;
 import javax.swing.ImageIcon;
+<<<<<<< HEAD
+import javax.swing.JFrame;
+=======
 import javax.swing.JOptionPane;
+>>>>>>> e25d5d65e947569ac9dc4f499aa73ff29019ca83
 
 /**
  *
@@ -27,10 +31,12 @@ public class CompraProducto extends javax.swing.JFrame {
     /**
      * Creates new form CompraProducto
      */
+    PagCliente pagCliente;
     Producto produc;
-    public CompraProducto(Producto producto) {
+    public CompraProducto(Producto producto, PagCliente pantallaAnterior) {
         initComponents();
         produc = producto;
+        pagCliente =pantallaAnterior;
         
         rellenarDatosProducto(producto);
     }
@@ -141,6 +147,7 @@ public class CompraProducto extends javax.swing.JFrame {
         botonComprar.setForeground(new java.awt.Color(255, 255, 255));
         botonComprar.setText("Comprar");
         botonComprar.setBorder(null);
+        botonComprar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonComprar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 botonComprarMousePressed(evt);
@@ -230,9 +237,20 @@ public class CompraProducto extends javax.swing.JFrame {
         listaProductos.remove(produc);
         
         
+<<<<<<< HEAD
+        pagCliente.dispose();
+        new PagCliente().setVisible(true);
+        
+        this.dispose();
+        
+        
+        
+        
+=======
        
         }
          this.dispose();
+>>>>>>> e25d5d65e947569ac9dc4f499aa73ff29019ca83
     }//GEN-LAST:event_botonComprarActionPerformed
 
 
