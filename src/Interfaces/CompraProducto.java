@@ -75,7 +75,7 @@ public class CompraProducto extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         tituloInfo = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -185,7 +185,8 @@ public class CompraProducto extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(638, 591));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonComprarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonComprarMousePressed
