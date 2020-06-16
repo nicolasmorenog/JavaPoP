@@ -17,19 +17,19 @@ import static javapop.Variables.listaProductos;
 public class Aplicacion implements Serializable {
 
     /**
-     * método que devuelve el tipo del correo introducido
+     * Método que devuelve el tipo del correo introducido
      *
-     * @return obj. retorna un objeto vacío si no se ha encontrado ningún correo
+     * @return obj. Retorna un objeto vacío si no se ha encontrado ningún correo
      * que coincida
-     * @param correo. correo tipo (String) a buscar
+     * @param correo. Correo tipo (String) a buscar
      */
     public static Object buscarCorreo(String correo) {
 
         /**
-         * recorre la lista de clientes hasta encontrar el correo del cliente o
+         * Recorre la lista de clientes hasta encontrar el correo del cliente o
          * hasta que llegue al final de la lista
          *
-         * @return cliente. cliente asociado al correo encontrado
+         * @return cliente. Cliente asociado al correo encontrado
          */
         for (Cliente cliente : listaClientes) {
             if (correo.equals(cliente.getCorreo())) {
@@ -39,9 +39,9 @@ public class Aplicacion implements Serializable {
 
         Admin admin = new Admin();
         /**
-         * mira si el correo coincide con el correo del administrador
+         * Mira si el correo coincide con el correo del administrador
          *
-         * @return admin. admin asociado al correo encontrado
+         * @return admin. Administrador asociado al correo encontrado
          */
         if (correo.equals(admin.getCorreo())) {
             return admin;
@@ -52,19 +52,19 @@ public class Aplicacion implements Serializable {
     }
 
     /**
-     * método que devuelve el index del correo introducido
+     * Método que devuelve el index del correo introducido
      *
-     * @param correo. correo tipo (String) a buscar
-     * @return -1. retorna -1 si no se ha encontrado ningún correo que coincida
+     * @param correo. Correo tipo (String) a buscar
+     * @return -1. Retorna -1 si no se ha encontrado ningún correo que coincida
      */
     public static int buscarCorreoIndex(String correo) {
 
         int c = 0;
         /**
-         * recorre la lista de clientes hasta encontrar el correo del cliente o
+         * Recorre la lista de clientes hasta encontrar el correo del cliente o
          * hasta que llegue al final de la lista
          *
-         * @return c. index del correo encontrado
+         * @return c. Index del correo encontrado
          */
         for (Cliente cliente : listaClientes) {
             if (correo.equals(cliente.getCorreo())) {
@@ -84,15 +84,15 @@ public class Aplicacion implements Serializable {
     }
 
     /**
-     * método para saber si el nuevo correo es apto para registro o no
+     * Método para saber si el nuevo correo es apto para registro o no
      *
      * @param correo
-     * @return boolean. devuelve si el correo es apto para registro o no
+     * @return boolean. Devuelve si el correo es apto para registro o no
      */
     public static boolean correoApto(String correo) {
         Object user = buscarCorreo(correo);
         /**
-         * llama al método buscarCorreo() y mira si el correo es instancia de
+         * Llama al método buscarCorreo() y mira si el correo es instancia de
          * Cliente o de Admin
          */
         if (user instanceof Cliente || user instanceof Admin) {
@@ -104,13 +104,13 @@ public class Aplicacion implements Serializable {
     /**
      *
      * @param titulo
-     * @return encontrados. devuelve si no ha encontrado ningún título que
+     * @return encontrados. Devuelve si no ha encontrado ningún título que
      * coincida
      */
     public static ArrayList<Producto> buscarTitulo(String titulo) {
         ArrayList<Producto> encontrados = new ArrayList<Producto>();
         /**
-         * recorre la lista de productos hasta encontrar una coincidencia con el
+         * Recorre la lista de productos hasta encontrar una coincidencia con el
          * titulo del producto o hasta que llegue al final de la lista
          */
         for (Producto producto : listaProductos) {
@@ -126,19 +126,18 @@ public class Aplicacion implements Serializable {
     /**
      *
      * @return Object
-     * @exception e. lanza la excepción e si no entra en ninguna de las
-     * condiciones
+     *
      */
     public static Object login() {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
 
         try {
             /**
-             * @return user. devuelve el usuario si no entra en ninguna de las
+             * @return user. Devuelve el usuario si no entra en ninguna de las
              * condiciones
              */
             /**
-             * se pide al usuario que introduzca su corre y contraseña
+             * Se pide al usuario que introduzca su corre y contraseña
              */
             System.out.println("Introduce el correo: ");
             String correo = entrada.readLine();
@@ -146,9 +145,7 @@ public class Aplicacion implements Serializable {
             String contraseña = entrada.readLine();
 
             Object user = buscarCorreo(correo);
-            /**
-             *
-             */
+
             if (user instanceof Cliente) {
                 Cliente cliente = (Cliente) user;
                 if (contraseña.equals(cliente.getClave())) {
@@ -174,7 +171,7 @@ public class Aplicacion implements Serializable {
                     user = new Object();
                 }
                 /**
-                 * @return user. devuelve el usuario si el correo no está
+                 * @return user. Devuelve el usuario si el correo no está
                  * asociado a ninguna cuenta de usuario
                  */
             } else {
@@ -183,6 +180,10 @@ public class Aplicacion implements Serializable {
             }
 
             return user;
+            /**
+             * @exception e. Lanza la excepción e si no entra en ninguna de las
+             * condiciones
+             */
         } catch (Exception e) {
             System.out.println("Ha surgido un error: " + e.toString());
             return new Object();
@@ -215,10 +216,12 @@ public class Aplicacion implements Serializable {
         System.out.println("Se ha dado de alta como cliente profesional con exito.");
 
     }
+
     /**
-     * Dar de baja un cliente profesional y convertirlo en Cliente
-     * Función para ejecución por consola
-     * @param clientepro 
+     * Dar de baja un cliente profesional y convertirlo en Cliente Función para
+     * ejecución por consola
+     *
+     * @param clientepro
      */
     public static void bajaClienteProfesional(ClienteProfesional clientepro) {
         Cliente c1 = new Cliente(clientepro);
