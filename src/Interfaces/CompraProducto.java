@@ -16,6 +16,7 @@ import static javapop.Variables.listaVentas;
 import static javapop.Variables.usuario;
 import javapop.Venta;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -214,6 +215,9 @@ public class CompraProducto extends javax.swing.JFrame {
             }
         }
         
+        int confirmacion=JOptionPane.showConfirmDialog(null, "¿Seguro que quieres comprar este producto?", "Confirmación",JOptionPane.OK_CANCEL_OPTION);
+        
+        if (confirmacion==JOptionPane.YES_OPTION){
         Cliente aux = produc.getCliente();
         
         aux.getListaProductos().remove(produc);
@@ -226,9 +230,9 @@ public class CompraProducto extends javax.swing.JFrame {
         listaProductos.remove(produc);
         
         
-        this.dispose();
-        
-        
+       
+        }
+         this.dispose();
     }//GEN-LAST:event_botonComprarActionPerformed
 
 
