@@ -41,6 +41,8 @@ public class PagCliente extends javax.swing.JFrame {
     
     public PagCliente() {
         initComponents();
+        
+        super.setIconImage(new ImageIcon(".\\src\\javapop\\Imagenes\\CJavapop.png").getImage());
 
         productosSinUser();
         

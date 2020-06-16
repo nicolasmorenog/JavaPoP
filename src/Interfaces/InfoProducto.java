@@ -24,6 +24,7 @@ public class InfoProducto extends javax.swing.JFrame {
      */
     public InfoProducto(Producto producto) {
         initComponents();
+        super.setIconImage(new ImageIcon(".\\src\\javapop\\Imagenes\\CJavapop.png").getImage());
         rellenarDatosProducto(producto);
 
     }

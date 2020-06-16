@@ -34,10 +34,14 @@ public class CompraProducto extends javax.swing.JFrame {
 
     public CompraProducto(Producto producto, PagCliente pantallaAnterior) {
         initComponents();
+        super.setIconImage(new ImageIcon(".\\src\\javapop\\Imagenes\\CJavapop.png").getImage());
         produc = producto;
         pagCliente = pantallaAnterior;
+        
 
         rellenarDatosProducto(producto);
+        
+        
 
         if (producto.getCliente().getCorreo().equals(((Cliente) usuario).getCorreo())) {
             botonComprar.setVisible(false);

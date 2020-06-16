@@ -38,7 +38,7 @@ public class Register extends javax.swing.JFrame {
      */
     public Register() {
         initComponents();
-        //super.setIconImage(new ImageIcon("./javapop.Imagenes/LogoJavapop.png").getImage());
+        super.setIconImage(new ImageIcon(".\\src\\javapop\\Imagenes\\CJavapop.png").getImage());
 
     }
 

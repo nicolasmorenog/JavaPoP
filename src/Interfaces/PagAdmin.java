@@ -50,6 +50,7 @@ public class PagAdmin extends javax.swing.JFrame {
 
     public PagAdmin() {
         initComponents();
+        super.setIconImage(new ImageIcon(".\\src\\javapop\\Imagenes\\CJavapop.png").getImage());
         productosMostrar = listaProductos;
         p = 0;
 

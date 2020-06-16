@@ -57,7 +57,7 @@ public class AddProducto extends javax.swing.JFrame {
         initComponents();
 
         uploadImg.setIcon(new ImageIcon(resizedImage));
-        super.setIconImage(new ImageIcon(".\\src\\javapop\\Imagenes\\LogoJavapop.png").getImage());
+        super.setIconImage(new ImageIcon(".\\src\\javapop\\Imagenes\\CJavapop.png").getImage());
     }
 
     public static char randChar() {

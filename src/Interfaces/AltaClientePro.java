@@ -39,6 +39,7 @@ public class AltaClientePro extends javax.swing.JFrame {
     public AltaClientePro(Cliente cliente, JFrame pagClientes) {
         initComponents();
         pestaCliente = pagClientes;
+        super.setIconImage(new ImageIcon(".\\src\\javapop\\Imagenes\\CJavapop.png").getImage());
         
     }
 
