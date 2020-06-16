@@ -35,7 +35,7 @@ public class LoginP extends javax.swing.JFrame {
 
         initComponents();
         clave.setEchoChar((char) 0);
-        super.setIconImage(new ImageIcon("./javapop.Imagenes/LogoJavapop.png").getImage());
+        super.setIconImage(new ImageIcon(".\\src\\javapop\\Imagenes\\LogoJavapop.png").getImage());
 
     }
 
